@@ -15,7 +15,7 @@ public class Transaction {
     @Column(name="TransactionType")
     private String transactionType;
    // private String itemId;
-    private String biller;
+    private String Biller;
     @Column(name="TransactionDate")
     private String transactionDate;
 	@Column(name="userID")
@@ -155,11 +155,11 @@ public class Transaction {
 	}
 
 	public String getBiller() {
-		return biller;
+		return Biller;
 	}
 
 	public void setBiller(String biller) {
-		this.biller = biller;
+		this.Biller = biller;
 	}
 
 	public Transaction() {  }
