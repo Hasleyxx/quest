@@ -1,1 +1,1 @@
-# Laboratory
+# QIS Server Application
