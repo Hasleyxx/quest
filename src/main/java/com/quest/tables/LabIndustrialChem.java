@@ -18,13 +18,13 @@ public class LabIndustrialChem {
 	 private int PathID;
 	 private int MedID;
 	 private int QualityID;
-	 //---------
+	 
 	 private String FBS;
 	 private String FBScon;
 	 private String BUA;
 	 private String BUAcon;
 	 private String CREA;
-	 private String CREAcon;//
+	 private String CREAcon;
 	 private String CHOL;
 	 private String CHOLcon;
 	 private String TRIG;
@@ -34,7 +34,7 @@ public class LabIndustrialChem {
 	 private String LDL;
 	 private String LDLcon;
 	 private String CH;
-	 private String VLDL;//
+	 private String VLDL;
 	 private String Na;
 	 private String K;
 	 private String Cl;
@@ -44,7 +44,7 @@ public class LabIndustrialChem {
 	 private String ALP;
 	 private String PSA;
 	 private String RBS;
-	 private String RBScon;//
+	 private String RBScon;
 	 private String GGTP;
 	 private String LDH;
 	 private String Calcium;
@@ -54,7 +54,7 @@ public class LabIndustrialChem {
 	 private String Protein;
 	 private String Albumin;
 	 private String Globulin;
-	 private String Magnesium;//
+	 private String Magnesium;
 	 private String OGTT1;
 	 private String OGTT1con;
 	 private String OGTT2;
@@ -64,7 +64,7 @@ public class LabIndustrialChem {
 	 private String CPKMB;
 	 private String CPKMM;
 	 private String totalCPK;
-	 private String IonCalcium;//
+	 private String IonCalcium;
 	 private String BILTotal;
 	 private String BILDirect;
 	 private String BILIndirect;
@@ -72,7 +72,7 @@ public class LabIndustrialChem {
 	 private String CreationDate;
 	 private String DateUpdate;
 	 private String BUN;
-	 private String BUNcon;//
+	 private String BUNcon;
 	 
 	public int getPatientID() {
 		return PatientID;

@@ -23,6 +23,7 @@ public class LabIndToxTable {
 	 private int TransactionID;
 	 private String TransactionDate;
 	 private String Action;	 
+	 
 	public int getPatientID() {
 		return PatientID;
 	}

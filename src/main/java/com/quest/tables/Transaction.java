@@ -164,7 +164,10 @@ public class Transaction {
 
 	public Transaction() {  }
 
-    public Transaction(int patientId, String transactionRef, String transactionType, String biller, String transactionDate, int userId, String totalPrice, double paidIn, double paidOut, double grandTotal, int status, String salesType, String loe, String an, String ac, String notes)
+    public Transaction(int patientId, String transactionRef, String transactionType, String biller,
+    		String transactionDate, int userId, String totalPrice, double paidIn, double paidOut,
+    		double grandTotal, int status, String salesType, String loe, String an, String ac,
+    		String notes)
     {
     	this.setPatientId(patientId);
         this.setTransactionRef(transactionRef);

@@ -24,6 +24,7 @@ import com.quest.tables.LabPersonnel;
 import com.quest.tables.Transaction;
 import qis.Cashier.CashierPatientRepository;
 import qis.Cashier.CashierRepository;
+import qis.Company.CompanyRepository;
 import qis.Items.ItemsRepository;
 import qis.Transaction.TransactionRepository;
 import com.lab.industrial.Industrial1Repository;
@@ -57,6 +58,8 @@ public class Controller {
     ItemsRepository itemsRepository;
 	@Autowired
 	TransactionRepository transactionRepository;
+	@Autowired
+	CompanyRepository companyRepository;
 	@Autowired
 	IndustrialRepository IrRespository;
 	@Autowired
@@ -884,5 +887,16 @@ public int UpdatePatient(@RequestBody Map<String, String>body){
 			age, gen, no, biller, notes, sid, cdate, udate);
 }
 
-	
+@PostMapping("/addCompany")
+public int AddCompany(@RequestBody Map<String, String>body){
+	String cname		= body.get("nameCompany");
+	String cadd			= body.get("companyAddress");
+	return companyRepository.addCompany(cname, cadd);
+}
+@PostMapping("/updateCompany")
+public int UpdateCompany(@RequestBody Map<String, String>body){
+	String cname		= body.get("nameCompany");
+	String cadd			= body.get("companyAddress");
+	return companyRepository.updateCompany(cname, cadd);
+}	
 }

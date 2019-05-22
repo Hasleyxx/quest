@@ -16,7 +16,7 @@ public class LabIndustrialSerology {
 	 private int seroID;
 	 private int TransactionID;
 	 private int PatientID;
-	 //---------
+	 
 	 private String HBsAG;
 	 private String AntiHav;
 	 private String SeroOt;
@@ -40,7 +40,7 @@ public class LabIndustrialSerology {
 	 private String CRPRes;
 	 private String HIV1;
 	 private String HIV2;
-	 //---------
+	 
 	 private int PathID;
 	 private int MedID;
 	 private int QualityID;
