@@ -13,9 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
-@ComponentScan({"com.main","com.lab.industrial","com.quest.info","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company"})
-@EntityScan({"com.main","com.quest.info","com.lab.industrial","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company"})
-@EnableJpaRepositories({"com.main","com.quest.info","com.lab.industrial","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company"})
+@ComponentScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company","qis.Industrial","qis.ClinicalMicroscopy","qis.Chemistry","qis.Serology","qis.Toxicology"})
+@EntityScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company","qis.Industrial","qis.ClinicalMicroscopy","qis.Chemistry","qis.Serology","qis.Toxicology"})
+@EnableJpaRepositories({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction","qis.Company","qis.Industrial","qis.ClinicalMicroscopy","qis.Chemistry","qis.Serology","qis.Toxicology"})
 @EnableAutoConfiguration
 @EnableWebMvc
 public class MainApplication implements WebMvcConfigurer {

@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import com.quest.tables.Cashier1;
 
 public interface CashierPatientRepository extends JpaRepository <Cashier1 , Integer> {
 	@Query(value = "SELECT *, CONCAT (p.LastName ,', ', p.FirstName,' ', p.MiddleName) as FullName"
