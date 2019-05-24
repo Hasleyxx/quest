@@ -164,12 +164,12 @@ public class ChemistryController {
 	 	String bun			   = body.get("bun");
 	 	String buncon		   = body.get("buncon");
 
-	 	int pid = 		Integer.parseInt(body.get("patientID")); 
-	 	int transid =	Integer.parseInt(body.get("transactionID"));
-	 	int chemid =	Integer.parseInt(body.get("chemID"));
-	 	int pathid = 	Integer.parseInt(body.get("pathID"));
-	     int medid =		Integer.parseInt(body.get("medID"));
-	 	int qid	=		Integer.parseInt(body.get("qualityID"));
+	 	int pid 			= Integer.parseInt(body.get("patientID")); 
+	 	int transid 		= Integer.parseInt(body.get("transactionID"));
+	 	int chemid 			= Integer.parseInt(body.get("chemID"));
+	 	int pathid 			= Integer.parseInt(body.get("pathID"));
+	    int medid 			= Integer.parseInt(body.get("medID"));
+	 	int qid				= Integer.parseInt(body.get("qualityID"));
 
 	 			return LabInChemRepository.chemistryadd(pid, transid, chemid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
@@ -239,12 +239,12 @@ public class ChemistryController {
 	 	String bun			   = body.get("bun");
 	 	String buncon		   = body.get("buncon");
 
-	 	int pid = 		Integer.parseInt(body.get("patientID")); 
-	 	int transid =	Integer.parseInt(body.get("transactionID"));
-	 	int chemid =	Integer.parseInt(body.get("chemID"));
-	 	int pathid = 	Integer.parseInt(body.get("pathID"));
-	     int medid =		Integer.parseInt(body.get("medID"));
-	 	int qid	=		Integer.parseInt(body.get("qualityID"));
+	 	int pid 			= Integer.parseInt(body.get("patientID")); 
+	 	int transid 		= Integer.parseInt(body.get("transactionID"));
+	 	int chemid 			= Integer.parseInt(body.get("chemID"));
+	 	int pathid 			= Integer.parseInt(body.get("pathID"));
+	    int medid 			= Integer.parseInt(body.get("medID"));
+	 	int qid				= Integer.parseInt(body.get("qualityID"));
 
 	 			return LabInChemRepository.chemistryupdate(pid, transid, chemid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,

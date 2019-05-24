@@ -17,5 +17,5 @@ public interface CompanyRepository extends JpaRepository <Company, Integer> {
 	@Query(value = " UPDATE qpd_company SET NameCompany = ?1, CompanyAddress = ?2 "
 			+ " WHERE CompanyID = 228", nativeQuery = true)
 	int updateCompany(String cname, String cadd);
-	
+
 }

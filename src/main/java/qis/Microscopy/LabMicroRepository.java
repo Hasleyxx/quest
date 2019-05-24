@@ -1,4 +1,4 @@
-package qis.ClinicalMicroscopy;
+package qis.Microscopy;
 
 import java.util.List;
 
@@ -45,6 +45,9 @@ public interface LabMicroRepository extends JpaRepository <LabMicroscopy, Intege
 			+ " WHERE t.TransactionID= m.TransactionID and p.PatientID = m.PatientID"
 			+ " and m.TransactionID = ?1" , nativeQuery = true)
 	List<LabMicroscopy> getmirco(int id);
+	
+	@Query(value = " SELECT * from lab_microscopy", nativeQuery = true)
+	List<LabMicroscopy> getmicro();
 	
 	
 }

@@ -1,4 +1,4 @@
-package qis.Cashier;
+package qis.Patient;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity @Table(name="qpd_patient")
-public class Cashier1 {
+public class Patient{
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.AUTO)
 	 	private int PatientID;

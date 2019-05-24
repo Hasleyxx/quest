@@ -1,4 +1,4 @@
-package qis.Cashier;
+package qis.Patient;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-public interface CashierPatientRepository extends JpaRepository <Cashier1 , Integer> {
+public interface PatientRepository extends JpaRepository <Patient , Integer> {
 	@Query(value = "SELECT *, CONCAT (p.LastName ,', ', p.FirstName,' ', p.MiddleName) as FullName"
 			+ " FROM qpd_patient p", nativeQuery = true)
-	List<Cashier1> findPatient();
+	List<Patient> findPatient();
 
 	@Transactional
 	@Modifying
@@ -26,7 +26,7 @@ public interface CashierPatientRepository extends JpaRepository <Cashier1 , Inte
 	
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE qpd_patient SET PatientRef = ?1, PatientType = ?2, CompanyName = ?3,"
+	@Query(value = " UPDATE qpd_patient SET PatientRef = ?1, PatientType = ?2, CompanyName = ?3,"
 			+ " Position = ?4, FirstName = ?5, MiddleName = ?6, LastName = ?7, Address = ?8,"
 			+ " Birthdate = ?9, Email = ?10, Age = ?11, Gender = ?12, ContactNo = ?13,"
 			+ " PatientBiller = ?14, Notes = ?15, SID = ?16, CreationDate = ?17, DateUpdate = ?18"

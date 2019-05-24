@@ -1,8 +1,7 @@
-package qis.ClinicalMicroscopy;
+package qis.Microscopy;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,18 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import qis.Pe.PE;
+
 @RestController
-public class ClinicalMicroscopyController {
+public class MicroscopyController {
 	@Autowired
 	LabMicroRepository LabMicroRepository;
 	
-	@GetMapping("/labmicroscopy/{id}")
+	@GetMapping("/getmicroscopy/{id}")
 	public  @ResponseBody List<LabMicroscopy> Microscopy(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabMicroRepository.getmirco(pid);
     }
+	@GetMapping("/getmicro")
+	 public List<LabMicroscopy> MicroList(){
+    	return LabMicroRepository.getmicro();
+	}
 	
-	@PostMapping("/labmicroscopyadd")
+	@PostMapping("/addmicroscopy")
     public int LabMicroscopyADD(@RequestBody Map<String, String> body){  
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));
@@ -72,7 +77,7 @@ public class ClinicalMicroscopyController {
 	    
 	}
 	
-	@PostMapping("/labmicroscopyupdate")
+	@PostMapping("/updatemicroscopy")
     public int LabMicroscopyUPDATE(@RequestBody Map<String, String> body){
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));

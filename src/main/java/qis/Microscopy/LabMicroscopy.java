@@ -1,4 +1,4 @@
-package qis.ClinicalMicroscopy;
+package qis.Microscopy;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

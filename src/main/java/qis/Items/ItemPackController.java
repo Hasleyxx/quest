@@ -16,6 +16,8 @@ public class ItemPackController {
     ItemsRepository itemsRepository;
 	@Autowired
 	PackageRepository packageRepository;
+	@Autowired
+	PackExtensionRepository packextRepository;
 	@GetMapping("/AllItems")
     public List<Items> findAllItems(){
     	return itemsRepository.findAllItems();
@@ -53,6 +55,11 @@ public class ItemPackController {
     public List<Package> ListPackage() {
     	return packageRepository.listpackage();
     }
+    @GetMapping("/packext")
+    public List<PackageExt> PackExt(){
+    	return packextRepository.packext();
+    }
+    
     @PostMapping("/addItem")
     public int AddItem(@RequestBody Map<String, String>body) {
     	String iname	 		= body.get("itemName");
@@ -79,23 +86,29 @@ public class ItemPackController {
     }
     @PostMapping("/addPackage")
     public int addPackage(@RequestBody Map<String, String> body) {
-    	String name = body.get("packageName");
-    	double price = Double.parseDouble(body.get("packagePrice"));
-    	String des = body.get("packageDescription");
-    	String type = body.get("packageType");
-    	int del = Integer.parseInt(body.get("deletedPackage"));
-    	String cdate = body.get("creationDate");
-    	String udate = body.get("dateUpdate");
+    	String name 		= body.get("packageName");
+    	double price 		= Double.parseDouble(body.get("packagePrice"));
+    	String des 			= body.get("packageDescription");
+    	String type 		= body.get("packageType");
+    	int del 			= Integer.parseInt(body.get("deletedPackage"));
+    	String cdate 		= body.get("creationDate");
+    	String udate 		= body.get("dateUpdate");
     	return packageRepository.addpackage(name, price, des, type, del, cdate, udate);
     }
     @PostMapping("/updatePackage")
     public int updatePackage(@RequestBody Map<String, String> body) {
-    	double price = Double.parseDouble(body.get("packagePrice"));
-    	String des = body.get("packageDescription");
-    	String type = body.get("packageType");
-    	int del = Integer.parseInt(body.get("deletedPackage"));
-    	String cdate = body.get("creationDate");
-    	String udate = body.get("dateUpdate");
+    	double price 		= Double.parseDouble(body.get("packagePrice"));
+    	String des 			= body.get("packageDescription");
+    	String type 		= body.get("packageType");
+    	int del 			= Integer.parseInt(body.get("deletedPackage"));
+    	String cdate 		= body.get("creationDate");
+    	String udate 		= body.get("dateUpdate");
     	return packageRepository.updatepackage(price, des, type, del, cdate, udate);
+    }
+    @PostMapping("/packext")
+    public int addPackext(@RequestBody Map<String, String> body) {
+    	String ext 		= body.get("packageName");
+    	int id 			= Integer.parseInt(body.get("itemID"));
+    	return packextRepository.addpackext(ext, id);
     }
 }
