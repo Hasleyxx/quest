@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,22 +31,25 @@ public class ToxicologyController {
     @PostMapping("/addtoxicology")
     public int toxicologyadd(@RequestBody Map<String, String> body) {
     	
-    	String stoxicid	       = body.get("toxicID");
+    	//String stoxicid	       = body.get("toxicID");
     	String meth            = body.get("meth");
     	String tetra           = body.get("tetra");
     	String drugtest        = body.get("drugtest");
     	String creationdate    = body.get("creationDate");
     	String dateupdate      = body.get("dateUpdate");
     	
-    	int toxicid    = 	Integer.parseInt(stoxicid); 
+    	//int toxicid    = 	Integer.parseInt(stoxicid); 
     	int transid    =	Integer.parseInt(body.get("transactionID"));
     	int pid        =	Integer.parseInt(body.get("patientID"));
     	int pathid     = 	Integer.parseInt(body.get("pathID"));
         int medid      =	Integer.parseInt(body.get("medID"));
     	int qualityid  =	Integer.parseInt(body.get("qualityID"));
-
-       return LabInToxicologyRepository.toxicologyadd(transid, pid, meth, tetra, drugtest,
+    	try {
+    		return LabInToxicologyRepository.toxicologyadd(transid, pid, meth, tetra, drugtest,
     		   pathid, medid, qualityid, creationdate, dateupdate);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 
     }
     @PatchMapping("/updatetoxicology")
@@ -65,9 +69,12 @@ public class ToxicologyController {
         int medid      =	Integer.parseInt(body.get("medID"));
     	int qualityid  =	Integer.parseInt(body.get("qualityID"));
 
-
-    	return LabInToxicologyRepository.toxicologyupdate(toxicid, transid, pid, meth,
+    	try {
+    		return LabInToxicologyRepository.toxicologyupdate(toxicid, transid, pid, meth,
     				tetra, drugtest, pathid, medid, qualityid, creationdate, dateupdate);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
     }
 
 

@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -170,7 +171,7 @@ public class ChemistryController {
 	 	int pathid 			= Integer.parseInt(body.get("pathID"));
 	    int medid 			= Integer.parseInt(body.get("medID"));
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
-
+	 		try {
 	 			return LabInChemRepository.chemistryadd(pid, transid, chemid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
 	 			cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
@@ -179,6 +180,9 @@ public class ChemistryController {
 	 			ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 	 			biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
 	 			bun, buncon);
+	 			}catch (DataIntegrityViolationException e) {
+	 	    		return 0;
+	 	    	}
 
 	 }
 	 @PatchMapping("/chemistryupdate")
@@ -245,7 +249,7 @@ public class ChemistryController {
 	 	int pathid 			= Integer.parseInt(body.get("pathID"));
 	    int medid 			= Integer.parseInt(body.get("medID"));
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
-
+	 		try {
 	 			return LabInChemRepository.chemistryupdate(pid, transid, chemid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
 	 			cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
@@ -254,6 +258,9 @@ public class ChemistryController {
 	 			ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 	 			biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
 	 			bun, buncon);
+	 			}catch (DataIntegrityViolationException e) {
+	 				return 0;
+	 			}
 
 	 }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,9 +51,12 @@ public class PeController {
 		int license 		= Integer.parseInt(body.get("license"));
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
-    	
-    return peRepository.addPe(trans, pid, skin, hn, cbl, ch, abdo, extre, ot, find,
+    	try {
+    		return peRepository.addPe(trans, pid, skin, hn, cbl, ch, abdo, extre, ot, find,
     		doctor, license, cdate, udate);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
     }
 	
 	@PostMapping("/updatePE")
@@ -69,8 +73,12 @@ public class PeController {
 		int license 		= Integer.parseInt(body.get("license"));
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
-	return peRepository.updatePe(skin, hn, cbl, ch, abdo, extre, ot, find,
+		try {
+			return peRepository.updatePe(skin, hn, cbl, ch, abdo, extre, ot, find,
 			doctor, license, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 	
 	
@@ -96,9 +104,12 @@ public class PeController {
 		String std 			= body.get("std");
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
-		
-		return mhRepository.addMedhis(trans, pid, asth, tb, dia, hb, hp, kp, ab, jbs, pp,
+		try {
+			return mhRepository.addMedhis(trans, pid, asth, tb, dia, hb, hp, kp, ab, jbs, pp,
     		mh, fs, alle, ct, hep, std, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
     }
 	
 	@PostMapping("/updateMedhis")
@@ -120,8 +131,12 @@ public class PeController {
 		String std 				= body.get("std");
 		String cdate 			= body.get("creationDate");
 		String udate 			= body.get("dateUpdate");
-		return mhRepository.updateMedhis(asth, tb, dia, hb, hp, kp, ab, jbs, pp, mh,
+		try {
+			return mhRepository.updateMedhis(asth, tb, dia, hb, hp, kp, ab, jbs, pp, mh,
 				fs, alle, ct, hep, std, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 	
 	

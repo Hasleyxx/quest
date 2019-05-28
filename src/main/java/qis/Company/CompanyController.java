@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,13 +26,21 @@ public class CompanyController {
 	public int AddCompany(@RequestBody Map<String, String>body){
 		String cname		= body.get("nameCompany");
 		String cadd			= body.get("companyAddress");
-		return companyRepository.addCompany(cname, cadd);
+		try {
+			return companyRepository.addCompany(cname, cadd);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 	@PostMapping("/updateCompany")
 	public int UpdateCompany(@RequestBody Map<String, String>body){
 		String cname		= body.get("nameCompany");
 		String cadd			= body.get("companyAddress");
-		return companyRepository.updateCompany(cname, cadd);
+		try {
+			return companyRepository.updateCompany(cname, cadd);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}	
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,32 +32,6 @@ public class TransactionController {
 		return transrefRepository.viewtransref();
 	}
 	
-	 @PostMapping("/TransactionList")
-	    public Transaction create(@RequestBody Map<String, String> body){
-	    	
-		    	int patientId 					= Integer.parseInt(body.get("PatientID"));
-		    	String transactionRef 			= body.get("TransactionRef");
-		    	String transactionType 			= body.get("TransactionType");
-		    	String biller 					= body.get("biller");
-		    	String transactionDate 			= body.get("TransactionDate");
-		    	int userId 						= Integer.parseInt(body.get("userID"));
-		    	String totalPrice 				= body.get("TotalPrice");
-		    	double paidIn 					= Double.parseDouble(body.get("PaidIn"));
-		    	double paidOut 					= Double.parseDouble(body.get("PaidOut"));
-		    	double grandTotal 				= Double.parseDouble(body.get("GrandTotal"));
-		    	int status 						= Integer.parseInt(body.get("status"));
-		    	String salesType 				= body.get("SalesType");
-		    	String loe 						= body.get("LOE");
-		    	String an 						= body.get("AN");
-		    	String ac 						= body.get("AC");
-		    	String notes					= body.get("Notes");
-		   try {	
-		    	return transactionRepository.save(new Transaction(patientId, transactionRef,
-		    			transactionType, biller, transactionDate, userId, totalPrice, paidIn, 
-		    			paidOut, grandTotal, status, salesType, loe, an, ac, notes));
-	    	}
-	    	catch(Exception ex) {return null;}
-	    }
 	 @PostMapping("/addTransaction")
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
 	 	String tRef 		= body.get("transactionRef");
@@ -75,8 +50,12 @@ public class TransactionController {
 	 	String an 			= body.get("an");
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
+	 	try {
 	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
 	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes);
+	 	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	 }
 	 @PostMapping("/updateTransaction")
 	 public int UpdateTransaction(@RequestBody Map<String, String>body) {
@@ -93,9 +72,14 @@ public class TransactionController {
 	 	String an 			= body.get("an");
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
-	 	return transactionRepository.updateTransaction(tType, bil, tPrice, pIn, pOut,
+	 	try {
+	 		return transactionRepository.updateTransaction(tType, bil, tPrice, pIn, pOut,
 	 			gTotal, tDate, status, sType, loe, an, ac, notes);
+	 	}catch (DataIntegrityViolationException e){
+	 		return 0;
+	 	}
 	 }
+	 
 	 @PostMapping("/addTransext")
 	 public int AddTransext(@RequestBody Map<String, String>body) {
 	 	int tid 		= Integer.parseInt(body.get("transactionID"));
@@ -103,14 +87,24 @@ public class TransactionController {
 	 	String pname 	= body.get("packageName");
 	 	int qty 		= Integer.parseInt(body.get("itemQTY"));
 	 	int disc 		= Integer.parseInt(body.get("itemDisc"));
-	 	return transextRepository.addtransext(tid, iid, pname, qty, disc);
+	 	try {
+	 		return transextRepository.addtransext(tid, iid, pname, qty, disc);
+	 	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	 }
+	 
 	 @PostMapping("/updateTransext")
 	 public int UpdateTransext(@RequestBody Map<String, String>body) {
 	 	int qty 		= Integer.parseInt(body.get("itemQTY"));
 	 	int disc 		= Integer.parseInt(body.get("itemDisc"));
-	 	return transextRepository.updatetransext(qty, disc);
+	 	try {
+	 		return transextRepository.updatetransext(qty, disc);
+	 	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	 }
+	 
 	 @PostMapping("/addTransref")
 	 public int AddTransRef(@RequestBody Map<String, String> body) {
 	 	int trans 			= Integer.parseInt(body.get("transactionID"));
@@ -124,9 +118,14 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
-	 	return transrefRepository.addtransref(trans, pid, xray, blood, urine, stool, pe,
+	 	try {
+	 		return transrefRepository.addtransref(trans, pid, xray, blood, urine, stool, pe,
 	 			speci, usound, ecg, others);
+	 	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	 }
+	 
 	 @PostMapping("/updateTransref")
 	 public int UpdateTransRef(@RequestBody Map<String, String> body) {
 	 	int xray 			= Integer.parseInt(body.get("xray"));
@@ -138,8 +137,12 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
-	 	return transrefRepository.updatetransref( xray, blood, urine, stool, pe,
+	 	try {
+	 		return transrefRepository.updatetransref( xray, blood, urine, stool, pe,
 	 			speci, usound, ecg, others);
+	 	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	 }
 	
 	 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -67,11 +68,14 @@ public class HematologyController {
 		String esrmethod 		= body.get("esrmethod");
 		String cdate 			= body.get("creationDate");
 	    String dupdate 			= body.get("dateUpdate");
-	    
-	    return LabInHemaRepository.addHemaRepo(trans, pid, wb,hemog, hemo, tocrit, hema, neutro,
+	    try {
+	    	return LabInHemaRepository.addHemaRepo(trans, pid, wb,hemog, hemo, tocrit, hema, neutro,
 	    		lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent, inr, pr131,
 	    		aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr, esrmethod, pathid,
 	    		medid, qid, cdate, dupdate);
+	    }catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 	@PostMapping("/updateIndustrial") 
     public int LabIndustrialUPDATE(@RequestBody Map<String, String> body){
@@ -113,10 +117,13 @@ public class HematologyController {
 		String esrmethod		= body.get("esrmethod");
 		String cdate 			= body.get("creationDate");
 	    String dupdate	 		= body.get("dateUpdate");
-	    
-		return LabInHemaRepository.updateHemaRepo(trans, pid, wb, hemog, hemo, tocrit, hema, neutro,
-				lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent, inr, pr131,
-				aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr, esrmethod, pathid,
-				medid, qid, cdate, dupdate);
+	    try {
+	    	return LabInHemaRepository.updateHemaRepo(trans, pid, wb, hemog, hemo, tocrit, hema,
+	    			neutro, lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent,
+	    			inr, pr131, aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr,
+	    			esrmethod, pathid, medid, qid, cdate, dupdate);
+	    }catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 }

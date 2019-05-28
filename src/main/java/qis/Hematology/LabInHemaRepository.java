@@ -46,7 +46,7 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 
 	
 	@Query(value = " SELECT * FROM qpd_trans t, qpd_patient p, lab_microscopy h "
-			+ " WHERE t.TransactionID= h.TransactionID and p.PatientID = h.PatientID "
+			+ " WHERE t.TransactionID = h.TransactionID and p.PatientID = h.PatientID "
 			+ " and h.TransactionID = ?1 " , nativeQuery = true)
 	List<LabIndustrialHema> gethema(int id);
 	

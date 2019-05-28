@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="qpd_pe")
+@Table(name="qpd_pdfresult")
 public class PdfResult {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String Receipient;
+	private String Recipient;
 	private String Title;
 	private String ResultFiles;
 	private String SendDate;
@@ -22,11 +22,11 @@ public class PdfResult {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getReceipient() {
-		return Receipient;
+	public String getRecipient() {
+		return Recipient;
 	}
-	public void setReceipient(String receipient) {
-		Receipient = receipient;
+	public void setRecipient(String recipient) {
+		Recipient = recipient;
 	}
 	public String getTitle() {
 		return Title;

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,17 +53,20 @@ public class SerologyController {
 		String creationdate    = body.get("creationDate");
 		String dateupdate      = body.get("dateUpdate");
 		
-		int seroid     = 	Integer.parseInt(body.get("seroID")); 
+		//int seroid     = 	Integer.parseInt(body.get("seroID")); 
 		int transid    =	Integer.parseInt(body.get("transactionID"));
 		int pid        =	Integer.parseInt(body.get("patientID"));
 		int pathid     = 	Integer.parseInt(body.get("pathID"));
 	    int medid      =	Integer.parseInt(body.get("medID"));
 		int qualityid  =	Integer.parseInt(body.get("qualityID"));
-
-				return LabInSerologyRepository.Serologyadd(transid, pid, hbsag, antihav, seroot,
-						vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, 
-						cea, afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2,
-						pathid, medid, qualityid, creationdate, dateupdate);
+		try {
+			return LabInSerologyRepository.Serologyadd(transid, pid, hbsag, antihav, seroot,
+				vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, 
+				cea, afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2,
+				pathid, medid, qualityid, creationdate, dateupdate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 
 	}
 	@PatchMapping("/updateserology")
@@ -100,10 +104,13 @@ public class SerologyController {
 		int pathid     = 	Integer.parseInt(body.get("pathID"));
 	    int medid      =	Integer.parseInt(body.get("medID"));
 		int qualityid  =	Integer.parseInt(body.get("qualityID"));
-
-		return LabInSerologyRepository.Serologyupdate(transid, pid, hbsag, antihav, seroot, vdrl, 
-				psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, cea, afp, ca125,
-				ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2, pathid, medid, qualityid,
-				creationdate, dateupdate, seroid);
+		try {
+			return LabInSerologyRepository.Serologyupdate(transid, pid, hbsag, antihav, seroot,
+					vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, cea, 
+					afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2, pathid,
+					medid, qualityid, creationdate, dateupdate, seroid);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 		}
 }

@@ -3,6 +3,7 @@ package qis.Microscopy;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,11 +70,14 @@ public class MicroscopyController {
 		String obld 			= body.get("occultBLD");
 		String cdate 			= body.get("creationDate");
 		String dupdate 			= body.get("dateUpdate");
-	   
-	    return LabMicroRepository.addmicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
+	   try {
+		   return LabMicroRepository.addmicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
 				le, nit, uro, bld, ket, bil, ptest, a1, a2, af1, af2, afbd, obld, pathid, medid,
-				qid, cdate, dupdate);		
+				qid, cdate, dupdate);
+	   }catch (DataIntegrityViolationException e) {
+   			return 0;
+   		}
 	    
 	}
 	
@@ -119,11 +123,14 @@ public class MicroscopyController {
 		String obld 			= body.get("occultBLD");
 		String cdate 			= body.get("creationDate");
 	    String dupdate	 		= body.get("dateUpdate");
-	    
-		return LabMicroRepository.updatemicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
+	    try {
+	    	return LabMicroRepository.updatemicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
 				le, nit, uro, bld, ket, bil, ptest, a1, a2, af1, af2, afbd, obld, pathid, medid,
-				qid, cdate, dupdate);			
+				qid, cdate, dupdate);
+	    }catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	
 	}
 

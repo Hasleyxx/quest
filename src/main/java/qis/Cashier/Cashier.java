@@ -122,14 +122,6 @@ public class Cashier {
         this.transactionType = title;
     }
 
-//    public String getItemId() {
-//        return itemId;
-//    }
-//
-//    public void setItemId(String content) {
-//        this.itemId = content;
-//    }
-
     public String fullName()
     {
     	String fullname = lastName + ", " + firstName + " " + middleName;

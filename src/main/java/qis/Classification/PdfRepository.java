@@ -8,12 +8,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface PdfRepository extends JpaRepository<PdfResult, Integer>  {
+	
 	@Query(value = "SELECT * from qpd_pdfresult", nativeQuery = true)
 	List<PdfResult> PdfList();
 	
 	@Transactional
 	@Modifying
-	@Query(value = " INSERT into qpd_pdfresult(Receipient, Title, ResultFiles, SendDate)"
+	@Query(value = " INSERT into qpd_pdfresult(Recipient, Title, ResultFiles, SendDate)"
 				 + " VALUES(?1, ?2, ?3, ?4)", nativeQuery = true)
 	int addPdf(String rec, String tle, String rf, String sd);
 	

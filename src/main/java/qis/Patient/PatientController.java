@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,8 +42,12 @@ public class PatientController {
 		String sid			 = body.get("sid");
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
-		return patientRepository.addPatient(pRef, pType, com, pos, fn, mn, ln, add, bdate, email,
-				age, gen, no, biller, notes, sid, cdate, udate);
+		try {
+			return patientRepository.addPatient(pRef, pType, com, pos, fn, mn, ln, add, bdate,
+					email, age, gen, no, biller, notes, sid, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 	@PostMapping("/updatePatient")
 	public int UpdatePatient(@RequestBody Map<String, String>body){
@@ -65,8 +70,12 @@ public class PatientController {
 		String sid			 = body.get("sid");
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
-		return patientRepository.updatePatient(pRef, pType, com, pos, fn, mn, ln, add, bdate, email,
-				age, gen, no, biller, notes, sid, cdate, udate);
+		try {
+			return patientRepository.updatePatient(pRef, pType, com, pos, fn, mn, ln, add, bdate,
+					email, age, gen, no, biller, notes, sid, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
 	}
 
 }

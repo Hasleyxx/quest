@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +52,7 @@ public class ItemPackController {
     	return itemsRepository.findAllNonAccountItems();
     	
     }
-    @GetMapping("/package")
+    @GetMapping("/getpackage")
     public List<Package> ListPackage() {
     	return packageRepository.listpackage();
     }
@@ -70,7 +71,11 @@ public class ItemPackController {
     	int test 				= Integer.parseInt(body.get("neededTest"));
     	String cdate 			= body.get("creationDate");
     	String udate 			= body.get("dateUpdate");
-    	return itemsRepository.addItem(iname, iprice, des, type, del, test, cdate, udate);
+    	try {
+    		return itemsRepository.addItem(iname, iprice, des, type, del, test, cdate, udate);}
+    	catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
     }
     @PostMapping("/updateItem")
     public int UpdateItem(@RequestBody Map<String, String> body) {
@@ -82,7 +87,13 @@ public class ItemPackController {
     	int test 				= Integer.parseInt(body.get("neededTest"));
     	String cdate 			= body.get("creationDate");
     	String udate 			= body.get("dateUpdate");
-    	return itemsRepository.updateItem(iname, iprice, des, type, del, test, cdate, udate);
+    	try {
+    		return itemsRepository.updateItem(iname, iprice, des, type, del, test, cdate, udate);
+    		}catch (DataIntegrityViolationException e) {
+    			return 0;
+    		 }
+		
+    	
     }
     @PostMapping("/addPackage")
     public int addPackage(@RequestBody Map<String, String> body) {
@@ -93,7 +104,12 @@ public class ItemPackController {
     	int del 			= Integer.parseInt(body.get("deletedPackage"));
     	String cdate 		= body.get("creationDate");
     	String udate 		= body.get("dateUpdate");
-    	return packageRepository.addpackage(name, price, des, type, del, cdate, udate);
+    	try {
+    		return packageRepository.addpackage(name, price, des, type, del, cdate, udate);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+        }
+		
     }
     @PostMapping("/updatePackage")
     public int updatePackage(@RequestBody Map<String, String> body) {
@@ -103,12 +119,21 @@ public class ItemPackController {
     	int del 			= Integer.parseInt(body.get("deletedPackage"));
     	String cdate 		= body.get("creationDate");
     	String udate 		= body.get("dateUpdate");
-    	return packageRepository.updatepackage(price, des, type, del, cdate, udate);
+    	try {
+    		return packageRepository.updatepackage(price, des, type, del, cdate, udate);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+		
     }
-    @PostMapping("/packext")
+    @PostMapping("/addpackext")
     public int addPackext(@RequestBody Map<String, String> body) {
     	String ext 		= body.get("packageName");
     	int id 			= Integer.parseInt(body.get("itemID"));
-    	return packextRepository.addpackext(ext, id);
+    	try {
+    		return packextRepository.addpackext(ext, id);
+   		}catch (DataIntegrityViolationException e) {
+   			return 0;
+   		}
     }
 }
