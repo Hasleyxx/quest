@@ -2,7 +2,8 @@ package qis.Cashier;
 
 import javax.persistence.*;
 
-@Entity @Table(name="qpd_trans")
+@Entity
+@Table(name="qpd_trans")
 public class Cashier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

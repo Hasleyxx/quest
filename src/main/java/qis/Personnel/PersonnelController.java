@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonnelController {
 	@Autowired
 	LabPersonnelRepository LabPerRepository;
-	@GetMapping("/labpersonnel/{id}")
+	@GetMapping("/getpersonnel/{id}")
 	public  @ResponseBody List<LabPersonnel> LabPersonnel(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabPerRepository.getpersonnel(pid);

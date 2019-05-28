@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @SecondaryTable(name="lab_toxicolgy")
 @SecondaryTable(name="lab_serology")
 
-public class LabInForTable {
+public class LabInFourTable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Id
 	 //lab_hematology

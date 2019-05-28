@@ -2,7 +2,8 @@ package qis.Items;
 
 import javax.persistence.*;
 
-@Entity @Table(name="qpd_items")
+@Entity
+@Table(name="qpd_items")
 public class Items {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

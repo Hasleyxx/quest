@@ -17,13 +17,13 @@ public class SerologyController {
 	@Autowired
 	LabInSerologyRepository LabInSerologyRepository;
 	
-	@GetMapping("/serologyview/{id}")
+	@GetMapping("/getserology/{id}")
     public  @ResponseBody List<LabIndustrialSerology> serologyview(@PathVariable String id){
     	int pid = Integer.parseInt(id);
         return LabInSerologyRepository.serologyview(pid);   
     }
 	
-	@PostMapping("/serologyadd")
+	@PostMapping("/addserology")
 	public int serologyadd(@RequestBody Map<String, String> body) {
 		
 		String hbsag           = body.get("hbsAG");
@@ -65,7 +65,7 @@ public class SerologyController {
 						pathid, medid, qualityid, creationdate, dateupdate);
 
 	}
-	@PatchMapping("/serologyupdate")
+	@PatchMapping("/updateserology")
 	public int serologyupdate(@RequestBody Map<String, String> body) {
 		
 		String hbsag           = body.get("hbsAG");

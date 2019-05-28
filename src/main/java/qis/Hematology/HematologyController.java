@@ -18,17 +18,17 @@ public class HematologyController {
 	@Autowired
 	LabInHemaRepository LabInHemaRepository;
 	
-	@GetMapping("/labhemaview/{id}")
+	@GetMapping("/getHemat/{id}")
 	public  @ResponseBody List<LabIndustrialHema> LabHemaView(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabInHemaRepository.gethema(pid);
     }
 	
-	@GetMapping("/labhema")
+	@GetMapping("/getHema")
 	public @ResponseBody List<LabHema> LabHema() {
 		return LabHemaRepository.gethema();
 	}
-	@PostMapping("/labindustrialadd1")
+	@PostMapping("/addIndustrial")
     public int LabIndustrialADD(@RequestBody Map<String, String> body){  
 		int qid 			= Integer.parseInt(body.get("qualityID"));
 		int medid 			= Integer.parseInt(body.get("medID"));
@@ -73,7 +73,7 @@ public class HematologyController {
 	    		aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr, esrmethod, pathid,
 	    		medid, qid, cdate, dupdate);
 	}
-	@PostMapping("/labindustrupdate") 
+	@PostMapping("/updateIndustrial") 
     public int LabIndustrialUPDATE(@RequestBody Map<String, String> body){
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));

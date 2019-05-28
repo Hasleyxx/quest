@@ -1,5 +1,7 @@
 package qis.Company;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,6 +9,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface CompanyRepository extends JpaRepository <Company, Integer> {
+	@Query(value = "SELECT * from qpd_company", nativeQuery = true)
+	List<Company> CompanyList();
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO qpd_company (NameCompany, CompanyAddress)"

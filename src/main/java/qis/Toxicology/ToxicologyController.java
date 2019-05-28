@@ -22,12 +22,12 @@ public class ToxicologyController {
 	        return LabIndToxTabRepository.sertoxtable();
 	}
    
-    @GetMapping("/toxicologyview/{id}")
+    @GetMapping("/gettoxicology/{id}")
     public  @ResponseBody List<LabIndustrialToxicology> toxicologyview(@PathVariable String id){
     	int pid = Integer.parseInt(id);
         return LabInToxicologyRepository.toxicologyview(pid);   
     }
-    @PostMapping("/toxicologyadd")
+    @PostMapping("/addtoxicology")
     public int toxicologyadd(@RequestBody Map<String, String> body) {
     	
     	String stoxicid	       = body.get("toxicID");
@@ -48,7 +48,7 @@ public class ToxicologyController {
     		   pathid, medid, qualityid, creationdate, dateupdate);
 
     }
-    @PatchMapping("/toxicologyupdate")
+    @PatchMapping("/updatetoxicology")
     public int toxicologyupdate(@RequestBody Map<String, String> body) {
     	
     	String stoxicid	       = body.get("toxicID");

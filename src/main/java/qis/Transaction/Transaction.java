@@ -2,7 +2,8 @@ package qis.Transaction;
 
 import javax.persistence.*;
 
-@Entity @Table(name="qpd_trans")
+@Entity 
+@Table(name="qpd_trans")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

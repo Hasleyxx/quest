@@ -6,7 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name="qpd_transext")
+@Entity
+@Table(name="qpd_transext")
 public class TransExt {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)

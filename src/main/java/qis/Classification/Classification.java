@@ -1,4 +1,4 @@
-package qis.Pe;
+package qis.Classification;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name="qpd_class")
+@Entity
+@Table(name="qpd_class")
 public class Classification {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -18,15 +18,15 @@ public class TransactionController {
 	@Autowired
 	TransRefRepository transrefRepository;
 	
-	@GetMapping("/viewtransaction")
+	@GetMapping("/gettransaction")
 	public @ResponseBody List<Transaction> ViewTransaction(){
 		return transactionRepository.viewtrans();
 	}
-	@GetMapping("/viewtransext")
+	@GetMapping("/gettransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
 		return transextRepository.viewtrans();
 	}
-	@GetMapping("/viewtransref")
+	@GetMapping("/gettransref")
 	public @ResponseBody List<TransRef> ViewTransRef(){
 		return transrefRepository.viewtransref();
 	}
