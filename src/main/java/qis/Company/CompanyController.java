@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -23,8 +23,9 @@ public class CompanyController {
 		return companyRepository.CompanyList();
 	}	
 	
-	@GetMapping("/getCompany/{cn}")
-	public  @ResponseBody List<Company> LabPersonnelbyID(@PathVariable String cn) {
+	@GetMapping("/getCompany/{cn:.+}")
+	public /* with/without responsebody @ResponseBody*/ List<Company> 
+	CompanyName(@PathVariable String cn) {
 		return companyRepository.getCompany(cn);
     
     }

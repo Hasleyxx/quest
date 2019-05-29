@@ -27,7 +27,7 @@ public class Cashier {
     private String middleName;
     @Column(name="fullname")
     private String fullname;
-
+    
     public String getFullname() {
 		return fullname;
 	}
