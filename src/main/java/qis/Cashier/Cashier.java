@@ -137,7 +137,7 @@ public class Cashier {
                 ", PatientName='" + fullname + '\'' +
                 ", TransactionRef='" + transactionRef + '\'' +
                 ", TransactionType='" + transactionType + '\'' +
-               // ", ItemID='" + itemId + '\'' +
+                // ", ItemID='" + itemId + '\'' +
                 ", Biller='" + biller + '\'' +
                 ", TransactionDate='" + transactionDate + '\'' +
                 '}';

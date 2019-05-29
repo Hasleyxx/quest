@@ -15,11 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	PrivilegeRepository privRepository;
 	
 	@GetMapping("/getUsers")
     public List<Users> PeList(){
     	return userRepository.UserList();
     }
+	
+	@GetMapping("/getPrivilege")
+	public List<Privilege> Privelege(){
+		return privRepository.privilege();
+	}
 	
 	@PostMapping("/addUser")
     public int AddUser(@RequestBody Map<String, String>body) {
@@ -49,4 +56,39 @@ public class UserController {
     		return 0;
     	}
     }
+	
+	@PostMapping("/addPrivilege")
+	public int AddPrivilege(@RequestBody Map<String, String>body) {
+		int uid 		= Integer.parseInt(body.get("userID"));
+		int doc 		= Integer.parseInt(body.get("doctor"));
+		int ca 			= Integer.parseInt(body.get("cashierAccount"));
+		int cc 			= Integer.parseInt(body.get("cashierCash"));
+		int med 		= Integer.parseInt(body.get("medical"));
+		int lab 		= Integer.parseInt(body.get("laboratory"));
+		int ima 		= Integer.parseInt(body.get("imaging"));
+		int qc 			= Integer.parseInt(body.get("qualityControl"));
+		int ad 			= Integer.parseInt(body.get("admin"));
+		try {
+    		return privRepository.addPrivilege(uid, doc, ca, cc, med, lab, ima, qc, ad);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+	}
+	@PostMapping("/updatePrivilege")
+	public int UpdatePrivilege(@RequestBody Map<String, String>body) {
+		int uid 		= Integer.parseInt(body.get("userID"));
+		int doc 		= Integer.parseInt(body.get("doctor"));
+		int ca 			= Integer.parseInt(body.get("cashierAccount"));
+		int cc 			= Integer.parseInt(body.get("cashierCash"));
+		int med 		= Integer.parseInt(body.get("medical"));
+		int lab 		= Integer.parseInt(body.get("laboratory"));
+		int ima 		= Integer.parseInt(body.get("imaging"));
+		int qc 			= Integer.parseInt(body.get("qualityControl"));
+		int ad 			= Integer.parseInt(body.get("admin"));
+		try {
+    		return privRepository.updatePrivilege(uid, doc, ca, cc, med, lab, ima, qc, ad);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+	}
 }

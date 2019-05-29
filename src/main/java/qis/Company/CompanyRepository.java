@@ -12,9 +12,13 @@ public interface CompanyRepository extends JpaRepository <Company, Integer> {
 	@Query(value = "SELECT * from qpd_company", nativeQuery = true)
 	List<Company> CompanyList();
 	
-	@Query(value = "Select * from qpd_company where nameCompany =?1" , nativeQuery = true)
+	@Query(value = "Select * from qpd_company where nameCompany = ?1" , nativeQuery = true)
 	List<Company> getCompany(String cn);
 	
+	/*@Query(value = " SELECT * from qpd_company where "
+		     + " nameCompany LIKE CONCAT('%',:cn,'%')" , nativeQuery = true)
+	List<Company> getCompany(String cn);
+	*/
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO qpd_company (NameCompany, CompanyAddress)"
