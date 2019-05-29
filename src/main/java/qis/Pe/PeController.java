@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import qis.Classification.Classification;
-import qis.Classification.ClassificationRepository;
-import qis.Classification.PdfRepository;
-import qis.Classification.PdfResult;
-
 
 @RestController
 public class PeController {
@@ -22,7 +17,8 @@ public class PeController {
 	PeRepository peRepository;
 	@Autowired
 	mHistoryRepository mhRepository;
-	
+	@Autowired
+	VitalRepository vitalRepository;
 	
 	@GetMapping("/pelist")
     public List<PE> PeList(){
@@ -33,6 +29,11 @@ public class PeController {
 	public List<MedicalHistory> MedList(){
     	return mhRepository.MedList();
     }
+	
+	@GetMapping("/getVital")
+	public List<Vital> VitalList(){
+		return vitalRepository.VitalList();
+	}
 	
 	
 	@PostMapping("/addPE")
@@ -139,5 +140,67 @@ public class PeController {
     	}
 	}
 	
+	@PostMapping("/addVital")
+	public int addVital(@RequestBody Map<String, String>body) {
+		int trans 			= Integer.parseInt(body.get("transactionID"));
+		int pid 			= Integer.parseInt(body.get("patientID"));
+		String hei 			= body.get("height");
+		String wei 			= body.get("weight");
+		String bmi 			= body.get("bmi");
+		String bp 			= body.get("bp");
+		String pr 			= body.get("pr");
+		String rr 			= body.get("rr");
+		String uod 			= body.get("uod");
+		String uos 			= body.get("uos");
+		String cod 			= body.get("cod");
+		String cos 			= body.get("cos");
+		String cv 			= body.get("cv");
+		String hearing 		= body.get("hearing");
+		String hosp 		= body.get("hosp");
+		String opr 			= body.get("opr");
+		String pm 			= body.get("pm");
+		String smoker 		= body.get("smoker");
+		String ad 			= body.get("ad");
+		String lmp 			= body.get("lmp");
+		String notes 		= body.get("notes");
+		String cdate 		= body.get("creationDate");
+		String udate 		= body.get("dateUpdate");
+		try {
+			return vitalRepository.addVital(trans, pid, hei, wei, bmi, bp, pr, rr, uod, uos,
+					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, cdate, udate);
+		}catch(DataIntegrityViolationException e) {
+			return 0;
+		}
+	}
 	
+	@PostMapping("/updateVital")
+	public int updateVital(@RequestBody Map<String, String>body) {
+		String hei 			= body.get("height");
+		String wei 			= body.get("weight");
+		String bmi 			= body.get("bmi");
+		String bp 			= body.get("bp");
+		String pr 			= body.get("pr");
+		String rr 			= body.get("rr");
+		String uod 			= body.get("uod");
+		String uos 			= body.get("uos");
+		String cod 			= body.get("cod");
+		String cos 			= body.get("cos");
+		String cv 			= body.get("cv");
+		String hearing 		= body.get("hearing");
+		String hosp 		= body.get("hosp");
+		String opr 			= body.get("opr");
+		String pm 			= body.get("pm");
+		String smoker 		= body.get("smoker");
+		String ad 			= body.get("ad");
+		String lmp 			= body.get("lmp");
+		String notes 		= body.get("notes");
+		String cdate 		= body.get("creationDate");
+		String udate 		= body.get("dateUpdate");
+		try {
+			return vitalRepository.updateVital(hei, wei, bmi, bp, pr, rr, uod, uos,
+					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, cdate, udate);
+		}catch(DataIntegrityViolationException e) {
+			return 0;
+		}
+	}
 }
