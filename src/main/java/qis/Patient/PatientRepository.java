@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface PatientRepository extends JpaRepository <Patient , Integer> {
-	@Query(value = "SELECT p.*, CONCAT (p.LastName ,', ', p.FirstName,' ', p.MiddleName) as FullName,"
+	@Query(value = "SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
 			+ " (CASE when c.CompanyID is null then 0"
 			+ " ELSE c.CompanyID END) as CompanyID "
 			+ " FROM qpd_patient p left join qpd_company c"
