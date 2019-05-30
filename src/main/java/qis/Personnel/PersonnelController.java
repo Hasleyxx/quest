@@ -21,6 +21,7 @@ public class PersonnelController {
 		int pid = Integer.parseInt(id);
         return LabPerRepository.getpersonnelbyid(pid);
     }
+	
 	@GetMapping("/getpersonnel")
 	public  @ResponseBody List<LabPersonnel> LabPersonnel() {
         return LabPerRepository.getpersonnel();

@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import qis.Personnel.LabPersonnel;
 
 
 @RestController
@@ -23,12 +26,18 @@ public class CompanyController {
 		return companyRepository.CompanyList();
 	}	
 	
-	@GetMapping("/getCompany/{cn}")
-	public /* with/without responsebody @ResponseBody*/ List<Company> 
+	@GetMapping("/getCompany/{id}")
+	public  @ResponseBody List<Company> CompanyID(@PathVariable String id) {
+		int pid = Integer.parseInt(id);
+        return companyRepository.getCompanyid(pid);
+	}
+	
+	/*@GetMapping("/getCompany/{cn}")
+	public with/without responsebody @ResponseBody List<Company> 
 	CompanyName(@PathVariable String cn) {
 		return companyRepository.getCompany(cn);
     
-    }
+    }*/
 	
 	@PostMapping("/addCompany")
 	public int AddCompany(@RequestBody Map<String, String>body){
