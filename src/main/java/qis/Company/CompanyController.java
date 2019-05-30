@@ -23,7 +23,7 @@ public class CompanyController {
 		return companyRepository.CompanyList();
 	}	
 	
-	@GetMapping("/getCompany/{cn:.+}")
+	@GetMapping("/getCompany/{cn}")
 	public /* with/without responsebody @ResponseBody*/ List<Company> 
 	CompanyName(@PathVariable String cn) {
 		return companyRepository.getCompany(cn);

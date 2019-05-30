@@ -16,6 +16,5 @@ public interface Industrial1Repository  extends JpaRepository <LabIndustrial1, I
 			+ " left join lab_microscopy m on t.TransactionID = m.TransactionID "
 			+ " left join lab_toxicology x on t.TransactionID = x.TransactionID "
 			+ " left join lab_serology s on t.TransactionID = s.TransactionID " , nativeQuery = true)
-	List<LabIndustrial1> getinfo();
-	
+	List<LabIndustrial1> getinfo();	
 }
