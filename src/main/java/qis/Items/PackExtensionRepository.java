@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface PackExtensionRepository extends JpaRepository<PackageExt, Integer> {
+	
 	@Query(value = "Select * from qpd_packext", nativeQuery = true )
 	List<PackageExt> packext();
 	

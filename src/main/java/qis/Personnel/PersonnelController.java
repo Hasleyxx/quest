@@ -23,7 +23,7 @@ public class PersonnelController {
     }
 	
 	@GetMapping("/getpersonnel")
-	public  @ResponseBody List<LabPersonnel> LabPersonnel() {
+	public List<LabPersonnel> LabPersonnel() {
         return LabPerRepository.getpersonnel();
     }
 	

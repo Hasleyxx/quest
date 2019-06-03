@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import qis.Personnel.LabPersonnel;
-
 
 @RestController
 public class PatientController {
@@ -22,6 +20,18 @@ public class PatientController {
 	@GetMapping("/getPatient")
     public  @ResponseBody List<Patient> ListPatient() {
         return patientRepository.findPatient();
+	}
+	
+	@GetMapping("/getPatient/{pid}")
+	public  @ResponseBody List<Patient> PatientID(@PathVariable String pid) {
+		int id = Integer.parseInt(pid);
+        return patientRepository.PatientID(id);
+	}
+	
+	@GetMapping("/checkRef/{pid}")
+	public  @ResponseBody List<Patient> CheckRef(@PathVariable String pid) {
+		int ref = Integer.parseInt(pid);
+        return patientRepository.checkRef(ref);
 	}
 	
 	@PostMapping("/addPatient")
@@ -57,7 +67,6 @@ public class PatientController {
 	@PostMapping("/updatePatient")
 	public int UpdatePatient(@RequestBody Map<String, String>body){
 		int pid 			 = Integer.parseInt(body.get("patientID"));
-		String pRef			 = body.get("patientRef");
 		String pType		 = body.get("patientType");
 		String com			 = body.get("companyName");
 		String pos			 = body.get("position");
@@ -76,7 +85,7 @@ public class PatientController {
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
 		try {
-			return patientRepository.updatePatient(pRef, pType, com, pos, fn, mn, ln, add, bdate,
+			return patientRepository.updatePatient(pType, com, pos, fn, mn, ln, add, bdate,
 					email, age, gen, no, biller, notes, sid, cdate, udate, pid);
 		}catch (DataIntegrityViolationException e) {
     		return 0;

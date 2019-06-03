@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface PackageRepository extends JpaRepository<Package, Integer> {
+	
 	@Query(value = " SELECT * from qpd_package ", nativeQuery = true)
 	List<Package> listpackage();
 	
@@ -24,7 +25,7 @@ public interface PackageRepository extends JpaRepository<Package, Integer> {
 	@Modifying
 	@Query(value = " UPDATE qpd_package SET PackagePrice = ?1, PackageDescription = ?2,"
 			+ " PackageType = ?3, DeletedPackage = ?4, CreationDate = ?5,"
-			+ " DateUpdate = ?6 where PackageName = 'Basic 6' ", nativeQuery = true )
+			+ " DateUpdate = ?6 where PackageName = ?7 ", nativeQuery = true )
 	int updatepackage(double price, String des, String type, int del,
-			String cdate, String udate);
+			String cdate, String udate, String pn);
 }

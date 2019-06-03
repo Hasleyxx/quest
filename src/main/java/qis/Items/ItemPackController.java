@@ -19,6 +19,7 @@ public class ItemPackController {
 	PackageRepository packageRepository;
 	@Autowired
 	PackExtensionRepository packextRepository;
+	
 	@GetMapping("/AllItems")
     public List<Items> findAllItems(){
     	return itemsRepository.findAllItems();
@@ -52,10 +53,12 @@ public class ItemPackController {
     	return itemsRepository.findAllNonAccountItems();
     	
     }
-    @GetMapping("/getpackage")
+    
+    @GetMapping("/getPackage")
     public List<Package> ListPackage() {
     	return packageRepository.listpackage();
     }
+    
     @GetMapping("/packext")
     public List<PackageExt> PackExt(){
     	return packextRepository.packext();
@@ -77,8 +80,10 @@ public class ItemPackController {
     		return 0;
     	}
     }
+    
     @PostMapping("/updateItem")
     public int UpdateItem(@RequestBody Map<String, String> body) {
+    	int iid            	    = Integer.parseInt(body.get("itemId"));
     	String iname 			= body.get("itemName");
     	double iprice 			= Double.parseDouble(body.get("itemPrice"));
     	String des 				= body.get("itemDescription");
@@ -88,13 +93,12 @@ public class ItemPackController {
     	String cdate 			= body.get("creationDate");
     	String udate 			= body.get("dateUpdate");
     	try {
-    		return itemsRepository.updateItem(iname, iprice, des, type, del, test, cdate, udate);
+    		return itemsRepository.updateItem(iname, iprice, des, type, del, test, cdate, udate, iid);
     		}catch (DataIntegrityViolationException e) {
     			return 0;
-    		 }
-		
-    	
+    		 }	
     }
+    
     @PostMapping("/addPackage")
     public int addPackage(@RequestBody Map<String, String> body) {
     	String name 		= body.get("packageName");
@@ -111,8 +115,10 @@ public class ItemPackController {
         }
 		
     }
+    
     @PostMapping("/updatePackage")
     public int updatePackage(@RequestBody Map<String, String> body) {
+    	String pn			= body.get("packageName");
     	double price 		= Double.parseDouble(body.get("packagePrice"));
     	String des 			= body.get("packageDescription");
     	String type 		= body.get("packageType");
@@ -120,12 +126,12 @@ public class ItemPackController {
     	String cdate 		= body.get("creationDate");
     	String udate 		= body.get("dateUpdate");
     	try {
-    		return packageRepository.updatepackage(price, des, type, del, cdate, udate);
+    		return packageRepository.updatepackage(price, des, type, del, cdate, udate, pn);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
-    	}
-		
+    	}	
     }
+    
     @PostMapping("/addpackext")
     public int addPackext(@RequestBody Map<String, String> body) {
     	String ext 		= body.get("packageName");

@@ -18,6 +18,7 @@ public class Package {
 	private int DeletedPackage;
 	private String CreationDate;
 	private String DateUpdate;
+	
 	public String getPackageName() {
 		return PackageName;
 	}

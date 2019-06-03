@@ -19,7 +19,7 @@ public class HematologyController {
 	@Autowired
 	LabInHemaRepository LabInHemaRepository;
 	
-	@GetMapping("/getHemat/{id}")
+	@GetMapping("/getHema/{id}")
 	public  @ResponseBody List<LabIndustrialHema> LabHemaView(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabInHemaRepository.gethema(pid);
@@ -29,6 +29,7 @@ public class HematologyController {
 	public @ResponseBody List<LabHema> LabHema() {
 		return LabHemaRepository.gethema();
 	}
+	
 	@PostMapping("/addIndustrial")
     public int LabIndustrialADD(@RequestBody Map<String, String> body){  
 		int qid 			= Integer.parseInt(body.get("qualityID"));
@@ -77,6 +78,7 @@ public class HematologyController {
     		return 0;
     	}
 	}
+	
 	@PostMapping("/updateIndustrial") 
     public int LabIndustrialUPDATE(@RequestBody Map<String, String> body){
 		
