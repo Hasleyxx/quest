@@ -29,7 +29,6 @@ public class Patient{
 	 	private String Age;
 	 	private String Gender;
 	 	private String ContactNo;
-	 	private String PatientBiller;
 	 	private String Notes;
 	 	private String SID;
 	 	private String CreationDate;
@@ -127,12 +126,6 @@ public class Patient{
 		}
 		public void setContactNo(String contactNo) {
 			ContactNo = contactNo;
-		}
-		public String getPatientBiller() {
-			return PatientBiller;
-		}
-		public void setPatientBiller(String patientBiller) {
-			PatientBiller = patientBiller;
 		}
 		public String getNotes() {
 			return Notes;

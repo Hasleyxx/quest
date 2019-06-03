@@ -50,14 +50,13 @@ public class PatientController {
 		int age				 = Integer.parseInt(body.get("age"));
 		String gen			 = body.get("gender");
 		String no			 = body.get("contactNo");
-		String biller		 = body.get("patientBiller");
 		String notes		 = body.get("notes");
 		String sid			 = body.get("sid");
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
 		try {
 			return patientRepository.addPatient(pRef, pType, com, pos, fn, mn, ln, add, bdate,
-					email, age, gen, no, biller, notes, sid, cdate, udate);
+					email, age, gen, no, notes, sid, cdate, udate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -79,14 +78,13 @@ public class PatientController {
 		int age				 = Integer.parseInt( body.get("age"));
 		String gen			 = body.get("gender");
 		String no			 = body.get("contactNo");
-		String biller		 = body.get("patientBiller");
 		String notes		 = body.get("notes");
 		String sid			 = body.get("sid");
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
 		try {
 			return patientRepository.updatePatient(pType, com, pos, fn, mn, ln, add, bdate,
-					email, age, gen, no, biller, notes, sid, cdate, udate, pid);
+					email, age, gen, no, notes, sid, cdate, udate, pid);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
