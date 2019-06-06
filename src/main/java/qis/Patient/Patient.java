@@ -1,6 +1,5 @@
 package qis.Patient;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,8 @@ import javax.persistence.Table;
 @Table(name="qpd_patient")
 @SecondaryTable(name="qpd_company")
 public class Patient{
+	
+		
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.AUTO)
 	 	private int PatientID;
@@ -33,9 +34,8 @@ public class Patient{
 	 	private String SID;
 	 	private String CreationDate;
 	 	private String DateUpdate;
-	 	
 	 	private int CompanyID;
-	 
+	 	
 	 
 		public int getPatientID() {
 			return PatientID;
@@ -158,8 +158,6 @@ public class Patient{
 		public void setCompanyID(int companyID) {
 			CompanyID = companyID;
 		}
-		
-		
-	 	
+		 	
 
 }

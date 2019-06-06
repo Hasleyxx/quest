@@ -11,21 +11,21 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface PatientRepository extends JpaRepository <Patient , Integer> {
 	
-	@Query(value = "SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
+	@Query(value = " SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
 			+ " (CASE when c.CompanyID is null then 0"
 			+ " ELSE c.CompanyID END) as CompanyID "
 			+ " FROM qpd_patient p left join qpd_company c"
 			+ " on p.CompanyName = c.NameCompany ", nativeQuery = true)
 	List<Patient> findPatient();
 	
-	@Query(value =  "SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
+	@Query(value = " SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
 			+ " (CASE when c.CompanyID is null then 0"
 			+ " ELSE c.CompanyID END) as CompanyID "
 			+ " FROM qpd_patient p left join qpd_company c"
 			+ " on p.CompanyName = c.NameCompany where PatientID = ?1" , nativeQuery = true)
 	List<Patient> PatientID(int id);
 	
-	@Query(value =  "SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
+	@Query(value = " SELECT p.*, CONCAT (p.FirstName ,' ', p.MiddleName,' ', p.LastName) as FullName,"
 			+ " (CASE when c.CompanyID is null then 0"
 			+ " ELSE c.CompanyID END) as CompanyID "
 			+ " FROM qpd_patient p left join qpd_company c"

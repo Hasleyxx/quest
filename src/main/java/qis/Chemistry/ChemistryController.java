@@ -29,7 +29,7 @@ public class ChemistryController {
 	    public List<LabIndChemTable> chemtable(){
 	        return LabIndChemTabRepository.chemtable();
 	    }
-	 @PostMapping("/chemadd")
+	 @PostMapping("/addChem")	
 		public LabIndustrialChem createchem(@RequestBody Map<String, String> body) {
 			
 			String stotalcpk       = body.get("totalCPK");
@@ -107,7 +107,7 @@ public class ChemistryController {
 			}
 			catch(Exception ex) {return null;}
 		}
-	 @PostMapping("/chemistryadd")
+	 @PostMapping("/addChemistry")
 	 public int chemistryadd(@RequestBody Map<String, String> body) {
 	 	
 	 	String stotalcpk       = body.get("totalCPK");
@@ -185,7 +185,7 @@ public class ChemistryController {
 	 	    	}
 
 	 }
-	 @PatchMapping("/chemistryupdate")
+	 @PatchMapping("/updateChemistry")
 	 public int chemistryupdate(@RequestBody Map<String, String> body) {
 	 	
 	 	String stotalcpk       = body.get("totalCPK");

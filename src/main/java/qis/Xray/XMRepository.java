@@ -25,8 +25,8 @@ public interface XMRepository extends JpaRepository<XrayMarkers, Integer>{
 	
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE xray_markers(xrayFilm = ?1, xrayType = ?2, radTech = ?3,"
-			     + " totalCount = ?4 where markerID = ?5)", nativeQuery = true)
+	@Query(value = " UPDATE xray_markers SET xrayFilm = ?1, xrayType = ?2, radTech = ?3,"
+			     + " totalCount = ?4 where markerID = ?5", nativeQuery = true)
 	int updateMarker(String film, String type, String rad, int tc, int mid);
 
 }

@@ -13,6 +13,12 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = "Select * from qpd_trans", nativeQuery = true)
 	List<Transaction> viewtrans();
 	
+	@Query(value = "SELECT * from qpd_trans where TransactionID =?1" , nativeQuery = true)
+	List<Transaction> Transactionid(int id);
+	
+	@Query(value = "SELECT * from qpd_trans where TransactionRef =?1" , nativeQuery = true)
+	List<Transaction> TransRefId(int id);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO qpd_trans (TransactionRef, PatientID, userID, TransactionType,"

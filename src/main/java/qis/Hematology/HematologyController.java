@@ -30,7 +30,7 @@ public class HematologyController {
 		return LabHemaRepository.gethema();
 	}
 	
-	@PostMapping("/addIndustrial")
+	@PostMapping("/addHematology")
     public int LabIndustrialADD(@RequestBody Map<String, String> body){  
 		int qid 			= Integer.parseInt(body.get("qualityID"));
 		int medid 			= Integer.parseInt(body.get("medID"));
@@ -79,7 +79,7 @@ public class HematologyController {
     	}
 	}
 	
-	@PostMapping("/updateIndustrial") 
+	@PostMapping("/updateHematology") 
     public int LabIndustrialUPDATE(@RequestBody Map<String, String> body){
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));

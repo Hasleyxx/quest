@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,11 +24,22 @@ public class TransactionController {
 	public @ResponseBody List<Transaction> ViewTransaction(){
 		return transactionRepository.viewtrans();
 	}
-	@GetMapping("/gettransext")
+	@GetMapping("/getTransaction/{id}")
+	public  @ResponseBody List<Transaction> TransactionID(@PathVariable String id) {
+		int pid = Integer.parseInt(id);
+		return transactionRepository.Transactionid(pid);
+    }
+	@GetMapping("/getTransRef/{id}")
+	public  @ResponseBody List<Transaction> TransRefID(@PathVariable String id) {
+		int pid = Integer.parseInt(id);
+		return transactionRepository.TransRefId(pid);
+    }
+	
+	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
 		return transextRepository.viewtrans();
 	}
-	@GetMapping("/gettransref")
+	@GetMapping("/getTransref")
 	public @ResponseBody List<TransRef> ViewTransRef(){
 		return transrefRepository.viewtransref();
 	}

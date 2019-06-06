@@ -11,22 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import qis.Pe.PE;
 
 @RestController
 public class MicroscopyController {
 	@Autowired
 	LabMicroRepository LabMicroRepository;
+	@Autowired
+	TPM_Repository tpmRepository;
+	
+	@GetMapping("/getmicroscopy")
+	 public List<LabMicroscopy> MicroList(){
+   	return LabMicroRepository.getmicro();
+	}
 	
 	@GetMapping("/getmicroscopy/{id}")
-	public  @ResponseBody List<LabMicroscopy> Microscopy(@PathVariable String id) {
+	public @ResponseBody List<LabMicroscopy> Microscopy(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabMicroRepository.getmirco(pid);
     }
-	@GetMapping("/getmicro")
-	 public List<LabMicroscopy> MicroList(){
-    	return LabMicroRepository.getmicro();
+	
+	@GetMapping("/labmicroscopy")
+	public List<TP_Microscopy> LabMicroscopy(){
+		return tpmRepository.TPM_List();
 	}
+	
 	
 	@PostMapping("/addmicroscopy")
     public int LabMicroscopyADD(@RequestBody Map<String, String> body){  
