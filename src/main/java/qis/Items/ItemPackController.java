@@ -64,6 +64,11 @@ public class ItemPackController {
     	return packextRepository.packext();
     }
     
+    @GetMapping("/packext/{packName}")
+    public List<Items> findPackageById(@PathVariable String packName){
+    	return itemsRepository.findItemByType(packName);
+    }
+    
     @PostMapping("/addItem")
     public int AddItem(@RequestBody Map<String, String>body) {
     	String iname	 		= body.get("itemName");

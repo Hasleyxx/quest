@@ -133,7 +133,7 @@ public class Cashier {
     	String fullname = fullName();
         return "Cashier{" +
                 "TransactionID=" + transactionId +
-                "PatientID=" + patientId +
+                ", PatientID=" + patientId +
                 ", PatientName='" + fullname + '\'' +
                 ", TransactionRef='" + transactionRef + '\'' +
                 ", TransactionType='" + transactionType + '\'' +
