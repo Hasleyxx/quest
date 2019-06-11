@@ -29,12 +29,12 @@ public class PersonnelController {
 	
 	@PostMapping("/addpersonnel")
     public int addPersonnel(@RequestBody Map<String, String> body){
-		String fn = body.get("firstName");
-		String mn = body.get("middleName");
-		String ln = body.get("lastName");
-		String no = body.get("licenseNO");
-		String po = body.get("position");
-		String ext = body.get("positionEXT");
+		String fn 			= body.get("firstName");
+		String mn 			= body.get("middleName");
+		String ln 			= body.get("lastName");
+		String no 			= body.get("licenseNO");
+		String po 			= body.get("position");
+		String ext 			= body.get("positionEXT");
 		try {
 			return LabPerRepository.addPersonnel(fn, mn, ln, no, po, ext);
 		}catch (DataIntegrityViolationException e) {
@@ -45,14 +45,15 @@ public class PersonnelController {
 	
 	@PostMapping("/updatepersonnel")
     public int updatePersonnel(@RequestBody Map<String, String> body){
-		String fn = body.get("firstName");
-		String mn = body.get("middleName");
-		String ln = body.get("lastName");
-		String no = body.get("licenseNO");
-		String po = body.get("position");
-		String ext = body.get("positionEXT");
+		String fn 			= body.get("firstName");
+		String mn 			= body.get("middleName");
+		String ln 			= body.get("lastName");
+		String no 			= body.get("licenseNO");
+		String po 			= body.get("position");
+		String ext 			= body.get("positionEXT");
+		int pid 			= Integer.parseInt(body.get("personnelID"));
 		try {
-			return LabPerRepository.updatePersonnel(fn, mn, ln, no, po, ext);
+			return LabPerRepository.updatePersonnel(fn, mn, ln, no, po, ext, pid);
 		}catch (DataIntegrityViolationException e) {
    			return 0;
    		}

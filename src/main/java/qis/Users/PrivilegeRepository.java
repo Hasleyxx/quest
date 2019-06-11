@@ -13,6 +13,9 @@ public interface PrivilegeRepository extends JpaRepository<Privilege, Integer>{
 	@Query(value = " SELECT * from user_privilege", nativeQuery = true)
 	List<Privilege> privilege();
 	
+	@Query(value = "SELECT * from user_privilege where userID =?1" , nativeQuery = true)
+	List<Privilege> getprivbyid(int id);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into user_privilege(UserID, Doctor, CashierAccount, "
@@ -25,7 +28,7 @@ public interface PrivilegeRepository extends JpaRepository<Privilege, Integer>{
 	@Modifying
 	@Query(value = " UPDATE user_privilege SET UserID = ?1, Doctor = ?2, CashierAccount = ?3,"
 				 + " CashierCash = ?4, Medical = ?5, Laboratory = ?6, Imaging = ?7,"
-				 + " QualityControl = ?8, Admin = ?9 where privID = 13", nativeQuery = true)
+				 + " QualityControl = ?8, Admin = ?9 where privID = ?10", nativeQuery = true)
 	int updatePrivilege(int uid, int doc, int ca, int cc, int med,
-			 int lab, int ima, int qc, int ad);
+			 int lab, int ima, int qc, int ad, int pid);
 }

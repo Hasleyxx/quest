@@ -12,6 +12,9 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 	@Query(value = " SELECT * from tbl_users", nativeQuery = true)
 	List<Users> UserList();
 	
+	@Query(value = "Select * from tbl_users where userID =?1" , nativeQuery = true)
+	List<Users> getuserbyid(int id);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into tbl_users(userName, userEmail, userPass, userStatus,"
@@ -20,8 +23,9 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE tbl_users SET userName = ?1, userEmail = ?2, userPass = ?3,"
-			     + " userStatus = ?4, tokenCode = ?5, _class = ?6"
-			     + " where userID = 21 ", nativeQuery = true)
-	int updateUser(String user, String email, String pass, String status, String cd, String cl);
+	@Query(value = " UPDATE tbl_users Set userName = ?1, userEmail = ?2, userPass = ?3,"
+				 + " userStatus = ?4, tokenCode = ?5, _class = ?6"
+				 + " where userID = ?7 ", nativeQuery = true)
+	int updateUser(String user, String email, String pass, String status,
+			String cd, String cl, int uid);
 }

@@ -25,6 +25,6 @@ public interface LabPersonnelRepository extends JpaRepository <LabPersonnel, Int
 	@Modifying
 	@Query(value = " UPDATE lab_personnel SET FirstName = ?1, MiddleName = ?2, LastName = ?3,"
 				 + " LicenseNO = ?4, Position = ?5, PositionEXT = ?6"
-				 + " where personnelID = 7", nativeQuery = true)
-	int updatePersonnel(String fn, String mn, String ln, String no, String po, String ext);
+				 + " where personnelID = ?7", nativeQuery = true)
+	int updatePersonnel(String fn, String mn, String ln, String no, String po, String ext, int pid);
 }

@@ -14,6 +14,7 @@ public class PackageExt {
 	private int packExtID;
 	private String PackageName;
 	private String ItemID;
+	
 	public String getPackageName() {
 		return PackageName;
 	}
@@ -25,6 +26,12 @@ public class PackageExt {
 	}
 	public void setItemID(String itemID) {
 		ItemID = itemID;
+	}
+	public int getPackExtID() {
+		return packExtID;
+	}
+	public void setPackExtID(int packExtID) {
+		this.packExtID = packExtID;
 	}
 	
 }
