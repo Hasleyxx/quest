@@ -11,6 +11,7 @@ import javax.persistence.Table;
 public class PackageExt {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+	private int packExtID;
 	private String PackageName;
 	private String ItemID;
 	public String getPackageName() {

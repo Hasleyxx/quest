@@ -6,13 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
+
 @Entity
 @Table(name="qpd_transext")
 public class TransExt {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 private int transExtID;
 	 private int TransactionID;
-	 private int ItemID;
+	 private Integer ItemID;
 	 private String PackageName;
 	 private int ItemQTY;
 	 private int ItemDisc;
@@ -22,17 +26,17 @@ public class TransExt {
 	public void setTransactionID(int transactionID) {
 		TransactionID = transactionID;
 	}
-	public int getItemID() {
+	public Integer getItemID() {
 		return ItemID;
 	}
-	public void setItemID(int itemID) {
-		ItemID = itemID;
+	public void setItemID(@Nullable Integer itemID) {		
+        ItemID = itemID;
 	}
 	public String getPackageName() {
 		return PackageName;
 	}
-	public void setPackageName(String packageName) {
-		PackageName = packageName;
+	public void setPackageName(@Nullable String packageName) {		
+        PackageName = packageName;
 	}
 	public int getItemQTY() {
 		return ItemQTY;

@@ -95,7 +95,12 @@ public class TransactionController {
 	 @PostMapping("/addTransext")
 	 public int AddTransext(@RequestBody Map<String, String>body) {
 	 	int tid 		= Integer.parseInt(body.get("transactionID"));
-	 	int iid 		= Integer.parseInt(body.get("itemID"));
+	 	Integer iid;
+	 	if(body.get("itemID") != null) {
+	 		iid = Integer.parseInt(body.get("itemID"));
+	 	}else {
+	 		iid = null;
+	 	}
 	 	String pname 	= body.get("packageName");
 	 	int qty 		= Integer.parseInt(body.get("itemQTY"));
 	 	int disc 		= Integer.parseInt(body.get("itemDisc"));

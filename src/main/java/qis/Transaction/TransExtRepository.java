@@ -16,7 +16,7 @@ public interface TransExtRepository extends JpaRepository<TransExt, Integer> {
 	@Modifying
 	@Query(value = " INSERT INTO qpd_transext (TransactionID, ItemID, PackageName, ItemQTY, ItemDisc)"
 				 + " VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-	int addtransext(int tid,int iid, String pname, int qty, int disc);
+	int addtransext(int tid,Integer iid, String pname, int qty, int disc);
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_transext SET ItemQTY = ?1, ItemDisc = ?2"

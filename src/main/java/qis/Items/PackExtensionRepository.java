@@ -20,8 +20,7 @@ public interface PackExtensionRepository extends JpaRepository<PackageExt, Integ
 			+ " VALUES (?1, ?2 )", nativeQuery = true)
 	int addpackext(String ext, int id);
 	
-	@Query(value = "select * from qpd_packext where "
-			+ "PackageName = :#{#packName} order by PackageName", 
+	@Query(value = "select * from qpd_packext where PackageName = :#{#packName} order by PackageName", 
 			nativeQuery = true)
-	List<PackageExt> findPackageById(@Param("packName") String pID);
+	List<PackageExt> findPackageById(@Param("packName") String packName);
 }
