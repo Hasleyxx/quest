@@ -147,15 +147,4 @@ public class ItemPackController {
    			return 0;
    		}
     }
-    @PostMapping("/updatepackext")
-    public int updatePackext(@RequestBody Map<String, String> body) {
-    	String ext 		= body.get("packageName");
-    	int id 			= Integer.parseInt(body.get("itemID"));
-    	int xid			= Integer.parseInt(body.get("packExtID"));
-    	try {
-    		return packextRepository.updatepackext(id, ext, xid);
-   		}catch (DataIntegrityViolationException e) {
-   			return 0;
-   		}
-    }
 }

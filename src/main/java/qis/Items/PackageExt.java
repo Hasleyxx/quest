@@ -13,19 +13,12 @@ public class PackageExt {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int packExtID;
 	private String PackageName;
-	private String ItemID;
-	
+	private int ItemID;
 	public String getPackageName() {
 		return PackageName;
 	}
 	public void setPackageName(String packageName) {
 		PackageName = packageName;
-	}
-	public String getItemID() {
-		return ItemID;
-	}
-	public void setItemID(String itemID) {
-		ItemID = itemID;
 	}
 	public int getPackExtID() {
 		return packExtID;
@@ -33,5 +26,13 @@ public class PackageExt {
 	public void setPackExtID(int packExtID) {
 		this.packExtID = packExtID;
 	}
+	public int getItemID() {
+		return ItemID;
+	}
+	public void setItemID(int itemID) {
+		ItemID = itemID;
+	}
+	
+	
 	
 }

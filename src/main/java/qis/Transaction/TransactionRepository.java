@@ -31,13 +31,13 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 			String loe, String an, String ac, String notes);
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE qpd_trans SET TransactionType = ?1, Biller = ?2, TotalPrice = ?3,"
+	@Query(value = "UPDATE qpd_trans SET TransactionType = ?1, Biller = ?2, TotalPrice = ?3,"
 			+ " PaidIn = ?4, PaidOut = ?5, GrandTotal = ?6, TransactionDate = ?7, status = ?8,"
 			+ " SalesType = ?9, LOE = ?10, AN = ?11, AC = ?12, Notes = ?13"
-			+ " WHERE TransactionID = ?14 ", nativeQuery = true)
+			+ " WHERE TransactionID = 1386 ", nativeQuery = true)
 	int updateTransaction(String tType, String bil, String tPrice, double pIn, double pOut,
 			double gTotal, String tDate, int status, String sType, String loe, String an,
-			String ac, String notes, int trans);
+			String ac, String notes);
 	
 	
 

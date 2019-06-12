@@ -21,7 +21,6 @@ public class TransRef {
 	 private int Ultrasound;
 	 private int ECG;
 	 private int Others;
-	 private String _2dEcho;
 	public int getTransactionID() {
 		return TransactionID;
 	}
@@ -88,12 +87,5 @@ public class TransRef {
 	public void setOthers(int others) {
 		Others = others;
 	}
-	public String get_2dEcho() {
-		return _2dEcho;
-	}
-	public void set_2dEcho(String _2dEcho) {
-		this._2dEcho = _2dEcho;
-	}
-	
 	 
 }
