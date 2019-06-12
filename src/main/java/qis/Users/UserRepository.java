@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<Users, Integer> {
+	
+	
 	@Query(value = " SELECT * from tbl_users", nativeQuery = true)
 	List<Users> UserList();
 	

@@ -29,6 +29,7 @@ public class UserController {
 	public  @ResponseBody List<Users> UserbyID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return userRepository.getuserbyid(pid);
+       
     }
 	
 	@GetMapping("/getPrivilege")

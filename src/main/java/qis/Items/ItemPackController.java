@@ -59,6 +59,12 @@ public class ItemPackController {
     	return packageRepository.listpackage();
     }
     
+    @GetMapping("/getPackageName/{packName}")
+    public List<Package> findPackageName(@PathVariable String packName){
+    	return packageRepository.findPackage(packName);
+    }
+    
+    
     @GetMapping("/packext")
     public List<PackageExt> PackExt(){
     	return packextRepository.packext();
