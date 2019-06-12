@@ -29,18 +29,28 @@ public class TransactionController {
 		int pid = Integer.parseInt(id);
 		return transactionRepository.Transactionid(pid);
     }
-	
+	@GetMapping("/getTransRef/{id}")
+	public  @ResponseBody List<Transaction> TransRefbyID(@PathVariable String id) {
+		int pid = Integer.parseInt(id);
+		return transactionRepository.TransRefId(pid);
+    }
 	
 	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
 		return transextRepository.viewtrans();
 	}
 	
+	@GetMapping("/getTransext/{id}")
+	public  @ResponseBody List<TransExt> TransextbyID(@PathVariable String id) {
+		int tid = Integer.parseInt(id);
+		return transextRepository.transrefbyID(tid);
+    }
+	
 	@GetMapping("/getTransRef")
 	public @ResponseBody List<TransRef> ViewTransRef(){
 		return transrefRepository.viewtransref();
 	}
-	@GetMapping("/getTransRef/{id}")
+	@GetMapping("/getTRby/{tid}")
 	public  @ResponseBody List<TransRef> TransRefID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
 		return transrefRepository.TransRefId(pid);
@@ -137,9 +147,10 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
+	 	String _2d			= body.get("_2dEcho");
 	 	try {
 	 		return transrefRepository.addtransref(trans, pid, xray, blood, urine, stool, pe,
-	 			speci, usound, ecg, others);
+	 			speci, usound, ecg, others, _2d);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -156,9 +167,11 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
+	 	String _2d			= body.get("_2dEcho");
+	 	int trans 			= Integer.parseInt(body.get("transactionID"));
 	 	try {
 	 		return transrefRepository.updatetransref( xray, blood, urine, stool, pe,
-	 			speci, usound, ecg, others);
+	 			speci, usound, ecg, others ,_2d, trans);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
