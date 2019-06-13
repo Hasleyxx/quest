@@ -19,7 +19,7 @@ public interface TransRefRepository extends JpaRepository<TransRef, Integer> {
 	@Modifying
 	@Query(value = " Insert into qpd_transref(TransactionID, PatientID, XRay, BLood, Urine,"
 			+ " Stool, PhysicalExam, Specimen, Ultrasound, ECG, Others, _2dEcho)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)", nativeQuery = true)
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)", nativeQuery = true)
 	int addtransref(int trans, int pid, int xray, int blood, int urine, int stool, int pe,
 			int speci, int usound, int ecg, int others, int _2d);
 	
