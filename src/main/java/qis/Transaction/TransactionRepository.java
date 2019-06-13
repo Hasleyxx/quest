@@ -10,14 +10,17 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface TransactionRepository extends JpaRepository <Transaction, Integer> {
-	@Query(value = "Select * from qpd_trans", nativeQuery = true)
+	@Query(value = "Select * from qpd_trans where status != 2", nativeQuery = true)
 	List<Transaction> viewtrans();
 	
-	@Query(value = "SELECT * from qpd_trans where TransactionID =?1" , nativeQuery = true)
+	@Query(value = "SELECT * from qpd_trans where TransactionID =?1 and status != 2" , nativeQuery = true)
 	List<Transaction> Transactionid(int id);
 	
-	@Query(value = "SELECT * from qpd_trans where TransactionRef =?1" , nativeQuery = true)
+	@Query(value = "SELECT * from qpd_trans where TransactionRef =?1 and status != 2" , nativeQuery = true)
 	List<Transaction> TransRefId(int id);
+	
+	@Query(value = "SELECT * from qpd_trans where status = 0 " , nativeQuery = true)
+	List<Transaction> status();
 	
 	@Transactional
 	@Modifying

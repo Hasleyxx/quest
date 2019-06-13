@@ -34,6 +34,10 @@ public class TransactionController {
 		int pid = Integer.parseInt(id);
 		return transactionRepository.TransRefId(pid);
     }
+	@GetMapping("/getHeldTrans")
+	public @ResponseBody List<Transaction> HeldTrans(){
+		return transactionRepository.status();
+	}
 	
 	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
