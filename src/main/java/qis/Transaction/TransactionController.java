@@ -59,13 +59,7 @@ public class TransactionController {
 	 @PostMapping("/addTransaction")
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
 	 	String tRef 		= body.get("transactionRef");
-	 	Integer pId;
-	 	if(body.get("patientId") == "undefined") {
-	 		pId = null;
-	 	}else {
-	 		pId 			= Integer.parseInt(body.get("patientId"));
-	 	}
-	 	
+	 	Integer pId 		= Integer.parseInt(body.get("patientId"));	
 	 	int uId 			= Integer.parseInt(body.get("userId"));
 	 	String tType 		= body.get("transactionType");
 	 	String bil 			= body.get("biller");
