@@ -21,7 +21,7 @@ public interface TransRefRepository extends JpaRepository<TransRef, Integer> {
 			+ " Stool, PhysicalExam, Specimen, Ultrasound, ECG, Others, _2dEcho)"
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)", nativeQuery = true)
 	int addtransref(int trans, int pid, int xray, int blood, int urine, int stool, int pe,
-			int speci, int usound, int ecg, int others, String _2d);
+			int speci, int usound, int ecg, int others, int _2d);
 	
 	@Transactional
 	@Modifying
@@ -29,7 +29,7 @@ public interface TransRefRepository extends JpaRepository<TransRef, Integer> {
 			+ " PhysicalExam = ?5, Specimen = ?6, Ultrasound = ?7, ECG = ?8, Others = ?9, _2dEcho = ?10"
 			+ " WHERE TransactionID = ?11 ", nativeQuery = true)
 	int updatetransref(int xray, int blood, int urine, int stool, int pe,
-			int speci, int usound, int ecg, int others, String _2d, int trans);
+			int speci, int usound, int ecg, int others, int _2d, int trans);
 	
 	
 }

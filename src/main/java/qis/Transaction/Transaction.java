@@ -8,7 +8,7 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int transactionId;
-    private int patientId;
+    private Integer patientId;
     private String transactionRef;
     private String transactionType;
     private String biller;

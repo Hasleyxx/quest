@@ -59,7 +59,13 @@ public class TransactionController {
 	 @PostMapping("/addTransaction")
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
 	 	String tRef 		= body.get("transactionRef");
-	 	int pId 			= Integer.parseInt(body.get("patientId"));
+	 	Integer pId;
+	 	if(body.get("patientId") == null) {
+	 		pId = null;
+	 	}else {
+	 		pId 			= Integer.parseInt(body.get("patientId"));
+	 	}
+	 	
 	 	int uId 			= Integer.parseInt(body.get("userId"));
 	 	String tType 		= body.get("transactionType");
 	 	String bil 			= body.get("biller");
@@ -147,7 +153,7 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
-	 	String _2d			= body.get("_2dEcho");
+	 	int _2d				= Integer.parseInt(body.get("_2dEcho"));
 	 	try {
 	 		return transrefRepository.addtransref(trans, pid, xray, blood, urine, stool, pe,
 	 			speci, usound, ecg, others, _2d);
@@ -167,7 +173,7 @@ public class TransactionController {
 	 	int usound 			= Integer.parseInt(body.get("ultrasound"));
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
-	 	String _2d			= body.get("_2dEcho");
+	 	int _2d				= Integer.parseInt(body.get("_2dEcho"));
 	 	int trans 			= Integer.parseInt(body.get("transactionID"));
 	 	try {
 	 		return transrefRepository.updatetransref( xray, blood, urine, stool, pe,
