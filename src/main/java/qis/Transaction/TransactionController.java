@@ -20,7 +20,7 @@ public class TransactionController {
 	@Autowired
 	TransRefRepository transrefRepository;
 	
-	@GetMapping("/gettransaction")
+	@GetMapping("/getTransaction")
 	public @ResponseBody List<Transaction> ViewTransaction(){
 		return transactionRepository.viewtrans();
 	}
@@ -60,7 +60,7 @@ public class TransactionController {
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
 	 	String tRef 		= body.get("transactionRef");
 	 	Integer pId;
-	 	if(body.get("patientId") == null) {
+	 	if(body.get("patientId") == "undefined") {
 	 		pId = null;
 	 	}else {
 	 		pId 			= Integer.parseInt(body.get("patientId"));
