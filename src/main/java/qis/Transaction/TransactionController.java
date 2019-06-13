@@ -131,8 +131,9 @@ public class TransactionController {
 	 public int UpdateTransext(@RequestBody Map<String, String>body) {
 	 	int qty 		= Integer.parseInt(body.get("itemQTY"));
 	 	int disc 		= Integer.parseInt(body.get("itemDisc"));
+	 	int trans 		= Integer.parseInt(body.get("transactionID"));
 	 	try {
-	 		return transextRepository.updatetransext(qty, disc);
+	 		return transextRepository.updatetransext(qty, disc, trans);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

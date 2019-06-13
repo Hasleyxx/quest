@@ -23,8 +23,8 @@ public interface TransExtRepository extends JpaRepository<TransExt, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_transext SET ItemQTY = ?1, ItemDisc = ?2"
-			+ " WHERE TransactionID = 1386 ", nativeQuery = true)
-	int updatetransext(int qty, int disc);
+			+ " WHERE TransactionID = ?3 ", nativeQuery = true)
+	int updatetransext(int qty, int disc, int trans);
 	
 	
 }
