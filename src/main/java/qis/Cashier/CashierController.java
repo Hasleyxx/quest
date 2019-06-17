@@ -12,7 +12,7 @@ public class CashierController {
 	CashierRepository cashierRespository;
 	
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	//@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/TransactionList")
 	public List<Cashier> findTransactionList() {
 	    	return cashierRespository.findTransactionList();

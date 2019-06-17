@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,16 @@ public class TransactionController {
 		int tid = Integer.parseInt(id);
 		return transextRepository.transrefbyID(tid);
     }
+	
+	@DeleteMapping("/deleteTransext/{id}")
+	public @ResponseBody int DeletebyTransID(@PathVariable String id){
+		int tid = Integer.parseInt(id);
+		try {
+		return transextRepository.deleteTrans(tid);
+		}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+	}
 	
 	@GetMapping("/getTransRef")
 	public @ResponseBody List<TransRef> ViewTransRef(){
@@ -100,12 +111,24 @@ public class TransactionController {
 	 	String an 			= body.get("an");
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
+	 	int trans			= Integer.parseInt(body.get("transactionID"));
 	 	try {
 	 		return transactionRepository.updateTransaction(tType, bil, tPrice, pIn, pOut,
-	 			gTotal, tDate, status, sType, loe, an, ac, notes);
+	 			gTotal, tDate, status, sType, loe, an, ac, notes, trans);
 	 	}catch (DataIntegrityViolationException e){
 	 		return 0;
 	 	}
+	 }
+	 
+	 @PostMapping("/updateStatus")
+	 public int UpdateStatus(@RequestBody Map<String, String>body) {
+		 int status 		= Integer.parseInt(body.get("status"));
+		 int trans			= Integer.parseInt(body.get("transactionID"));
+		 try {
+		 		return transactionRepository.updateStatus(status, trans);
+		 	}catch (DataIntegrityViolationException e){
+		 		return 0;
+		 	}
 	 }
 	 
 	 @PostMapping("/addTransext")
@@ -129,11 +152,12 @@ public class TransactionController {
 	 
 	 @PostMapping("/updateTransext")
 	 public int UpdateTransext(@RequestBody Map<String, String>body) {
+		String pname    = body.get("packageName");
 	 	int qty 		= Integer.parseInt(body.get("itemQTY"));
 	 	int disc 		= Integer.parseInt(body.get("itemDisc"));
-	 	int trans 		= Integer.parseInt(body.get("transactionID"));
+	 	int teid 		= Integer.parseInt(body.get("transExtID"));
 	 	try {
-	 		return transextRepository.updatetransext(qty, disc, trans);
+	 		return transextRepository.updatetransext(pname, qty, disc, teid);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

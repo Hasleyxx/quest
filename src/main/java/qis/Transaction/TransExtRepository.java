@@ -17,14 +17,19 @@ public interface TransExtRepository extends JpaRepository<TransExt, Integer> {
 	
 	@Transactional
 	@Modifying
+	@Query(value = "delete from qpd_transext  where TransactionID = ?1", nativeQuery = true)
+	int deleteTrans(int id);
+	
+	@Transactional
+	@Modifying
 	@Query(value = " INSERT INTO qpd_transext (TransactionID, ItemID, PackageName, ItemQTY, ItemDisc)"
 				 + " VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
 	int addtransext(int tid,Integer iid, String pname, int qty, int disc);
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE qpd_transext SET ItemQTY = ?1, ItemDisc = ?2"
-			+ " WHERE TransactionID = ?3 ", nativeQuery = true)
-	int updatetransext(int qty, int disc, int trans);
+	@Query(value = " UPDATE qpd_transext SET PackageName = ?1, ItemQTY = ?2, ItemDisc = ?3"
+			+ " WHERE transExtID = ?4 ", nativeQuery = true)
+	int updatetransext(String pname, int qty, int disc, int teid);
 	
 	
 }

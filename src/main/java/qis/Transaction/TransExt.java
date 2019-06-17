@@ -20,6 +20,14 @@ public class TransExt {
 	 private String PackageName;
 	 private int ItemQTY;
 	 private int ItemDisc;
+	 
+	
+	public int getTransExtID() {
+		return transExtID;
+	}
+	public void setTransExtID(int transExtID) {
+		this.transExtID = transExtID;
+	}
 	public int getTransactionID() {
 		return TransactionID;
 	}

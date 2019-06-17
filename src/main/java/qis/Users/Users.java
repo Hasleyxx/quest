@@ -17,7 +17,8 @@ public class Users {
 	private String userPass;
 	private String userStatus;
 	private String tokenCode;
-	private String _class;
+	private String _class;	
+
 	public int getUserID() {
 		return userID;
 	}
