@@ -98,6 +98,8 @@ public class TransactionController {
 	 }
 	 @PostMapping("/updateTransaction")
 	 public int UpdateTransaction(@RequestBody Map<String, String>body) {
+		Integer pId 		= Integer.parseInt(body.get("patientId"));	
+		int uId 			= Integer.parseInt(body.get("userId"));
 	 	String tType 		= body.get("transactionType");
 	 	String bil 			= body.get("biller");
 	 	String tPrice 		= body.get("totalPrice");
@@ -113,8 +115,8 @@ public class TransactionController {
 	 	String notes 		= body.get("notes");
 	 	int trans			= Integer.parseInt(body.get("transactionID"));
 	 	try {
-	 		return transactionRepository.updateTransaction(tType, bil, tPrice, pIn, pOut,
-	 			gTotal, tDate, status, sType, loe, an, ac, notes, trans);
+	 		return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
+	 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, trans);
 	 	}catch (DataIntegrityViolationException e){
 	 		return 0;
 	 	}

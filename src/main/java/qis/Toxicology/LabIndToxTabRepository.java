@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import qis.Chemistry.LabIndChemTable;
 
 public interface LabIndToxTabRepository extends JpaRepository <LabIndToxTable, Integer> {
 	@Query(value = " SELECT t.TransactionID, t.PatientID, t.TransactionDate, p.CompanyName, "

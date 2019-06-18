@@ -34,17 +34,17 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 			String loe, String an, String ac, String notes);
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE qpd_trans SET TransactionType = ?1, Biller = ?2, TotalPrice = ?3,"
-			+ " PaidIn = ?4, PaidOut = ?5, GrandTotal = ?6, TransactionDate = ?7, status = ?8,"
-			+ " SalesType = ?9, LOE = ?10, AN = ?11, AC = ?12, Notes = ?13"
-			+ " WHERE TransactionID = ?14 ", nativeQuery = true)
-	int updateTransaction(String tType, String bil, String tPrice, double pIn, double pOut,
-			double gTotal, String tDate, int status, String sType, String loe, String an,
-			String ac, String notes, int trans);
+	@Query(value = " UPDATE qpd_trans SET PatientID = ?1, userID = ?2, TransactionType = ?3,"
+			+ " Biller = ?4, TotalPrice = ?5, PaidIn = ?6, PaidOut = ?7, GrandTotal = ?8,"
+			+ " TransactionDate = ?9, status = ?10, SalesType = ?11, LOE = ?12, AN = ?13,"
+			+ " AC = ?14, Notes = ?15 WHERE TransactionID = ?16 ", nativeQuery = true)
+	int updateTransaction(int pId, int uId, String tType, String bil, String tPrice, double pIn,
+			double pOut, double gTotal, String tDate, int status, String sType, String loe,
+			String an, String ac, String notes, int trans);
 	
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE qpd_trans SET status = ?1 WHERE TransactionID = ?2" )
+	@Query(value = " UPDATE qpd_trans SET status = ?1 WHERE TransactionID = ?2", nativeQuery = true )
 	int updateStatus(int status, int trans);
 	
 
