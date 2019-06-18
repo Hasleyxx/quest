@@ -113,7 +113,7 @@ public class TransactionController {
 	 	String an 			= body.get("an");
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
-	 	int trans			= Integer.parseInt(body.get("transactionID"));
+	 	int trans			= Integer.parseInt(body.get("transactionId"));
 	 	try {
 	 		return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
 	 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, trans);
@@ -125,7 +125,7 @@ public class TransactionController {
 	 @PostMapping("/updateStatus")
 	 public int UpdateStatus(@RequestBody Map<String, String>body) {
 		 int status 		= Integer.parseInt(body.get("status"));
-		 int trans			= Integer.parseInt(body.get("transactionID"));
+		 int trans			= Integer.parseInt(body.get("transactionId"));
 		 try {
 		 		return transactionRepository.updateStatus(status, trans);
 		 	}catch (DataIntegrityViolationException e){
@@ -135,7 +135,7 @@ public class TransactionController {
 	 
 	 @PostMapping("/addTransext")
 	 public int AddTransext(@RequestBody Map<String, String>body) {
-	 	int tid 		= Integer.parseInt(body.get("transactionID"));
+	 	int tid 		= Integer.parseInt(body.get("transactionId"));
 	 	Integer iid;
 	 	if(body.get("itemID") != null) {
 	 		iid = Integer.parseInt(body.get("itemID"));
@@ -167,7 +167,7 @@ public class TransactionController {
 	 
 	 @PostMapping("/addTransref")
 	 public int AddTransRef(@RequestBody Map<String, String> body) {
-	 	int trans 			= Integer.parseInt(body.get("transactionID"));
+	 	int trans 			= Integer.parseInt(body.get("transactionId"));
 	 	int pid 			= Integer.parseInt(body.get("patientID"));
 	 	int xray 			= Integer.parseInt(body.get("xray"));
 	 	int blood 			= Integer.parseInt(body.get("blood"));
@@ -199,7 +199,7 @@ public class TransactionController {
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
 	 	int _2d				= Integer.parseInt(body.get("_2dEcho"));
-	 	int trans 			= Integer.parseInt(body.get("transactionID"));
+	 	int trans 			= Integer.parseInt(body.get("transactionId"));
 	 	try {
 	 		return transrefRepository.updatetransref( xray, blood, urine, stool, pe,
 	 			speci, usound, ecg, others ,_2d, trans);
