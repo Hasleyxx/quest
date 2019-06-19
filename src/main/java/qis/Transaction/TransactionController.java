@@ -40,6 +40,11 @@ public class TransactionController {
 		return transactionRepository.status();
 	}
 	
+	@GetMapping("/getTransactionDate/{v1}/{v2}")
+	public List<Transaction> TransactionDate(@PathVariable String v1, @PathVariable String v2) {
+		return transactionRepository.getTransactionDate(v1, v2); 
+    }
+	
 	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
 		return transextRepository.viewtrans();
