@@ -38,7 +38,7 @@ public interface ItemsRepository extends JpaRepository<Items, Integer>{
 	
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE qpd_items set ItemName = ?1, ItemPrice = ?2, ItemDescription = ?3,"
+	@Query(value = " UPDATE qpd_items set ItemName = ?1, ItemPrice = ?2, ItemDescription = ?3,"
 			+ " ItemType = ?4, DeletedItem = ?5, NeededTest = ?6, CreationDate = ?7,"
 			+ " DateUpdate = ?8 where ItemId = ?9 ", nativeQuery = true )
 	int updateItem(String iname, double iprice, String des, String type, int del, int test,

@@ -51,8 +51,9 @@ public class CompanyController {
 	public int UpdateCompany(@RequestBody Map<String, String>body){
 		String cname		= body.get("nameCompany");
 		String cadd			= body.get("companyAddress");
+		int cid				= Integer.parseInt(body.get("companyID"));
 		try {
-			return companyRepository.updateCompany(cname, cadd);
+			return companyRepository.updateCompany(cname, cadd, cid);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
