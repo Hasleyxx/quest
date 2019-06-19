@@ -45,6 +45,18 @@ public class TransactionController {
 		return transactionRepository.getTransactionDate(v1, v2); 
     }
 	
+	@GetMapping("/getTransactionType/{type}")
+	public List<Transaction> TransactionType(@PathVariable String type){
+		return transactionRepository.getTransactionType(type);
+	}
+	
+	@GetMapping("/getTransTypeDate/{type}/{v1}/{v2}")
+	public List<Transaction> TransactionTypeDate(@PathVariable String type,
+			@PathVariable String v1, @PathVariable String v2){
+		return transactionRepository.getTransactionTypeDate(type, v1, v2);
+	}
+	
+	
 	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
 		return transextRepository.viewtrans();
@@ -65,6 +77,8 @@ public class TransactionController {
     		return 0;
     	}
 	}
+	
+	
 	
 	@GetMapping("/getTransRef")
 	public @ResponseBody List<TransRef> ViewTransRef(){

@@ -25,6 +25,13 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2", nativeQuery = true)
 	List<Transaction> getTransactionDate(String v1, String v2);
 	
+	@Query(value = " SELECT * from qpd_trans where TransactionType = ?1", nativeQuery = true)
+	List<Transaction> getTransactionType(String type);
+	
+	@Query(value = " SELECT * from qpd_trans where TransactionType = ?1 and "
+				 + " TransactionDate BETWEEN ?2 and ?3", nativeQuery = true)
+	List<Transaction> getTransactionTypeDate(String type, String v1, String v2);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO qpd_trans (TransactionRef, PatientID, userID, TransactionType,"
