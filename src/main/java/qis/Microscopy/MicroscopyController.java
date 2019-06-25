@@ -36,7 +36,7 @@ public class MicroscopyController {
 	}
 	
 	
-	@PostMapping("/addmicroscopy")
+	@PostMapping("/addMicroscopy")
     public int LabMicroscopyADD(@RequestBody Map<String, String> body){  
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));
@@ -89,7 +89,7 @@ public class MicroscopyController {
 	    
 	}
 	
-	@PostMapping("/updatemicroscopy")
+	@PostMapping("/updateMicroscopy")
     public int LabMicroscopyUPDATE(@RequestBody Map<String, String> body){
 		
 		int qid 			= Integer.parseInt(body.get("qualityID"));

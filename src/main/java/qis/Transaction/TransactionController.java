@@ -141,6 +141,20 @@ public class TransactionController {
 	 	}
 	 }
 	 
+	 @PostMapping("/updateACANLOE")
+	 public int UpdateACANLOE(@RequestBody Map<String, String>body) {
+		 int tid			= Integer.parseInt(body.get("transactionId"));
+		 String loe 		= body.get("loe");
+		 String an			= body.get("an");
+		 String	ac			= body.get("ac");
+		 String tdate 		= body.get("transactionDate");
+		 try {
+			 return transactionRepository.updateACANLOE(ac, an, loe, tdate, tid);
+		 }catch(DataIntegrityViolationException e) {
+			 return 0;
+		 }
+	 }
+	 
 	 @PostMapping("/updateStatus")
 	 public int UpdateStatus(@RequestBody Map<String, String>body) {
 		 int status 		= Integer.parseInt(body.get("status"));

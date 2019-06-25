@@ -28,7 +28,7 @@ public class ToxicologyController {
     	int pid = Integer.parseInt(id);
         return LabInToxicologyRepository.toxicologyview(pid);   
     }
-    @PostMapping("/addtoxicology")
+    @PostMapping("/addToxicology")
     public int toxicologyadd(@RequestBody Map<String, String> body) {
     	
     	//String stoxicid	       = body.get("toxicID");
@@ -52,7 +52,7 @@ public class ToxicologyController {
     	}
 
     }
-    @PatchMapping("/updatetoxicology")
+    @PatchMapping("/updateToxicology")
     public int toxicologyupdate(@RequestBody Map<String, String> body) {
     	
     	String stoxicid	       = body.get("toxicID");

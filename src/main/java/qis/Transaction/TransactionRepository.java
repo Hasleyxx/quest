@@ -57,5 +57,11 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " UPDATE qpd_trans SET status = ?1 WHERE TransactionID = ?2", nativeQuery = true )
 	int updateStatus(int status, int trans);
 	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET AC = ?1, AN = ?2, LOE = ?3, TransactionDate = ?4 "
+				 + " WHERE TransactionID = ?5", nativeQuery = true)
+	int updateACANLOE(String ac, String an, String loe, String tdate, int tid);
+	
 
 }

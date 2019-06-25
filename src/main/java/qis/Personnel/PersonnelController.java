@@ -16,18 +16,18 @@ public class PersonnelController {
 	@Autowired
 	LabPersonnelRepository LabPerRepository;
 	
-	@GetMapping("/getpersonnel/{id}")
+	@GetMapping("/getPersonnel/{id}")
 	public  @ResponseBody List<LabPersonnel> LabPersonnelbyID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabPerRepository.getpersonnelbyid(pid);
     }
 	
-	@GetMapping("/getpersonnel")
+	@GetMapping("/getPersonnel")
 	public List<LabPersonnel> LabPersonnel() {
         return LabPerRepository.getpersonnel();
     }
 	
-	@PostMapping("/addpersonnel")
+	@PostMapping("/addPersonnel")
     public int addPersonnel(@RequestBody Map<String, String> body){
 		String fn 			= body.get("firstName");
 		String mn 			= body.get("middleName");
@@ -43,7 +43,7 @@ public class PersonnelController {
 		
 	}
 	
-	@PostMapping("/updatepersonnel")
+	@PostMapping("/updatePersonnel")
     public int updatePersonnel(@RequestBody Map<String, String> body){
 		String fn 			= body.get("firstName");
 		String mn 			= body.get("middleName");

@@ -24,7 +24,7 @@ public interface LabInToxicologyRepository extends JpaRepository <LabIndustrialT
 
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE lab_toxicology SET TransactionID = ?2, PatientID = ?3,"
+	@Query(value = " UPDATE lab_toxicology SET TransactionID = ?2, PatientID = ?3,"
 			+ " Meth = ?4, Tetra = ?5, Drugtest = ?6, PathID = ?7, MedID = ?8, QualityID = ?9,"
 			+ " CreationDate = ?10, DateUpdate = ?11 WHERE toxicID = ?1", nativeQuery = true)	
 	int toxicologyupdate(int toxicid, int transid, int pid, String meth, String tetra,
