@@ -24,6 +24,7 @@ public class Transaction {
     private String an;
     private String ac;
     private String notes;
+    private String currency;
    
     
     public int getUserId() {
@@ -145,6 +146,15 @@ public class Transaction {
 	public void setBiller(String biller) {
 		this.biller = biller;
 	}
+	
+	
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 
 	public Transaction() {  }
 
@@ -186,4 +196,5 @@ public class Transaction {
     public void setTransactionType(String title) {
         this.transactionType = title;
     }
+    
 }

@@ -108,9 +108,10 @@ public class TransactionController {
 	 	String an 			= body.get("an");
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
+	 	String cur			= body.get("currency");
 	 	try {
 	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
-	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes);
+	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -133,12 +134,13 @@ public class TransactionController {
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
 	 	int trans			= Integer.parseInt(body.get("transactionId"));
-	 	try {
+	 	String cur			= body.get("currency");
+	 	//try {
 	 		return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
-	 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, trans);
-	 	}catch (DataIntegrityViolationException e){
-	 		return 0;
-	 	}
+	 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
+	 //	}catch (DataIntegrityViolationException e){
+	 		//return 0;
+	 	//}
 	 }
 	 
 	 @PostMapping("/updateACANLOE")
