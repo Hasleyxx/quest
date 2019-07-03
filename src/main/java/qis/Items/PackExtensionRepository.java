@@ -23,4 +23,9 @@ public interface PackExtensionRepository extends JpaRepository<PackageExt, Integ
 	@Query(value = "select * from qpd_packext where PackageName = :#{#packName} order by PackageName", 
 			nativeQuery = true)
 	List<PackageExt> findPackageById(@Param("packName") String packName);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "delete from qpd_packext where PackageName = ?1 and ItemID = ?2", nativeQuery = true)
+	int deletePackage(String pname, int id);
 }
