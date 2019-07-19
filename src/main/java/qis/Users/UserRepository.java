@@ -14,8 +14,14 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 	@Query(value = " SELECT * from tbl_users", nativeQuery = true)
 	List<Users> UserList();
 	
+	@Query(value = " SELECT * from tbl_users where userStatus = ?1", nativeQuery = true)
+	List<Users> verifyUser(String user);
+	
 	@Query(value = "Select * from tbl_users where userID =?1" , nativeQuery = true)
 	List<Users> getuserbyid(int id);
+	
+	@Query(value = "Select * from tbl_users where userName = ?1" , nativeQuery = true)
+	List<Users> getuserbyname(String user);
 	
 	@Transactional
 	@Modifying

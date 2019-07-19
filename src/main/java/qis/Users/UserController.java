@@ -25,11 +25,21 @@ public class UserController {
     	return userRepository.UserList();
     }
 	
+	@GetMapping("/verifyUser/{foo}")
+	public  @ResponseBody List<Users> verifyUser(@PathVariable String foo) {
+        return userRepository.verifyUser(foo);
+    }
+	
 	@GetMapping("/getUser/{id}")
 	public  @ResponseBody List<Users> UserbyID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return userRepository.getuserbyid(pid);
        
+    }
+	
+	@GetMapping("/getUserName/{user}")
+	public  @ResponseBody List<Users> getuserbyname(@PathVariable String user) {		
+        return userRepository.getuserbyname(user);     
     }
 	
 	@GetMapping("/getPrivilege")
