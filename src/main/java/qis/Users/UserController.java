@@ -118,4 +118,15 @@ public class UserController {
     		return 0;
     	}
 	}
+	
+	@PostMapping("/updateUserStatus")
+    public int UpdateUserStatus(@RequestBody Map<String, String>body) {
+		int uid				= Integer.parseInt(body.get("userID"));
+		String status 		= body.get("userStatus");
+    	try {
+    		return userRepository.updateUserStatus(status, uid);
+    	}catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+    }
 }
