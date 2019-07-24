@@ -14,25 +14,32 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountingRepository extends JpaRepository<Accounting, Integer> {
 	
-	@Query(value = " SELECT * from qpd_accounting", nativeQuery = true)
+	@Query(value = " SELECT * from acc_payment", nativeQuery = true)
 	List<Accounting> accList();
 	
-	@Query(value = " SELECT * from qpd_accounting where TransactionID = ?1", nativeQuery = true)
+	@Query(value = " SELECT * from acc_payment where TransactionID = ?1", nativeQuery = true)
 	List<Accounting> accListbyTID(int tid);
 	
-	@Query(value = " SELECT * from qpd_accounting where PatientID = ?1", nativeQuery = true)
-	List<Accounting> accListbyPID(int pid);
+	@Query(value = " SELECT * from acc_payment where BillID = ?1", nativeQuery = true)
+	List<Accounting> accListbyBID(int bid);
+	
+	@Query(value = " SELECT * from acc_payment where CompanyID = ?1", nativeQuery = true)
+	List<Accounting> accListbyCID(int cid);
 	
 	@Transactional
 	@Modifying
-	@Query(value = " INSERT into qpd_accounting(TransactionID, PaidCur, PaidDate, TimeLimit, PatientID)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-	int addAcc(int tid, String cur, String pdate, String tdate, int pid);
+	@Query(value = " INSERT into acc_payment(TransactionID, BillID, CompanyID, Debit, PaymentType, "
+			+ "PaymentCur, CheckNo, Bank, CheckDate, PaymentDate )"
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)", nativeQuery = true)
+	int addAcc(Integer tid, Integer bid, int cid, double debit, String pt, String pc, 
+			String cn, String bank,String cd, String pd);
 	
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE qpd_accounting SET PaidCur = ?1, PaidDate = ?2, TimeLimit = ?3 "
-			+ "where accID = ?4", nativeQuery = true)
-	int updateAcc(String cur, String pdate, String tdate, int aid);
+	@Query(value = "UPDATE acc_payment SET TransactionID = ?1, BillID = ?2, CompanyID = ?3, Debit = ?4, "
+			+ "PaymentType = ?5, PaymentCur = ?6, CheckNo = ?7, Bank = ?8, CheckDate = ?9, PaymentDate = ?10 "
+			+ "where apID = ?11", nativeQuery = true)
+	int updateAcc(Integer tid, Integer bid, int cid, double debit, String pt, String pc, 
+			String cn, String bank,String cd, String pd, int aid);
 
 }

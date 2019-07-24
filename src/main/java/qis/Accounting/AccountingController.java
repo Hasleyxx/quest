@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountingController {
 	@Autowired
 	AccountingRepository accRep;
+	BillingRepository bilRep;
 	
 	@GetMapping("/accList")
 	public @ResponseBody List<Accounting> accList() {
@@ -28,21 +29,53 @@ public class AccountingController {
 	    	return accRep.accListbyTID(tid);
 	}
 	
-	@GetMapping("/accPID/{id}")
-	public @ResponseBody List<Accounting> accListbyPID(@PathVariable String id) {
-		int tid = Integer.parseInt(id);
-	    	return accRep.accListbyPID(tid);
+	@GetMapping("/accBID/{id}")
+	public @ResponseBody List<Accounting> accListbyBID(@PathVariable String id) {
+		int bid = Integer.parseInt(id);
+	    	return accRep.accListbyBID(bid);
+	}
+	
+	@GetMapping("/accCID/{id}")
+	public @ResponseBody List<Accounting> accListbyCID(@PathVariable String id) {
+		int cid = Integer.parseInt(id);
+	    	return accRep.accListbyCID(cid);
+	}
+	
+	@GetMapping("/bilList")
+	public @ResponseBody List<Accounting> bilList() {
+	    	return bilRep.bilList();
+	}
+	
+	@GetMapping("/bilList/{id}")
+	public @ResponseBody List<Accounting> bilCID(@PathVariable String id) {
+			int cid = Integer.parseInt(id);
+	    	return bilRep.bilCID(cid);
 	}
 	
 	@PostMapping("/addAcc")
     public int addAcc(@RequestBody Map<String, String>body) {
-    	int tid 			= Integer.parseInt(body.get("TransactionID"));
-    	int pid 			= Integer.parseInt(body.get("PatientID"));
-    	String cur 			= body.get("PaidCur");
-    	String pdate 		= body.get("PaidDate");
-    	String tdate 		= body.get("TimeLimit");
+		Integer tid, bid;
+		if(body.get("transactionID") != null) {
+			tid = Integer.parseInt(body.get("transactionID"));
+		}else {
+			tid = null;
+		}
+		if(body.get("billID") != null) {
+			bid = Integer.parseInt(body.get("billID"));
+		}else {
+			bid = null;
+		}
+    	int cid = Integer.parseInt(body.get("companyID"));
+    	double debit = Double.parseDouble(body.get("debit"));
+    	String pt = body.get("paymentType");
+    	String pc = body.get("paymentCur");
+    	String cn = body.get("checkNo");
+    	String bank = body.get("bank");
+    	String cd = body.get("checkDate");
+    	String pd = body.get("paymentDate");
+    	
     	try {
-    		return accRep.addAcc(tid, cur, pdate, tdate, pid);
+    		return accRep.addAcc(tid, bid, cid, debit, pt, pc, cn, bank, cd, pd);
     	}
     	catch (DataIntegrityViolationException e) {
     		return 0;
@@ -51,12 +84,29 @@ public class AccountingController {
 	
 	@PostMapping("/updateAcc")
     public int updateAcc(@RequestBody Map<String, String>body) {
-    	String cur 			= body.get("PaidCur");
-    	String pdate 		= body.get("PaidDate");
-    	String tdate 		= body.get("TimeLimit");
-    	int aid				= Integer.parseInt(body.get("accID"));
+		Integer tid, bid;
+		if(body.get("transactionID") != null) {
+			tid = Integer.parseInt(body.get("transactionID"));
+		}else {
+			tid = null;
+		}
+		if(body.get("billID") != null) {
+			bid = Integer.parseInt(body.get("billID"));
+		}else {
+			bid = null;
+		}
+    	int cid = Integer.parseInt(body.get("companyID"));
+    	int aid = Integer.parseInt(body.get("apID"));
+    	double debit = Double.parseDouble(body.get("debit"));
+    	String pt = body.get("paymentType");
+    	String pc = body.get("paymentCur");
+    	String cn = body.get("checkNo");
+    	String bank = body.get("bank");
+    	String cd = body.get("checkDate");
+    	String pd = body.get("paymentDate");
+    	
     	try {
-    		return accRep.updateAcc( cur, pdate, tdate, aid );
+    		return accRep.updateAcc(tid, bid, cid, debit, pt, pc, cn, bank, cd, pd, aid);
     	}
     	catch (DataIntegrityViolationException e) {
     		return 0;
