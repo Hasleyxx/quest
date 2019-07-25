@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountingController {
 	@Autowired
 	AccountingRepository accRep;
+	@Autowired
 	BillingRepository bilRep;
 	
 	@GetMapping("/accList")
@@ -42,14 +43,26 @@ public class AccountingController {
 	}
 	
 	@GetMapping("/bilList")
-	public @ResponseBody List<Accounting> bilList() {
+	public @ResponseBody List<Billing> bilList() {
 	    	return bilRep.bilList();
 	}
 	
 	@GetMapping("/bilList/{id}")
-	public @ResponseBody List<Accounting> bilCID(@PathVariable String id) {
+	public @ResponseBody List<Billing> bilCID(@PathVariable String id) {
 			int cid = Integer.parseInt(id);
 	    	return bilRep.bilCID(cid);
+	}
+	
+	@GetMapping("/bilID/{id}")
+	public @ResponseBody List<Billing> bilBID(@PathVariable String id) {
+			int bid = Integer.parseInt(id);
+	    	return bilRep.bilBID(bid);
+	}
+	
+	@GetMapping("/bilSC/{id}")
+	public @ResponseBody List<Billing> bilSC(@PathVariable String id) {
+			int sc = Integer.parseInt(id);
+	    	return bilRep.bilSC(sc);
 	}
 	
 	@PostMapping("/addAcc")
@@ -107,6 +120,45 @@ public class AccountingController {
     	
     	try {
     		return accRep.updateAcc(tid, bid, cid, debit, pt, pc, cn, bank, cd, pd, aid);
+    	}
+    	catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+    }
+	
+	@PostMapping("/addBil")
+    public int addBil(@RequestBody Map<String, String>body) {
+    	int cid = Integer.parseInt(body.get("companyID"));
+    	String add = body.get("address");
+    	String tids = body.get("transIds");
+    	String sd = body.get("soaDate");
+    	String td = body.get("toDate");
+    	String fd = body.get("fromDate");
+    	String sc = body.get("soaCode");
+    	String att = body.get("attention");
+    	
+    	try {
+    		return bilRep.addBil(cid, add, sc, fd, td, sd, tids, att);
+    	}
+    	catch (DataIntegrityViolationException e) {
+    		return 0;
+    	}
+    }
+	
+	@PostMapping("/updateBil")
+    public int updateBil(@RequestBody Map<String, String>body) {
+		int bid = Integer.parseInt(body.get("billID"));
+    	int cid = Integer.parseInt(body.get("companyID"));
+    	String add = body.get("address");
+    	String tids = body.get("transIds");
+    	String sd = body.get("soaDate");
+    	String td = body.get("toDate");
+    	String fd = body.get("fromDate");
+    	String sc = body.get("soaCode");
+    	String att = body.get("attention");
+    	
+    	try {
+    		return bilRep.updateBil(cid, add, sc, fd, td, sd, tids, att,  bid);
     	}
     	catch (DataIntegrityViolationException e) {
     		return 0;

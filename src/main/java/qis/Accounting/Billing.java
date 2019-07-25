@@ -20,6 +20,8 @@ public class Billing {
 	 private String toDate;
 	 private String soaDate;
 	 private String transIds;
+	 private String Attention;
+	 
 	public int getBillID() {
 		return BillID;
 	}
@@ -67,6 +69,12 @@ public class Billing {
 	}
 	public void setTransIds(String transIds) {
 		this.transIds = transIds;
+	}
+	public String getAttention() {
+		return Attention;
+	}
+	public void setAttention(String attention) {
+		Attention = attention;
 	}
 	 
 }
