@@ -24,6 +24,12 @@ public class AccountingController {
 	    	return accRep.accList();
 	}
 	
+	@GetMapping("/accID/{id}")
+	public @ResponseBody List<Accounting> accListbyID(@PathVariable String id) {
+		int aid = Integer.parseInt(id);
+	    	return accRep.accListbyID(aid);
+	}
+	
 	@GetMapping("/accTID/{id}")
 	public @ResponseBody List<Accounting> accListbyTID(@PathVariable String id) {
 		int tid = Integer.parseInt(id);

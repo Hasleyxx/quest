@@ -17,6 +17,9 @@ public interface AccountingRepository extends JpaRepository<Accounting, Integer>
 	@Query(value = " SELECT * from acc_payment", nativeQuery = true)
 	List<Accounting> accList();
 	
+	@Query(value = " SELECT * from acc_payment where apID = ?1", nativeQuery = true)
+	List<Accounting> accListbyID(int aid);
+	
 	@Query(value = " SELECT * from acc_payment where TransactionID = ?1", nativeQuery = true)
 	List<Accounting> accListbyTID(int tid);
 	
