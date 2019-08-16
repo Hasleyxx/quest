@@ -22,6 +22,11 @@ public class PersonnelController {
         return LabPerRepository.getpersonnelbyid(pid);
     }
 	
+	@GetMapping("/getPersonnelDep/{id}")
+	public  @ResponseBody List<LabPersonnel> LabPersonnelbydep(@PathVariable String id) {
+        return LabPerRepository.getpersonnelbydep(id);
+    }
+	
 	@GetMapping("/getPersonnel")
 	public List<LabPersonnel> LabPersonnel() {
         return LabPerRepository.getpersonnel();
@@ -35,8 +40,9 @@ public class PersonnelController {
 		String no 			= body.get("licenseNO");
 		String po 			= body.get("position");
 		String ext 			= body.get("positionEXT");
+		String dep 			= body.get("Department");
 		try {
-			return LabPerRepository.addPersonnel(fn, mn, ln, no, po, ext);
+			return LabPerRepository.addPersonnel(fn, mn, ln, no, po, ext, dep);
 		}catch (DataIntegrityViolationException e) {
    			return 0;
    		}
@@ -51,9 +57,10 @@ public class PersonnelController {
 		String no 			= body.get("licenseNO");
 		String po 			= body.get("position");
 		String ext 			= body.get("positionEXT");
+		String dep 			= body.get("department");
 		int pid 			= Integer.parseInt(body.get("personnelID"));
 		try {
-			return LabPerRepository.updatePersonnel(fn, mn, ln, no, po, ext, pid);
+			return LabPerRepository.updatePersonnel(fn, mn, ln, no, po, ext, dep, pid);
 		}catch (DataIntegrityViolationException e) {
    			return 0;
    		}

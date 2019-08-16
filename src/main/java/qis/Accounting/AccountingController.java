@@ -142,9 +142,12 @@ public class AccountingController {
     	String fd = body.get("fromDate");
     	String sc = body.get("soaCode");
     	String att = body.get("attention");
+    	String pre = body.get("prepared");
+    	String ver = body.get("verified");
+    	String val = body.get("validated");
     	
     	try {
-    		return bilRep.addBil(cid, add, sc, fd, td, sd, tids, att);
+    		return bilRep.addBil(cid, add, sc, fd, td, sd, tids, att, pre, ver, val);
     	}
     	catch (DataIntegrityViolationException e) {
     		return 0;
@@ -162,9 +165,12 @@ public class AccountingController {
     	String fd = body.get("fromDate");
     	String sc = body.get("soaCode");
     	String att = body.get("attention");
+    	String pre = body.get("prepared");
+    	String ver = body.get("verified");
+    	String val = body.get("validated");
     	
     	try {
-    		return bilRep.updateBil(cid, add, sc, fd, td, sd, tids, att,  bid);
+    		return bilRep.updateBil(cid, add, sc, fd, td, sd, tids, att, pre, ver, val,  bid);
     	}
     	catch (DataIntegrityViolationException e) {
     		return 0;

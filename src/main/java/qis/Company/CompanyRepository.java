@@ -15,6 +15,9 @@ public interface CompanyRepository extends JpaRepository <Company, Integer> {
 	@Query(value = "Select * from qpd_company where CompanyID = ?1 " , nativeQuery = true)
 	List<Company> getCompanyid(int id);
 	
+	@Query(value = "Select * from qpd_company where NameCompany = ?1 " , nativeQuery = true)
+	List<Company> getCompanyName(String name);
+	
 	/*@Query(value = " SELECT * from qpd_company where "
 		     + " nameCompany LIKE CONCAT('%',:cn,'%')" , nativeQuery = true)
 	List<Company> getCompany(String cn);

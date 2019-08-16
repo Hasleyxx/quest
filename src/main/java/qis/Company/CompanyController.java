@@ -29,6 +29,11 @@ public class CompanyController {
         return companyRepository.getCompanyid(pid);
 	}
 	
+	@GetMapping("/getCompanyName/{name}")
+	public  @ResponseBody List<Company> CompanyName(@PathVariable String name) {
+        return companyRepository.getCompanyName(name);
+	}
+	
 	/*@GetMapping("/getCompany/{cn}")
 	public with/without responsebody @ResponseBody List<Company> 
 	CompanyName(@PathVariable String cn) {

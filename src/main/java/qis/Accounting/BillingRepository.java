@@ -27,13 +27,16 @@ public interface BillingRepository extends JpaRepository<Billing, Integer>{
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into acc_billing( CompanyID, Address, soaCode, fromDate,"
-			+ "toDate, soaDate, TransIds , Attention )"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7 , ?8)", nativeQuery = true)
-	int addBil( int cid, String add, String sc, String fd, String td,String sd, String tids, String att);
+			+ "toDate, soaDate, TransIds , Attention, Prepared, Verified, Validated )"
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7 , ?8, ?9, ?10, ?11)", nativeQuery = true)
+	int addBil( int cid, String add, String sc, String fd, String td,String sd, String tids, String att, 
+			String pre, String ver, String vali);
 	
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE acc_billing set CompanyID = ?1 , Address = ?2, soaCode = ?3, "
-			+ "fromDate = ?4, toDate = ?5, soaDate = ?6, TransIds = ?7, Attention = ?8 where BillID = ?9", nativeQuery = true)
-	int updateBil( int cid, String add, String sc, String fd, String td,String sd, String tids, String att, int bid);
+			+ "fromDate = ?4, toDate = ?5, soaDate = ?6, TransIds = ?7, Attention = ?8, "
+			+ "Prepared = ?9, Verified = ?10, Validated = ?11 where BillID = ?12", nativeQuery = true)
+	int updateBil( int cid, String add, String sc, String fd, String td,String sd, String tids, String att,
+			String pre, String ver, String vali, int bid);
 }

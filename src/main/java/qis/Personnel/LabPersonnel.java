@@ -22,8 +22,10 @@ public class LabPersonnel {
 	 private String LicenseNO;
 	 private String Position;
 	 private String PositionEXT;
+	 private String Department;
 	 
 
+	
 	public String getPersonnelID() {
 		return personnelID;
 	}
@@ -65,7 +67,13 @@ public class LabPersonnel {
 	}
 	public void setPositionEXT(String positionEXT) {
 		PositionEXT = positionEXT;	
-	}	
+	}
+	public String getDepartment() {
+		return Department;
+	}
+	public void setDepartment(String department) {
+		Department = department;
+	}
 	
 	 @Override
 	    public String toString() {

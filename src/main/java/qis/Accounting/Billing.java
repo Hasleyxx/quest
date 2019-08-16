@@ -21,7 +21,11 @@ public class Billing {
 	 private String soaDate;
 	 private String transIds;
 	 private String Attention;
+	 private String Prepared;
+	 private String Verified;
+	 private String Validated;
 	 
+	
 	public int getBillID() {
 		return BillID;
 	}
@@ -75,6 +79,25 @@ public class Billing {
 	}
 	public void setAttention(String attention) {
 		Attention = attention;
+	}
+	
+	public String getPrepared() {
+		return Prepared;
+	}
+	public void setPrepared(String prepared) {
+		Prepared = prepared;
+	}
+	public String getVerified() {
+		return Verified;
+	}
+	public void setVerified(String verified) {
+		Verified = verified;
+	}
+	public String getValidated() {
+		return Validated;
+	}
+	public void setValidated(String validated) {
+		Validated = validated;
 	}
 	 
 }
