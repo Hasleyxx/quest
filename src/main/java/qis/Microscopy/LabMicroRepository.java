@@ -10,14 +10,14 @@ import org.springframework.data.jpa.repository.Query;
 public interface LabMicroRepository extends JpaRepository <LabMicroscopy, Integer> {
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE lab_microscopy SET TransactionID  = ?1, PatientID = ?2, FecColor = ?3,"
+	@Query(value = " UPDATE lab_microscopy SET PatientID = ?2, FecColor = ?3,"
 			+ " FecCon = ?4, FecMicro = ?5, FecOt = ?6, UriColor = ?7, UriTrans = ?8,"
 			+ " UriPh = ?9, UriSp = ?10, UriPro = ?11, UriGLu = ?12, RBC = ?13, WBC = ?14, BAC = ?15,"
 			+ " MThreads = ?16, ECells = ?17, Amorph = ?18, CoAx = ?19, UriOt = ?20, LE = ?21,"
 			+ " NIT = ?22, URO = ?23, BLD = ?24, KET = ?25, BIL = ?26, PregTest = ?27, AFBVA1 = ?28,"
 			+ " AFBVA2 = ?29, AFBR1 = ?30, AFBR2 = ?31, AFBD = ?32, OccultBLD = ?33, PathID = ?34,"
 			+ " MedID = ?35, QualityID = ?36 , CreationDate = ?37, DateUpdate = ?38 "
-			+ " where microID = 874", nativeQuery = true)
+			+ " where TransactionID = ?1", nativeQuery = true)
 	int updatemicroscopy(int trans, int pid, String fcolor, String fcon, String fmicro, String fot,
 			String ucolor, String utrans, String uph, String usp, String upro, String uglu,
 			String rbc, String wbc, String bac, String mthreads, String ecells, String amorph,
