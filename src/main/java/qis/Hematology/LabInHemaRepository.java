@@ -7,7 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import qis.Microscopy.LabMicroscopy;
+
 public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, Integer> {
+	
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE lab_hematology SET TransactionID  = ?1, PatientID = ?2,WhiteBlood = ?3,"
@@ -45,10 +48,13 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			String esrmethod, int pathid, int medid, int qid, String cdate, String dupdate);
 
 	
-	@Query(value = " SELECT * FROM qpd_trans t, qpd_patient p, lab_microscopy h "
+	@Query(value = " SELECT * FROM qpd_trans t, qpd_patient p, lab_hematology h "
 			+ " WHERE t.TransactionID = h.TransactionID and p.PatientID = h.PatientID "
 			+ " and h.TransactionID = ?1 " , nativeQuery = true)
 	List<LabIndustrialHema> gethema(int id);
+	
+	@Query(value = " SELECT * from lab_hematology", nativeQuery = true)
+	List<LabIndustrialHema> gethema();
 	
 	
 	

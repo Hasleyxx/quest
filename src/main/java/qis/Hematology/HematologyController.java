@@ -18,17 +18,17 @@ public class HematologyController {
 	LabHemaRepository LabHemaRepository;
 	@Autowired
 	LabInHemaRepository LabInHemaRepository;
+		
+	@GetMapping("/getHema")
+	public @ResponseBody List<LabIndustrialHema> LabHema() {
+		return LabInHemaRepository.gethema();
+	}
 	
 	@GetMapping("/getHema/{id}")
 	public  @ResponseBody List<LabIndustrialHema> LabHemaView(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
         return LabInHemaRepository.gethema(pid);
     }
-	
-	@GetMapping("/getHema")
-	public @ResponseBody List<LabHema> LabHema() {
-		return LabHemaRepository.gethema();
-	}
 	
 	@PostMapping("/addHematology")
     public int LabIndustrialADD(@RequestBody Map<String, String> body){  

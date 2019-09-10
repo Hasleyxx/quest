@@ -14,12 +14,14 @@ W:\SpringProject\QIS-Server\src\main\java\qis\Chemistry\ChemistryController.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Chemistry\LabIndustrialChem.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Toxicology\LabInToxicologyRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Users\UserController.java
+W:\SpringProject\QIS-Server\src\main\java\qis\Accounting\Billing.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Users\Users.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Personnel\LabPersonnel.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Serology\LabInSerologyRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Hematology\LabInHemaRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Serology\LabIndustrialSerology.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Transaction\TransExtRepository.java
+W:\SpringProject\QIS-Server\src\main\java\qis\Accounting\Accounting.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Classification\PdfResult.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Industrial\LabIndustrial1.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Patient\Patient.java
@@ -46,6 +48,7 @@ W:\SpringProject\QIS-Server\src\main\java\qis\Company\CompanyController.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Transaction\TransactionController.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Items\PackageRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Xray\XrayMarkers.java
+W:\SpringProject\QIS-Server\src\main\java\qis\Accounting\AccountingRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Pe\PE.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Classification\SendEmailRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Transaction\Transaction.java
@@ -67,6 +70,7 @@ W:\SpringProject\QIS-Server\src\main\java\qis\Xray\Xray.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Chemistry\LabInChemRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Pe\mHistoryRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Serology\SerologyController.java
+W:\SpringProject\QIS-Server\src\main\java\qis\Accounting\BillingRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Cashier\Cashier.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Chemistry\LabIndChemTabRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Company\Company.java
@@ -77,5 +81,6 @@ W:\SpringProject\QIS-Server\src\main\java\qis\Toxicology\LabIndToxTable.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Industrial\LabIndustrial.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Industrial\IndustrialRepository.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Classification\ClassificationController.java
+W:\SpringProject\QIS-Server\src\main\java\qis\Accounting\AccountingController.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Pe\Vital.java
 W:\SpringProject\QIS-Server\src\main\java\qis\Classification\SendEmail.java

@@ -14,17 +14,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @ComponentScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
-	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology",
+	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray", 
 	"qis.Accounting"})
 
 @EntityScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
-	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology",
+	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting"})
 
 @EnableJpaRepositories({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
-	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology",
+	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting"})
 @EnableAutoConfiguration
