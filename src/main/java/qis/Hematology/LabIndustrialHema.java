@@ -54,6 +54,11 @@ public class LabIndustrialHema {
 	 private String QualityID;
 	 private String CreationDate;
 	 private String DateUpdate;
+	 private String bloodType;
+	 private String rh;
+	 private String clottingTime;
+	 private String bleedingTime;
+	 
 	 
 	public int getPatientID() {
 		return PatientID;
@@ -276,6 +281,30 @@ public class LabIndustrialHema {
 	}
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	public String getRh() {
+		return rh;
+	}
+	public void setRh(String rh) {
+		this.rh = rh;
+	}
+	public String getClottingTime() {
+		return clottingTime;
+	}
+	public void setClottingTime(String clottingTime) {
+		this.clottingTime = clottingTime;
+	}
+	public String getBleedingTime() {
+		return bleedingTime;
+	}
+	public void setBleedingTime(String bleedingTime) {
+		this.bleedingTime = bleedingTime;
+	}
+	public String getBloodType() {
+		return bloodType;
+	}
+	public void setBloodType(String bloodType) {
+		this.bloodType = bloodType;
 	}
 	 
 }
