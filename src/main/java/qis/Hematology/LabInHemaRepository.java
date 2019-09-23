@@ -19,7 +19,7 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			+ " PLT = ?15, PTime = ?16, PTControl = ?17, ActPercent = ?18, INR = ?19, PR131 = ?20,"
 			+ " APTTime= ?21, APTControl= ?22, PTimeNV = ?23, PTControlNV = ?24, ActPercentNV= ?25,"
 			+ " INRNV = ?26, APTTimeNV = ?27, APTControlNV = ?28, MS = ?29, ESR = ?30, ESRMethod = ?31,"
-			+ " PathID = ?32, MedID= ?33, QualityID = ?34 , CreationDate = ?35, DateUpdate = ?36 "
+			+ " PathID = ?32, MedID= ?33, QualityID = ?34 , CreationDate = ?35, DateUpdate = ?36, "
 			+ " bloodType = ?37, rh = ?38, clottingTime = ?39, bleedingTime = ?40"
 			+ " where hemaID = ?41", nativeQuery = true)
 	int updateHemaRepo(int trans, int pid, String wb, String hemog, String hemo, String tocrit,

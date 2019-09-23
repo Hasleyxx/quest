@@ -2,11 +2,15 @@ package qis.Chemistry;
 
 
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+
+import qis.Hematology.LabIndustrialHema;
 
 public interface LabInChemRepository extends JpaRepository <LabIndustrialChem, Integer> {
 
@@ -41,7 +45,7 @@ int chemistryadd(int pid, int transid, int chemid, int pathid, int medid, int qi
 @Transactional
 @Modifying
 @Query
- (value = " UPDATE lab_chemistry SET PatientID = ?1, TransactionID = ?2, PathID = ?4, MedID = ?5,"
+ (value = " UPDATE lab_chemistry SET PatientID = ?1, chemID = ?3, PathID = ?4, MedID = ?5,"
 		+ " QualityID = ?6, FBS = ?7, FBScon = ?8, BUA = ?9, BUAcon = ?10, CREA = ?11,"
 		+ " CREAcon = ?12, CHOL = ?13, CHOLcon = ?14, TRIG = ?15, TRIGcon = ?16, HDL = ?17,"
 		+ " HDLcon = ?18, LDL = ?19, LDLcon = ?20, CH = ?21, VLDL = ?22, Na = ?23, K = ?24,"
@@ -51,7 +55,7 @@ int chemistryadd(int pid, int transid, int chemid, int pathid, int medid, int qi
 		+ " OGTT1con = ?44, OGTT2 = ?45, OGTT2con = ?46, OGCT = ?47, OGCTcon = ?48, CPKMB = ?49,"
 		+ " CPKMM = ?50, totalCPK = ?51, IonCalcium = ?52, BILTotal = ?53, BILDirect = ?54,"
 		+ " BILIndirect = ?55, AGRatio = ?56, CreationDate = ?57, DateUpdate = ?58, BUN = ?59,"
-		+ " BUNcon = ?60 WHERE chemID = ?3 ",nativeQuery = true )
+		+ " BUNcon = ?60 WHERE TransactionID = ?2 ",nativeQuery = true )
 int chemistryupdate(int pid, int transid, int chemid, int pathid, int medid, int qid, String fbs,
 		String fbscon, String bua, String buacon, String crea, String creacon, String chol,
 		String cholcon, String trig, String trigcon, String hdl, String hdlcon, String ldl, 
@@ -62,5 +66,13 @@ int chemistryupdate(int pid, int transid, int chemid, int pathid, int medid, int
 	    String ogtt2, String ogtt2con, String ogct, String ogctcon, String cpkmb, String cpkmm,
 	    String stotalcpk, String ioncalcium, String biltotal, String bildirect, String bilindirect,
 	    String agratio, String creationdate, String dateupdate, String bun, String buncon);
+
+@Query(value = " SELECT * FROM qpd_trans t, qpd_patient p, lab_chemistry c "
+		+ " WHERE t.TransactionID = c.TransactionID and p.PatientID = c.PatientID "
+		+ " and c.TransactionID = ?1 " , nativeQuery = true)
+List<LabIndustrialChem> getchem(int id);
+
+@Query(value = " SELECT * from lab_chemistry", nativeQuery = true)
+List<LabIndustrialChem> getchem();
 
 }

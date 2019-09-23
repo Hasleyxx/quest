@@ -20,14 +20,14 @@ public class ChemistryController {
 	@Autowired
 	LabIndChemTabRepository LabIndChemTabRepository;
 	
-	 @GetMapping("/chemdetails/{sid}")
-	    public Optional<LabIndustrialChem> cheminfo(@PathVariable String sid){
+	 @GetMapping("/getChemistry/{sid}")
+	    public List<LabIndustrialChem> getchem(@PathVariable String sid){
 			int id = Integer.parseInt(sid);
-	        return LabInChemRepository.findById(id);
+	        return LabInChemRepository.getchem(id);
 	    }
-	 @GetMapping("/chemtable")
-	    public List<LabIndChemTable> chemtable(){
-	        return LabIndChemTabRepository.chemtable();
+	 @GetMapping("/getChemistry")
+	    public List<LabIndustrialChem> getchem(){
+	        return LabInChemRepository.getchem();
 	    }
 	 @PostMapping("/addChem")	
 		public LabIndustrialChem createchem(@RequestBody Map<String, String> body) {
