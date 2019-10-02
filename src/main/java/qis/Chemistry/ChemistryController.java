@@ -86,6 +86,7 @@ public class ChemistryController {
 			String bilindirect     = body.get("bilindirect");
 			String bun			   = body.get("bun");
 			String buncon		   = body.get("buncon");
+			String chemNotes	   = body.get("chemNotes");
 
 			int pid = 		Integer.parseInt(body.get("patientID")); 
 			int transid =	Integer.parseInt(body.get("transactionID"));
@@ -103,7 +104,7 @@ public class ChemistryController {
 					lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
 					ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 					biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
-					bun, buncon));
+					bun, buncon, chemNotes));
 			}
 			catch(Exception ex) {return null;}
 		}
@@ -164,6 +165,7 @@ public class ChemistryController {
 	 	String bilindirect     = body.get("bilindirect");
 	 	String bun			   = body.get("bun");
 	 	String buncon		   = body.get("buncon");
+	 	String chemNotes	   = body.get("chemNotes");
 
 	 	int pid 			= Integer.parseInt(body.get("patientID")); 
 	 	int transid 		= Integer.parseInt(body.get("transactionID"));
@@ -179,7 +181,7 @@ public class ChemistryController {
 	 			lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
 	 			ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 	 			biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
-	 			bun, buncon);
+	 			bun, buncon, chemNotes);
 	 			}catch (DataIntegrityViolationException e) {
 	 	    		return 0;
 	 	    	}
@@ -242,6 +244,7 @@ public class ChemistryController {
 	 	String bilindirect     = body.get("bilindirect");
 	 	String bun			   = body.get("bun");
 	 	String buncon		   = body.get("buncon");
+	 	String chemNotes	   = body.get("chemNotes");
 
 	 	int pid 			= Integer.parseInt(body.get("patientID")); 
 	 	int transid 		= Integer.parseInt(body.get("transactionID"));
@@ -257,7 +260,7 @@ public class ChemistryController {
 	 			lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
 	 			ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 	 			biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
-	 			bun, buncon);
+	 			bun, buncon, chemNotes);
 	 			}catch (DataIntegrityViolationException e) {
 	 				return 0;
 	 			}

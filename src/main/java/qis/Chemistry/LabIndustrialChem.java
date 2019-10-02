@@ -73,6 +73,7 @@ public class LabIndustrialChem {
 	 private String DateUpdate;
 	 private String BUN;
 	 private String BUNcon;
+	 private String chemNotes;
 	 
 	public int getPatientID() {
 		return PatientID;
@@ -435,6 +436,13 @@ public class LabIndustrialChem {
 	public void setBUNcon(String bUNcon) {
 		BUNcon = bUNcon;
 	}
+	public String getChemNotes() {
+		return chemNotes;
+	}
+	public void setChemNotes(String chemNotes) {
+		this.chemNotes = chemNotes;
+	}
+	
 	public LabIndustrialChem() {}
 	public LabIndustrialChem(int patientID, int transactionID, int chemID, int pathID,
 			int medID, int qualityID, String fBS, String fBScon, String bUA, String bUAcon,
@@ -446,7 +454,7 @@ public class LabIndustrialChem {
 			String globulin, String magnesium, String oGTT1, String oGTT1con, String oGTT2,
 			String oGTT2con, String oGCT, String oGCTcon, String cPKMB, String cPKMM,
 			String totalCPK, String ionCalcium, String bILTotal, String bILDirect, String bILIndirect,
-			String aGRatio, String creationDate, String dateUpdate, String bUN, String bUNcon) {
+			String aGRatio, String creationDate, String dateUpdate, String bUN, String bUNcon, String chemNotes) {
 		super();
 		PatientID = patientID;
 		TransactionID = transactionID;
@@ -508,6 +516,7 @@ public class LabIndustrialChem {
 		DateUpdate = dateUpdate;
 		BUN = bUN;
 		BUNcon = bUNcon;
+		this.chemNotes = chemNotes;
 	}
 	
 	
