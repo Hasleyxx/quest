@@ -17,7 +17,7 @@ public interface LabInChemRepository extends JpaRepository <LabIndustrialChem, I
 @Transactional
 @Modifying
 @Query
-(value  = " INSERT into lab_chemistry (PatientID,TransactionID,chemID,PathID, MedID, QualityID,"
+(value  = " INSERT into lab_chemistry (PatientID,TransactionID,PathID, MedID, QualityID,"
 		+ " FBS, FBScon, BUA, BUAcon, CREA, CREAcon, CHOL, CHOLcon, TRIG, TRIGcon, HDL, HDLcon,"
 		+ " LDL, LDLcon, CH, VLDL, Na, K, Cl, ALT, AST, HB, ALP, PSA, RBS, RBScon, GGTP, LDH,"
 		+ " Calcium, Amylase, Lipase, InPhos, Protein, Albumin, Globulin, Magnesium, OGTT1,"
@@ -30,8 +30,8 @@ public interface LabInChemRepository extends JpaRepository <LabIndustrialChem, I
 		+ " ?34, ?35, ?36, ?37, ?38, ?39, ?40, ?41, \n"  
 		+ " ?42, ?43, ?44, ?45, ?46, ?47, ?48, ?49, \n"  
 		+ " ?50, ?51, ?52, ?53, ?54, ?55, ?56, ?57, \n"  
-		+ " ?58, ?59, ?60, ?61)",nativeQuery = true )
-int chemistryadd(int pid, int transid, int chemid, int pathid, int medid, int qid, String fbs,
+		+ " ?58, ?59, ?60)",nativeQuery = true )
+int chemistryadd(int pid, int transid, int pathid, int medid, int qid, String fbs,
 		String fbscon, String bua, String buacon, String crea, String creacon, String chol,
 		String cholcon, String trig, String trigcon, String hdl, String hdlcon, String ldl,
 		String ldlcon, String ch, String vldl, String na, String k, String cl, String alt,

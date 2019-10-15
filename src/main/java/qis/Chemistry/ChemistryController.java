@@ -169,12 +169,11 @@ public class ChemistryController {
 
 	 	int pid 			= Integer.parseInt(body.get("patientID")); 
 	 	int transid 		= Integer.parseInt(body.get("transactionID"));
-	 	int chemid 			= Integer.parseInt(body.get("chemID"));
 	 	int pathid 			= Integer.parseInt(body.get("pathID"));
 	    int medid 			= Integer.parseInt(body.get("medID"));
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
 	 		try {
-	 			return LabInChemRepository.chemistryadd(pid, transid, chemid,
+	 			return LabInChemRepository.chemistryadd(pid, transid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
 	 			cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
 	 			cl, alt, ast, hb, alp, psa, rbs, rbscon, ggtp, ldh, calcium, amylase,
@@ -187,7 +186,7 @@ public class ChemistryController {
 	 	    	}
 
 	 }
-	 @PatchMapping("/updateChemistry")
+	 @PostMapping("/updateChemistry")
 	 public int chemistryupdate(@RequestBody Map<String, String> body) {
 	 	
 	 	String stotalcpk       = body.get("totalCPK");
