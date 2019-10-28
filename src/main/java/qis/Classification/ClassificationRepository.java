@@ -13,6 +13,9 @@ public interface ClassificationRepository extends JpaRepository<Classification, 
 	@Query(value = "SELECT * from qpd_class", nativeQuery = true)
 	List<Classification> getclass();
 	
+	@Query(value =" SELECT * FROM qpd_class WHERE TransactionID=?1", nativeQuery = true)
+	Classification getOneClass(String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_class(TransactionID, PatientID, MedicalClass,"

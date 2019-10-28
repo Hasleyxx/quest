@@ -15,6 +15,9 @@ public interface XrayRepository extends JpaRepository<Xray, Integer> {
 	@Query(value = "SELECT * from qpd_xray where XrayID =?1" , nativeQuery = true)
 	List<Xray> Xrayid(int id);
 	
+	@Query(value =" SELECT * FROM qpd_xray WHERE PatientID=?1 AND TransactionID=?2", nativeQuery = true)
+	Xray getOneXray(String pid, String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_xray(TransactionID, PatientID, Comment, Impression,"

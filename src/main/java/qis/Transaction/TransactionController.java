@@ -21,6 +21,17 @@ public class TransactionController {
 	@Autowired
 	TransRefRepository transrefRepository;
 	
+	@GetMapping("/checkTransactionPatient/{pid}/{tid}")
+	public @ResponseBody List<Transaction> checkTransactionPatient(@PathVariable String pid, @PathVariable String tid) {
+		String Pid = pid;
+		String Tid = tid;
+		return transactionRepository.checkTransactionPatient(Pid, Tid);
+	}
+	@GetMapping("/getTransactionYear/{year}")
+	public @ResponseBody List<Transaction> getTransactionYear(@PathVariable String year){
+		return transactionRepository.getTransactionYear(year);
+	}
+	
 	@GetMapping("/getTransaction")
 	public @ResponseBody List<Transaction> ViewTransaction(){
 		return transactionRepository.viewtrans();

@@ -12,6 +12,12 @@ public interface PeRepository extends JpaRepository <PE, Integer>{
 	@Query(value = "SELECT * from qpd_pe", nativeQuery = true )
 	List<PE> PeList();
 	
+	@Query(value = "SELECT * FROM qpd_pe WHERE TransactionID=?1", nativeQuery = true)
+	PE getOnePe(String tid);
+	
+	@Query(value = "SELECT * FROM qpd_pe WHERE TransactionID=?2 AND PatientID=?1", nativeQuery = true)
+	List<PE> checkPe(String pid, String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_pe(TransactionID, PatientID, skin, hn, cbl, ch, abdo,"

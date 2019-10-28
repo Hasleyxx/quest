@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,16 +26,38 @@ public class PeController {
     	return peRepository.PeList();
     }
 	
+	@GetMapping("/getOnePe/{tid}")
+	public PE getOnePe(@PathVariable String tid) {
+		String Tid = tid;
+		return peRepository.getOnePe(Tid);
+	}
+	
+	@GetMapping("/checkPe/{pid}/{tid}")
+	public List<PE> checkPe(@PathVariable String pid, @PathVariable String tid) {
+		return peRepository.checkPe(pid, tid);
+	}
+	
 	@GetMapping("/getMedicalHistory")
 	public List<MedicalHistory> MedList(){
     	return mhRepository.MedList();
     }
+	
+	@GetMapping("/getOneMedicalHistory/{tid}")
+	public MedicalHistory getOneMedicalHistory(@PathVariable String tid) {
+		String Tid = tid;
+		return mhRepository.getOneMedicalHistory(Tid);
+	}
 	
 	@GetMapping("/getVital")
 	public List<Vital> VitalList(){
 		return vitalRepository.VitalList();
 	}
 	
+	@GetMapping("/getOneVital/{tid}")
+	public Vital getOneVital(@PathVariable String tid) {
+		String Tid = tid;
+		return vitalRepository.getOneVital(Tid);
+	}
 	
 	@PostMapping("/addPE")
     public int AddPe(@RequestBody Map<String, String>body) {

@@ -12,6 +12,9 @@ public interface VitalRepository extends JpaRepository<Vital, Integer>{
 	@Query(value = " SELECT * from qpd_vital", nativeQuery = true )
 	List<Vital> VitalList();
 	
+	@Query(value =" SELECT * FROM qpd_vital WHERE TransactionID=?1", nativeQuery = true)
+	Vital getOneVital(String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_vital (TransactionID, PatientID, height,"

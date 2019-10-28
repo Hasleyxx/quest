@@ -13,6 +13,9 @@ public interface mHistoryRepository extends JpaRepository<MedicalHistory, Intege
 	@Query(value = " SELECT * from qpd_medhis ", nativeQuery = true)
 	List<MedicalHistory> MedList();
 	
+	@Query(value = " SELECT * FROM qpd_medhis WHERE TransactionID=?1", nativeQuery = true)
+	MedicalHistory getOneMedicalHistory(String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_medhis(TransactionID, PatientID, asth, tb, dia,"

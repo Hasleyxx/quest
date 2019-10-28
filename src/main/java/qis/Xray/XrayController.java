@@ -30,6 +30,13 @@ public class XrayController {
 		return xRepository.Xrayid(pid);
     }
 	
+	@GetMapping("/getOneXray/{pid}/{tid}")
+	public Xray getOneXray(@PathVariable String pid, @PathVariable String tid) {
+		String Pid = pid;
+		String Tid = tid;
+		return xRepository.getOneXray(Pid, Tid);
+	}
+	
 	@GetMapping("/getMarkers")
 	public List<XrayMarkers> Markers(){
 		return xmRepository.MarkerList();

@@ -32,6 +32,14 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 				 + " TransactionDate BETWEEN ?2 and ?3 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionTypeDate(String type, String v1, String v2);
 	
+	// Added by Michael
+	@Query(value = " SELECT * FROM qpd_trans WHERE PatientID=?1 AND TransactionID=?2", nativeQuery = true)
+	List<Transaction> checkTransactionPatient(String pid, String tid);
+	
+	// Added by Michael
+	@Query(value = " SELECT * FROM qpd_trans WHERE TransactionDate LIKE %?1%", nativeQuery = true)
+	List<Transaction> getTransactionYear(String year);
+		
 	@Query(value = " SELECT * from qpd_trans where "
 			+ "TransactionDate BETWEEN ?1 and ?2 and TransactionType = 'ACCOUNT' || "
 			+ "TransactionDate BETWEEN ?1 and ?2 and TransactionType = 'APE' || "
