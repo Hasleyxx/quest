@@ -21,26 +21,26 @@ public class TransactionController {
 	@Autowired
 	TransRefRepository transrefRepository;
 	
-	@GetMapping("/checkTransactionPatient/{pid}/{tid}")
-	public @ResponseBody List<Transaction> checkTransactionPatient(@PathVariable String pid, @PathVariable String tid) {
-		String Pid = pid;
-		String Tid = tid;
-		return transactionRepository.checkTransactionPatient(Pid, Tid);
+	@GetMapping("/getTransaction")
+	public @ResponseBody List<Transaction> ViewTransaction(){
+		return transactionRepository.viewtrans();
 	}
 	@GetMapping("/getTransactionYear/{year}")
 	public @ResponseBody List<Transaction> getTransactionYear(@PathVariable String year){
 		return transactionRepository.getTransactionYear(year);
 	}
 	
-	@GetMapping("/getTransaction")
-	public @ResponseBody List<Transaction> ViewTransaction(){
-		return transactionRepository.viewtrans();
-	}
 	@GetMapping("/getTransaction/{id}")
 	public  @ResponseBody List<Transaction> TransactionID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
 		return transactionRepository.Transactionid(pid);
     }
+	@GetMapping("/checkTransactionPatient/{pid}/{tid}")
+	public @ResponseBody List<Transaction> checkTransactionPatient(@PathVariable String pid, @PathVariable String tid) {
+		String Pid = pid;
+		String Tid = tid;
+		return transactionRepository.checkTransactionPatient(Pid, Tid);
+	}
 	@GetMapping("/getTransRef/{id}")
 	public  @ResponseBody List<Transaction> TransRefbyID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
@@ -55,6 +55,11 @@ public class TransactionController {
 	public List<Transaction> TransactionDate(@PathVariable String v1, @PathVariable String v2) {
 		return transactionRepository.getTransactionDate(v1, v2); 
     }
+	
+	@GetMapping("/getTransactionId/{v1}/{v2}")
+	public List<Transaction> TransactionId(@PathVariable String v1, @PathVariable String v2) {
+		return transactionRepository.getTransactionId(v1, v2);
+	}
 	
 	@GetMapping("/getTransBillingDate/{v1}/{v2}")
 	public List<Transaction> getTransactionBillingDate(@PathVariable String v1, @PathVariable String v2) {

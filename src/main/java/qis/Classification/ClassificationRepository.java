@@ -27,6 +27,6 @@ public interface ClassificationRepository extends JpaRepository<Classification, 
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_class SET MedicalClass = ?1, Notes = ?2, QC = ?3,"
-			+ " QCLicense = ?4, CreationDate = ?5 where ClassID = 641", nativeQuery = true)
-	int updateClass(String med, String notes, String qc, int qcl, String cdate);
+			+ " QCLicense = ?4, CreationDate = ?5 where classId=?6", nativeQuery = true)
+	int updateClass(String med, String notes, String qc, int qcl, String cdate, int classId);
 }

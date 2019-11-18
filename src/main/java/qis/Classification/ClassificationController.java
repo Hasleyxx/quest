@@ -20,16 +20,17 @@ public class ClassificationController {
 	@Autowired
 	SendEmailRepository seRepository;
 	
+	@GetMapping("/getClass")
+	public List<Classification> ClassList(){
+		return classRepository.getclass();
+	}
+	
 	@GetMapping("/getOneClass/{tid}")
 	public Classification getOneClass(@PathVariable String tid) {
 		String Tid = tid;
 		return classRepository.getOneClass(Tid);
 	}
 	
-	@GetMapping("/getClass")
-	public List<Classification> ClassList(){
-		return classRepository.getclass();
-	}
 	@GetMapping("/getPdfResult")
 	public List<PdfResult> PdfResult(){
 		return pdfRepository.PdfList();
@@ -62,8 +63,10 @@ public class ClassificationController {
 		String qc 			= body.get("qc");
 		int qcl 			= Integer.parseInt(body.get("qclicense"));
 		String cdate 		= body.get("creationDate");
+		int classId 		= Integer.parseInt(body.get("classId"));
+
 		try {
-			return classRepository.updateClass(med, notes, qc, qcl, cdate);
+			return classRepository.updateClass(med, notes, qc, qcl, cdate, classId);
 		}catch (DataIntegrityViolationException e) {
 			return 0;
 		}

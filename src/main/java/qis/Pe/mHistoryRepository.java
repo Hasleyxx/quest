@@ -31,9 +31,9 @@ public interface mHistoryRepository extends JpaRepository<MedicalHistory, Intege
 	@Query(value = " UPDATE qpd_medhis Set asth = ?1, tb = ?2, dia = ?3, hb = ?4, hp = ?5,"
 			     + " kp = ?6, ab = ?7, jbs = ?8, pp = ?9, mh = ?10, fs = ?11, alle = ?12,"
 			     + " ct = ?13, hep = ?14, std = ?15, CreationDate = ?16, DateUpdate = ?17 "
-			     + " where MedHisID = 554", nativeQuery = true )
+			     + " where MedHisID = ?18", nativeQuery = true )
 	int updateMedhis(String asth, String tb, String dia, String hb, String hp, String kp,
 			String ab, String jbs, String pp, String mh, String fs, String alle,
-			String ct, String hep, String std, String cdate, String udate);	
+			String ct, String hep, String std, String cdate, String udate, String medHisID);	
 	
 }

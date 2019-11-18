@@ -62,7 +62,7 @@ public class MicroscopyController {
 		String ecells 			= body.get("ecells");
 		String amorph 			= body.get("amorph");
 		String coax 			= body.get("coAx");
-		String uot	 			= body.get("occultBLD");
+		String uot	 			= body.get("uriOt");
 		String le 				= body.get("le");
 		String nit	 			= body.get("nit");
 		String uro	 			= body.get("uro");
@@ -78,6 +78,7 @@ public class MicroscopyController {
 		String obld 			= body.get("occultBLD");
 		String cdate 			= body.get("creationDate");
 		String dupdate 			= body.get("dateUpdate");
+
 	   try {
 		   return LabMicroRepository.addmicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
@@ -115,7 +116,7 @@ public class MicroscopyController {
 		String ecells 			= body.get("ecells");
 		String amorph 			= body.get("amorph");
 		String coax 			= body.get("coAx");
-		String uot	 			= body.get("occultBLD");
+		String uot	 			= body.get("uriOt");
 		String le 				= body.get("le");
 		String nit	 			= body.get("nit");
 		String uro	 			= body.get("uro");
@@ -131,6 +132,9 @@ public class MicroscopyController {
 		String obld 			= body.get("occultBLD");
 		String cdate 			= body.get("creationDate");
 	    String dupdate	 		= body.get("dateUpdate");
+	    
+	    System.out.println("Update: " + uot);
+	    
 	    try {
 	    	return LabMicroRepository.updatemicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,

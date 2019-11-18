@@ -59,6 +59,7 @@ public class PeController {
 		return vitalRepository.getOneVital(Tid);
 	}
 	
+	
 	@PostMapping("/addPE")
     public int AddPe(@RequestBody Map<String, String>body) {
 		int trans 			= Integer.parseInt(body.get("transactionID"));
@@ -97,9 +98,10 @@ public class PeController {
 		int license 		= Integer.parseInt(body.get("license"));
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
+		String pexamID		= body.get("pexamID");
 		try {
 			return peRepository.updatePe(skin, hn, cbl, ch, abdo, extre, ot, find,
-			doctor, license, cdate, udate);
+			doctor, license, cdate, udate, pexamID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -155,9 +157,12 @@ public class PeController {
 		String std 				= body.get("std");
 		String cdate 			= body.get("creationDate");
 		String udate 			= body.get("dateUpdate");
+		String medHisID			= body.get("medHisID");
+		
+		System.out.println(asth + "--" +medHisID);
 		try {
 			return mhRepository.updateMedhis(asth, tb, dia, hb, hp, kp, ab, jbs, pp, mh,
-				fs, alle, ct, hep, std, cdate, udate);
+				fs, alle, ct, hep, std, cdate, udate, medHisID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -219,9 +224,10 @@ public class PeController {
 		String notes 		= body.get("notes");
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
+		String vitalsID		= body.get("vitalsID");
 		try {
 			return vitalRepository.updateVital(hei, wei, bmi, bp, pr, rr, uod, uos,
-					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, cdate, udate);
+					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, cdate, udate, vitalsID);
 		}catch(DataIntegrityViolationException e) {
 			return 0;
 		}

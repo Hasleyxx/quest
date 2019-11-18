@@ -10,8 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import qis.Hematology.LabIndustrialHema;
-
 public interface LabInChemRepository extends JpaRepository <LabIndustrialChem, Integer> {
 
 @Transactional

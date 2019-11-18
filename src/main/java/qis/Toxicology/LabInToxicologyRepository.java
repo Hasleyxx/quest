@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface LabInToxicologyRepository extends JpaRepository <LabIndustrialToxicology, Integer> {
-	@Query(value ="Select * From lab_toxicology where toxicID = ?1",nativeQuery = true)
+	@Query(value ="Select * From lab_toxicology where TransactionID = ?1",nativeQuery = true)
 	List<LabIndustrialToxicology> toxicologyview(int pid);
 
 	@Transactional

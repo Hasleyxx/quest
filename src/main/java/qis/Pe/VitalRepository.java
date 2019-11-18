@@ -33,10 +33,10 @@ public interface VitalRepository extends JpaRepository<Vital, Integer>{
 				 + " pr = ?5, rr = ?6, uod = ?7, uos = ?8, cod = ?9, cos = ?10, cv = ?11,"
 				 + " hearing = ?12, hosp = ?13, opr = ?14, pm = ?15, smoker = ?16, ad = ?17,"
 				 + " lmp = ?18, notes = ?19, CreationDate = ?20, DateUpdate = ?21"
-				 + " where VitalsID = 553", nativeQuery = true)
+				 + " where VitalsID = ?22", nativeQuery = true)
 	int updateVital(String hei, String wei, String bmi, String bp, String pr, String rr,
 			String uod, String uos, String cod, String cos, String cv, String hearing,
 			String hosp, String opr, String pm, String smoker, String ad, String lmp,
-			String notes, String cdate, String udate);
+			String notes, String cdate, String udate, String vitalsID);
 
 }

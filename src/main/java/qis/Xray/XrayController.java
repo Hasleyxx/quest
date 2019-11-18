@@ -42,14 +42,14 @@ public class XrayController {
 		return xmRepository.MarkerList();
 	}
 	
-	@GetMapping("/getMarker/{id}")
-	public  @ResponseBody List<XrayMarkers> MarkerID(@PathVariable String id) {
-		int pid = Integer.parseInt(id);
-		return xmRepository.Markerid(pid);
+	@GetMapping("/getMarker/{pid}/{tid}")
+	public  @ResponseBody List<XrayMarkers> MarkerID(@PathVariable String pid, @PathVariable String tid) {
+		return xmRepository.Markerid(pid, tid);
     }
 	
 	@PostMapping("/addXray")
 	public int addXray(@RequestBody Map<String, String> body){
+		System.out.println(body);
 		int trans 			= Integer.parseInt(body.get("transactionID"));
 		int pid 			= Integer.parseInt(body.get("patientID"));
 		String com 			= body.get("comment");

@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface LabInSerologyRepository extends JpaRepository <LabIndustrialSerology, Integer> {
-	@Query(value ="Select * From lab_serology where seroID = ?1",nativeQuery = true)
+	@Query(value ="Select * From lab_serology where TransactionID = ?1",nativeQuery = true)
 	List<LabIndustrialSerology> serologyview(int pid);
 
 	@Transactional

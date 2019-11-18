@@ -19,11 +19,22 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " SELECT * from qpd_trans where TransactionRef = ?1 and status != 2" , nativeQuery = true)
 	List<Transaction> TransRefId(int id);
 	
+	// Added by Michael
+	@Query(value = " SELECT * FROM qpd_trans WHERE PatientID=?1 AND TransactionID=?2", nativeQuery = true)
+	List<Transaction> checkTransactionPatient(String pid, String tid);
+	
+	// Added by Michael
+	@Query(value = " SELECT * FROM qpd_trans WHERE TransactionDate LIKE %?1%", nativeQuery = true)
+	List<Transaction> getTransactionYear(String year);
+	
 	@Query(value = " SELECT * from qpd_trans where status = 0 " , nativeQuery = true)
 	List<Transaction> status();
 	
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionDate(String v1, String v2);
+	
+	@Query(value = " SELECT * from qpd_trans where TransactionID BETWEEN ?1 and ?2 and status = 1", nativeQuery = true)
+	List<Transaction> getTransactionId(String v1, String v2);
 	
 	@Query(value = " SELECT * from qpd_trans where TransactionType = ?1 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionType(String type);
@@ -32,14 +43,6 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 				 + " TransactionDate BETWEEN ?2 and ?3 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionTypeDate(String type, String v1, String v2);
 	
-	// Added by Michael
-	@Query(value = " SELECT * FROM qpd_trans WHERE PatientID=?1 AND TransactionID=?2", nativeQuery = true)
-	List<Transaction> checkTransactionPatient(String pid, String tid);
-	
-	// Added by Michael
-	@Query(value = " SELECT * FROM qpd_trans WHERE TransactionDate LIKE %?1%", nativeQuery = true)
-	List<Transaction> getTransactionYear(String year);
-		
 	@Query(value = " SELECT * from qpd_trans where "
 			+ "TransactionDate BETWEEN ?1 and ?2 and TransactionType = 'ACCOUNT' || "
 			+ "TransactionDate BETWEEN ?1 and ?2 and TransactionType = 'APE' || "

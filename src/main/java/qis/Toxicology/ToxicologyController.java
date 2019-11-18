@@ -44,6 +44,7 @@ public class ToxicologyController {
     	int pathid     = 	Integer.parseInt(body.get("pathID"));
         int medid      =	Integer.parseInt(body.get("medID"));
     	int qualityid  =	Integer.parseInt(body.get("qualityID"));
+    	
     	try {
     		return LabInToxicologyRepository.toxicologyadd(transid, pid, meth, tetra, drugtest,
     		   pathid, medid, qualityid, creationdate, dateupdate);
@@ -52,7 +53,7 @@ public class ToxicologyController {
     	}
 
     }
-    @PatchMapping("/updateToxicology")
+    @PostMapping("/updateToxicology")
     public int toxicologyupdate(@RequestBody Map<String, String> body) {
     	
     	String stoxicid	       = body.get("toxicID");

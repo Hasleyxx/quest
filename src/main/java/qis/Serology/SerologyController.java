@@ -69,7 +69,7 @@ public class SerologyController {
     	}
 
 	}
-	@PatchMapping("/updateSerology")
+	@PostMapping("/updateSerology")
 	public int serologyupdate(@RequestBody Map<String, String> body) {
 		
 		String hbsag           = body.get("hbsAG");

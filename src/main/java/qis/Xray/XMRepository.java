@@ -13,8 +13,8 @@ public interface XMRepository extends JpaRepository<XrayMarkers, Integer>{
 	@Query(value = " SELECT * from xray_markers", nativeQuery = true)
 	List<XrayMarkers> MarkerList();
 	
-	@Query(value = "SELECT * from xray_markers where markerID =?1" , nativeQuery = true)
-	List<XrayMarkers> Markerid(int id);
+	@Query(value = "SELECT * from xray_markers where PatientID=?1 and TransactionID=?2" , nativeQuery = true)
+	List<XrayMarkers> Markerid(String pid, String tid);
 	
 	@Transactional
 	@Modifying

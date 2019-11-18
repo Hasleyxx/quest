@@ -32,7 +32,7 @@ public interface PeRepository extends JpaRepository <PE, Integer>{
 	@Modifying
 	@Query(value = " UPDATE qpd_pe SET skin = ?1, hn = ?2, cbl = ?3, ch = ?4, abdo = ?5,"
 			+ " extre = ?6, ot = ?7, find = ?8, Doctor = ?9, License = ?10,"
-			+ " CreationDate = ?11, DateUpdate = ?12 where PExamID = 553 ", nativeQuery = true )
+			+ " CreationDate = ?11, DateUpdate = ?12 where PExamID = ?13 ", nativeQuery = true )
 	int updatePe(String skin, String hn, String cbl, String ch, String abdo, String extre,
-			String ot, String find, String doctor, int license, String cdate, String udate);
+			String ot, String find, String doctor, int license, String cdate, String udate, String pexamID);
 }
