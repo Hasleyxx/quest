@@ -73,6 +73,7 @@ public class HematologyController {
 	    String rh 				= body.get("rh");
 	    String bleed 			= body.get("bleedingTime");
 	    String ct 				= body.get("clottingTime");
+
 	    try {
 	    	return LabInHemaRepository.addHemaRepo(trans, pid, wb,hemog, hemo, tocrit, hema, neutro,
 	    		lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent, inr, pr131,
@@ -128,6 +129,9 @@ public class HematologyController {
 	    String rh 				= body.get("rh");
 	    String bleed 			= body.get("bleedingTime");
 	    String ct 				= body.get("clottingTime");
+
+	    System.out.println(body);
+	    
 	    try {
 	    	return LabInHemaRepository.updateHemaRepo(trans, pid, wb, hemog, hemo, tocrit, hema,
 	    			neutro, lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent,

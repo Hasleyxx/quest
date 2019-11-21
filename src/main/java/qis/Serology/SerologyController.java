@@ -59,6 +59,7 @@ public class SerologyController {
 		int pathid     = 	Integer.parseInt(body.get("pathID"));
 	    int medid      =	Integer.parseInt(body.get("medID"));
 		int qualityid  =	Integer.parseInt(body.get("qualityID"));
+		
 		try {
 			return LabInSerologyRepository.Serologyadd(transid, pid, hbsag, antihav, seroot,
 				vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, 
