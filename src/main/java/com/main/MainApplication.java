@@ -13,19 +13,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
-@ComponentScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
+@ComponentScan({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray", 
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
 	"qis.DoctorRequest"})
 
-@EntityScan({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
+@EntityScan({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
 	"qis.DoctorRequest"})
 
-@EnableJpaRepositories({"com.main","qis.Cashier","com.quest.controller","qis.Items","qis.Transaction",
+@EnableJpaRepositories({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",

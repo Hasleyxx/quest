@@ -12,19 +12,18 @@ public class DoctorMedcert {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private int medcertID;
+	private int docMedcertID;
 	
 	Integer patientID;
 	String due;
 	String diagnosis;
 	String remarks;
 	String dateCreated;
-	
-	public int getMedcertID() {
-		return medcertID;
+	public int getDocMedcertID() {
+		return docMedcertID;
 	}
-	public void setMedcertID(int medcertID) {
-		this.medcertID = medcertID;
+	public void setDocMedcertID(int docMedcertID) {
+		this.docMedcertID = docMedcertID;
 	}
 	public Integer getPatientID() {
 		return patientID;
@@ -56,7 +55,5 @@ public class DoctorMedcert {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	
-	
 	
 }
