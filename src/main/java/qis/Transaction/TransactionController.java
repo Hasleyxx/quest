@@ -106,8 +106,8 @@ public class TransactionController {
 		return transrefRepository.viewtransref();
 	}
 	@GetMapping("/getTRby/{tid}")
-	public  @ResponseBody List<TransRef> TransRefID(@PathVariable String id) {
-		int pid = Integer.parseInt(id);
+	public  @ResponseBody List<TransRef> TransRefID(@PathVariable String tid) {
+		int pid = Integer.parseInt(tid);
 		return transrefRepository.TransRefId(pid);
     }
 	
@@ -223,6 +223,7 @@ public class TransactionController {
 	 
 	 @PostMapping("/addTransref")
 	 public int AddTransRef(@RequestBody Map<String, String> body) {
+	 	System.out.println(body);
 	 	int trans 			= Integer.parseInt(body.get("transactionId"));
 	 	int pid 			= Integer.parseInt(body.get("patientID"));
 	 	int xray 			= Integer.parseInt(body.get("xray"));
@@ -235,6 +236,7 @@ public class TransactionController {
 	 	int ecg 			= Integer.parseInt(body.get("ecg"));
 	 	int others 			= Integer.parseInt(body.get("others"));
 	 	int _2d				= Integer.parseInt(body.get("_2dEcho"));
+	 	
 	 	try {
 	 		return transrefRepository.addtransref(trans, pid, xray, blood, urine, stool, pe,
 	 			speci, usound, ecg, others, _2d);
@@ -263,6 +265,37 @@ public class TransactionController {
     		return 0;
     	}
 	 }
-	
+
+	 @PostMapping("/updateChecklist")
+	 public int updateChecklist(@RequestBody Map<String, String> body) {
+	 	int tid 			= Integer.parseInt(body.get("transactionId"));
+
+	 	String type 		= body.get("type");
+	 	String status 		= body.get("status");
+
+	 	try {
+	 		if (type.equals("have_blood")) {
+	 			return transactionRepository.updateChecklistBlood(tid, status);
+
+	 		} else if (type.equals("have_stool")) {
+	 			return transactionRepository.updateChecklistStool(tid, status);
+	 			
+	 		} else if (type.equals("have_urine")) {
+	 			return transactionRepository.updateChecklistUrine(tid, status);
+	 			
+	 		} else if (type.equals("have_xray")) {
+	 			return transactionRepository.updateChecklistXray(tid, status);
+	 			
+	 		} else if (type.equals("have_medical")) {
+	 			return transactionRepository.updateChecklistMedical(tid, status);
+	 			
+	 		} else {
+	 			return transactionRepository.updateChecklistVital(tid, status);
+	 			
+	 		}
+	 	}catch (DataIntegrityViolationException e) {
+	 		return 0;
+	 	}
+	 }
 	 
 }

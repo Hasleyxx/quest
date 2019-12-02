@@ -81,5 +81,33 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 				 + " WHERE TransactionID = ?5", nativeQuery = true)
 	int updateACANLOE(String ac, String an, String loe, String tdate, int tid);
 	
-
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_blood=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistBlood(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_stool=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistStool(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_urine=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistUrine(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_xray=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistXray(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_medical=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistMedical(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET have_vital=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int updateChecklistVital(int tid, String status);
 }

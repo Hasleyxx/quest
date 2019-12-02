@@ -30,11 +30,10 @@ public class XrayController {
 		return xRepository.Xrayid(pid);
     }
 	
-	@GetMapping("/getOneXray/{pid}/{tid}")
-	public Xray getOneXray(@PathVariable String pid, @PathVariable String tid) {
-		String Pid = pid;
+	@GetMapping("/getOneXray/{tid}")
+	public Xray getOneXray(@PathVariable String tid) {
 		String Tid = tid;
-		return xRepository.getOneXray(Pid, Tid);
+		return xRepository.getOneXray(Tid);
 	}
 	
 	@GetMapping("/getMarkers")
@@ -42,9 +41,9 @@ public class XrayController {
 		return xmRepository.MarkerList();
 	}
 	
-	@GetMapping("/getMarker/{pid}/{tid}")
-	public  @ResponseBody List<XrayMarkers> MarkerID(@PathVariable String pid, @PathVariable String tid) {
-		return xmRepository.Markerid(pid, tid);
+	@GetMapping("/getMarker/{tid}")
+	public  @ResponseBody List<XrayMarkers> MarkerID(@PathVariable String tid) {
+		return xmRepository.Markerid(tid);
     }
 	
 	@PostMapping("/addXray")
@@ -91,6 +90,8 @@ public class XrayController {
 		String type 		= body.get("xrayType");
 		String rad 			= body.get("radTech");
 		int tc 				= Integer.parseInt(body.get("totalCount"));
+		
+		System.out.println(body);
 		try {
 			return xmRepository.addMarker(pid, trans, film, type, rad, tc);
 		}catch(DataIntegrityViolationException e) {

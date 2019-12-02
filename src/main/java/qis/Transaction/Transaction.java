@@ -25,6 +25,12 @@ public class Transaction {
     private String ac;
     private String notes;
     private String currency;
+    private String have_blood;
+    private String have_stool;
+    private String have_urine;
+    private String have_xray;
+    private String have_medical;
+    private String have_vital;
    
     
     public int getUserId() {
@@ -196,5 +202,53 @@ public class Transaction {
     public void setTransactionType(String title) {
         this.transactionType = title;
     }
+
+	public String getHave_blood() {
+		return have_blood;
+	}
+
+	public void setHave_blood(String have_blood) {
+		this.have_blood = have_blood;
+	}
+
+	public String getHave_stool() {
+		return have_stool;
+	}
+
+	public void setHave_stool(String have_stool) {
+		this.have_stool = have_stool;
+	}
+
+	public String getHave_urine() {
+		return have_urine;
+	}
+
+	public void setHave_urine(String have_urine) {
+		this.have_urine = have_urine;
+	}
+
+	public String getHave_xray() {
+		return have_xray;
+	}
+
+	public void setHave_xray(String have_xray) {
+		this.have_xray = have_xray;
+	}
+
+	public String getHave_medical() {
+		return have_medical;
+	}
+
+	public void setHave_medical(String have_medical) {
+		this.have_medical = have_medical;
+	}
+
+	public String getHave_vital() {
+		return have_vital;
+	}
+
+	public void setHave_vital(String have_vital) {
+		this.have_vital = have_vital;
+	}
     
 }
