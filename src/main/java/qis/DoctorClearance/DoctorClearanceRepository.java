@@ -8,9 +8,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import qis.Pe.MedicalHistory;
+
 public interface DoctorClearanceRepository extends JpaRepository <DoctorClearance, Integer> {
 	@Query(value = " SELECT * FROM doc_clearance", nativeQuery = true)
 	List<DoctorClearance> doctorClearance();
+	
+	@Query(value = " SELECT * FROM doc_clearance WHERE TransactionID=?1", nativeQuery = true)
+	DoctorClearance getOneDocClearance(String tid);
 	
 	@Transactional
 	@Modifying

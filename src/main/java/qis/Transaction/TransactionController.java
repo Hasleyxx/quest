@@ -156,9 +156,12 @@ public class TransactionController {
 	 	String notes 		= body.get("notes");
 	 	int trans			= Integer.parseInt(body.get("transactionId"));
 	 	String cur			= body.get("currency");
+
+	 	return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
+ 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
 	 	//try {
-	 		return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
-	 				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
+	 		//return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
+	 		//		pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
 	 //	}catch (DataIntegrityViolationException e){
 	 		//return 0;
 	 	//}
@@ -272,7 +275,7 @@ public class TransactionController {
 
 	 	String type 		= body.get("type");
 	 	String status 		= body.get("status");
-
+	 	System.out.println(body);
 	 	try {
 	 		if (type.equals("have_blood")) {
 	 			return transactionRepository.updateChecklistBlood(tid, status);
