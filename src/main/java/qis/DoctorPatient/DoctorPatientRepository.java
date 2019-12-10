@@ -24,4 +24,6 @@ public interface DoctorPatientRepository extends JpaRepository <DoctorPatient, I
 			+ " dateCreated=?5 WHERE docPatientID=?6", nativeQuery = true)
 	int updateDocPatient(String famHis, String pastmedHis, String allergies, String medication, String dateCreated,
 			int dmId);
+
+
 }

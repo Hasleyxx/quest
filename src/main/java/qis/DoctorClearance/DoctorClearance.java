@@ -20,7 +20,6 @@ public class DoctorClearance {
 	String allergies;
 	String prevSurgery;
 	String rOs;
-	String pe;
 	String workUp;
 	String assesmentPlan;
 	String dateCreated;
@@ -66,12 +65,6 @@ public class DoctorClearance {
 	}
 	public void setrOs(String rOs) {
 		this.rOs = rOs;
-	}
-	public String getPe() {
-		return pe;
-	}
-	public void setPe(String pe) {
-		this.pe = pe;
 	}
 	public String getWorkUp() {
 		return workUp;

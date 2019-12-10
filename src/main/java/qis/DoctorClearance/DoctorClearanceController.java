@@ -32,12 +32,11 @@ public class DoctorClearanceController {
 		String allergies		= body.get("allergies");
 		String prevSurgery		= body.get("prevSurgery");
 		String rOs				= body.get("rOs");
-		String pe				= body.get("pe");
 		String workUp			= body.get("workUp");
 		String assesmentPlan	= body.get("assesmentPlan");
 		String dateCreated		= body.get("dateCreated");
 		try {
-			return docClearanceRepository.addDocClearance(pid, pastmedHis, socialHis, allergies, prevSurgery, rOs, pe, 
+			return docClearanceRepository.addDocClearance(pid, pastmedHis, socialHis, allergies, prevSurgery, rOs,
 					workUp, assesmentPlan, dateCreated);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
@@ -60,14 +59,13 @@ public class DoctorClearanceController {
 		String allergies		= body.get("allergies");
 		String prevSurgery		= body.get("prevSurgery");
 		String rOs				= body.get("rOs");
-		String pe				= body.get("pe");
 		String workUp			= body.get("workUp");
 		String assesmentPlan	= body.get("assesmentPlan");
 		String dateCreated		= body.get("dateCreated");
 		
 		System.out.println(body);
 		try {
-			return docClearanceRepository.updateDocClearance(pastmedHis, socialHis, allergies, prevSurgery, rOs, pe, 
+			return docClearanceRepository.updateDocClearance(pastmedHis, socialHis, allergies, prevSurgery, rOs, 
 					workUp, assesmentPlan, dateCreated, docClearanceID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
