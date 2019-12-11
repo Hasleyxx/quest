@@ -35,7 +35,7 @@ public class DoctorPeController {
 		String abd 				= body.get("abd");
 		String ext				= body.get("ext");
 		String dateCreated		= body.get("dateCreated");
-		
+		System.out.println(body);
 		try {
 			return docPeRepository.addDocPe(pid, bp, hr, hn, cl, cardiac, abd, ext, dateCreated);
 		}catch (DataIntegrityViolationException e) {

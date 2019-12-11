@@ -18,7 +18,9 @@ public class DoctorMedcert {
 	String due;
 	String diagnosis;
 	String remarks;
+	String days;
 	String dateCreated;
+	
 	public int getDocMedcertID() {
 		return docMedcertID;
 	}
@@ -49,11 +51,18 @@ public class DoctorMedcert {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
+	public String getDays() {
+		return days;
+	}
+	public void setDays(String days) {
+		this.days = days;
+	}
 	public String getDateCreated() {
 		return dateCreated;
 	}
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	
 	
 }

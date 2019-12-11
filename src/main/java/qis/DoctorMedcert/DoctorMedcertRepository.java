@@ -15,13 +15,13 @@ public interface DoctorMedcertRepository extends JpaRepository <DoctorMedcert, I
 	
 	@Transactional
 	@Modifying
-	@Query(value = " INSERT INTO doc_medcert (patientID, due, diagnosis, remarks, dateCreated)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-	int addDocMedcert(int pid, String due, String diagnosis, String remarks, String dateCreated);
+	@Query(value = " INSERT INTO doc_medcert (patientID, due, diagnosis, remarks, days, dateCreated)"
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
+	int addDocMedcert(int pid, String due, String diagnosis, String remarks, String days, String dateCreated);
 
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE doc_medcert SET due=?1, diagnosis=?2, remarks=?3, dateCreated=?4 "
-			+ "WHERE docMedcertID=?5", nativeQuery = true)
-	int updateDocMedcert(String due, String diagnosis, String remarks, String dateCreated, int dmId);
+	@Query(value = " UPDATE doc_medcert SET due=?1, diagnosis=?2, remarks=?3, days=?4, dateCreated=?5 "
+			+ "WHERE docMedcertID=?6", nativeQuery = true)
+	int updateDocMedcert(String due, String diagnosis, String remarks, String days, String dateCreated, int dmId);
 }

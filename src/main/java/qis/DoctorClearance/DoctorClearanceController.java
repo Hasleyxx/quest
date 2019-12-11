@@ -26,7 +26,7 @@ public class DoctorClearanceController {
 	@PostMapping("/addDocClearance")
 	public int addDocClearance(@RequestBody Map<String, String>body){
 		int pid				= Integer.parseInt(body.get("patientID"));
-		
+		System.out.print(body);
 		String pastmedHis		= body.get("pastmedHis");
 		String socialHis		= body.get("socialHis");
 		String allergies		= body.get("allergies");

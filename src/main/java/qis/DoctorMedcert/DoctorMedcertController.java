@@ -27,9 +27,11 @@ public class DoctorMedcertController {
 		String due				= body.get("due");
 		String diagnosis		= body.get("diagnosis");
 		String remarks			= body.get("remarks");
+		String days			    = body.get("days");
 		String dateCreated		= body.get("dateCreated");
+		System.out.print(body);
 		try {
-			return docMedcertRepository.addDocMedcert(pid, due, diagnosis, remarks, dateCreated);
+			return docMedcertRepository.addDocMedcert(pid, due, diagnosis, remarks, days, dateCreated);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -43,9 +45,12 @@ public class DoctorMedcertController {
 		String due				= body.get("due");
 		String diagnosis		= body.get("diagnosis");
 		String remarks			= body.get("remarks");
+		String days			    = body.get("days");
 		String dateCreated		= body.get("dateCreated");
+		
+		
 		try {
-			return docMedcertRepository.updateDocMedcert(due, diagnosis, remarks, dateCreated, dmId);
+			return docMedcertRepository.updateDocMedcert(due, diagnosis, remarks, days, dateCreated, dmId);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
