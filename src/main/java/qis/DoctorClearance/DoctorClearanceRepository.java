@@ -17,6 +17,9 @@ public interface DoctorClearanceRepository extends JpaRepository <DoctorClearanc
 	@Query(value = " SELECT * FROM doc_clearance WHERE TransactionID=?1", nativeQuery = true)
 	DoctorClearance getOneDocClearance(String tid);
 	
+	@Query(value = " SELECT * FROM doc_clearance WHERE patientID=?1", nativeQuery = true)
+	List<DoctorClearance> getPidDocClearance(String tid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO doc_clearance (patientID, pastmedHis, socialHis, allergies, "
@@ -32,4 +35,6 @@ public interface DoctorClearanceRepository extends JpaRepository <DoctorClearanc
 	int updateDocClearance(String pastmedHis, String socialHis, String allergies, 
 			String prevSurgery, String rOs, String workUp, String assesmentPlan, String dateCreated,
 			int docClearanceID);
+	
+	
 }

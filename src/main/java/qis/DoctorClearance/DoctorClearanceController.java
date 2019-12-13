@@ -71,4 +71,13 @@ public class DoctorClearanceController {
     		return 0;
     	}
 	}
+	
+	
+	@GetMapping("/getPidDocClearance/{pid}")
+	public List<DoctorClearance> getPidDocClearance(@PathVariable String pid) {
+		String Pid = pid;
+		return docClearanceRepository.getPidDocClearance(Pid);
+	}
+	
 }
+

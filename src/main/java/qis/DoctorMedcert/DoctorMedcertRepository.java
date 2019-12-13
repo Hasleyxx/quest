@@ -8,10 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import qis.DoctorClearance.DoctorClearance;
+
 
 public interface DoctorMedcertRepository extends JpaRepository <DoctorMedcert, Integer> {
 	@Query(value = " SELECT * FROM doc_medcert", nativeQuery = true)
 	List<DoctorMedcert> docMedcert();
+	
+	@Query(value = " SELECT * FROM doc_medcert WHERE patientID=?1", nativeQuery = true)
+	List<DoctorMedcert> getPidDocMedcert(String tid);
 	
 	@Transactional
 	@Modifying

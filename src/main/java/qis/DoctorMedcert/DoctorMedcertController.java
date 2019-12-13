@@ -6,9 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import qis.DoctorClearance.DoctorClearance;
 
 @RestController
 public class DoctorMedcertController {
@@ -19,6 +22,13 @@ public class DoctorMedcertController {
 	public List<DoctorMedcert> docMedcert() {
 		return docMedcertRepository.docMedcert();
 	}
+	
+	@GetMapping("/getPidDocMedcert/{pid}")
+	public List<DoctorMedcert> getPidDocClearance(@PathVariable String pid) {
+		String Pid = pid;
+		return docMedcertRepository.getPidDocMedcert(Pid);
+	}
+	
 	
 	@PostMapping("/addDocMedcert")
 	public int addDocMedcert(@RequestBody Map<String, String>body){
