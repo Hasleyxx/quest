@@ -29,7 +29,6 @@ public class TransactionController {
 	public @ResponseBody List<Transaction> getTransactionYear(@PathVariable String year){
 		return transactionRepository.getTransactionYear(year);
 	}
-	
 	@GetMapping("/getTransaction/{id}")
 	public  @ResponseBody List<Transaction> TransactionID(@PathVariable String id) {
 		int pid = Integer.parseInt(id);
@@ -56,6 +55,11 @@ public class TransactionController {
 		return transactionRepository.getTransactionDate(v1, v2); 
     }
 	
+	@GetMapping("/getTransactionDateBiller/{v1}/{v2}/{v3}")
+	public List<Transaction> TransactionDateBiller(@PathVariable String v1, @PathVariable String v2, @PathVariable String v3) {
+		return transactionRepository.getTransactionDateBiller(v1, v2, v3); 
+    }
+	
 	@GetMapping("/getTransactionId/{v1}/{v2}")
 	public List<Transaction> TransactionId(@PathVariable String v1, @PathVariable String v2) {
 		return transactionRepository.getTransactionId(v1, v2);
@@ -76,7 +80,6 @@ public class TransactionController {
 			@PathVariable String v1, @PathVariable String v2){
 		return transactionRepository.getTransactionTypeDate(type, v1, v2);
 	}
-	
 	
 	@GetMapping("/getTransext")
 	public @ResponseBody List<TransExt> ViewTransExt(){
