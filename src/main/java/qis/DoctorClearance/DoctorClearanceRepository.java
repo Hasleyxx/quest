@@ -14,25 +14,25 @@ public interface DoctorClearanceRepository extends JpaRepository <DoctorClearanc
 	@Query(value = " SELECT * FROM doc_clearance", nativeQuery = true)
 	List<DoctorClearance> doctorClearance();
 	
-	@Query(value = " SELECT * FROM doc_clearance WHERE TransactionID=?1", nativeQuery = true)
-	DoctorClearance getOneDocClearance(String tid);
+	@Query(value = " SELECT * FROM doc_clearance WHERE docClearanceID=?1", nativeQuery = true)
+	DoctorClearance getOneDocClearance(String id);
 	
 	@Query(value = " SELECT * FROM doc_clearance WHERE patientID=?1", nativeQuery = true)
 	List<DoctorClearance> getPidDocClearance(String tid);
 	
 	@Transactional
 	@Modifying
-	@Query(value = " INSERT INTO doc_clearance (patientID, pastmedHis, socialHis, allergies, "
+	@Query(value = " INSERT INTO doc_clearance (patientID, dataRef, pastmedHis, socialHis, allergies, "
 			+ "prevSurgery, rOs, workUp, assesmentPlan, dateCreated)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)", nativeQuery = true)
-	int addDocClearance(int pid, String pastmedHis, String socialHis, String allergies, 
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)", nativeQuery = true)
+	int addDocClearance(int pid, String dataRef, String pastmedHis, String socialHis, String allergies, 
 			String prevSurgery, String rOs, String workUp, String assesmentPlan, String dateCreated);
 
 	@Transactional
 	@Modifying
-	@Query(value = " UPDATE doc_clearance SET pastmedHis=?1, socialHis=?2, allergies=?3, prevSurgery=?4, "
-			+ "rOs=?5, workUp=?6, assesmentPlan=?7, dateCreated=?8 WHERE docClearanceID=?10", nativeQuery = true)
-	int updateDocClearance(String pastmedHis, String socialHis, String allergies, 
+	@Query(value = " UPDATE doc_clearance SET dataRef=?1, pastmedHis=?2, socialHis=?3, allergies=?4, prevSurgery=?5, "
+			+ "rOs=?6, workUp=?7, assesmentPlan=?8, dateCreated=?9 WHERE docClearanceID=?10", nativeQuery = true)
+	int updateDocClearance(String dataRef, String pastmedHis, String socialHis, String allergies, 
 			String prevSurgery, String rOs, String workUp, String assesmentPlan, String dateCreated,
 			int docClearanceID);
 	

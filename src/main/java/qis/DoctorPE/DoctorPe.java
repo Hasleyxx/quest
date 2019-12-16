@@ -15,6 +15,7 @@ public class DoctorPe {
 	private int docPeID;
 	
 	Integer patientID;
+	String dataRef;
 	String bp;
 	String hr;
 	String hn;
@@ -36,6 +37,12 @@ public class DoctorPe {
 	}
 	public void setPatientID(Integer patientID) {
 		this.patientID = patientID;
+	}
+	public String getDataRef() {
+		return dataRef;
+	}
+	public void setDataRef(String dataRef) {
+		this.dataRef = dataRef;
 	}
 	public String getBp() {
 		return bp;

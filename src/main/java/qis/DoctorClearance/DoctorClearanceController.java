@@ -26,7 +26,8 @@ public class DoctorClearanceController {
 	@PostMapping("/addDocClearance")
 	public int addDocClearance(@RequestBody Map<String, String>body){
 		int pid				= Integer.parseInt(body.get("patientID"));
-		System.out.print(body);
+
+		String dataRef		= body.get("dataRef");
 		String pastmedHis		= body.get("pastmedHis");
 		String socialHis		= body.get("socialHis");
 		String allergies		= body.get("allergies");
@@ -36,17 +37,17 @@ public class DoctorClearanceController {
 		String assesmentPlan	= body.get("assesmentPlan");
 		String dateCreated		= body.get("dateCreated");
 		try {
-			return docClearanceRepository.addDocClearance(pid, pastmedHis, socialHis, allergies, prevSurgery, rOs,
+			return docClearanceRepository.addDocClearance(pid, dataRef, pastmedHis, socialHis, allergies, prevSurgery, rOs,
 					workUp, assesmentPlan, dateCreated);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
 	}
 	
-	@GetMapping("/getOneDocClearance/{tid}")
-	public DoctorClearance getOneDocClearance(@PathVariable String tid) {
-		String Tid = tid;
-		return docClearanceRepository.getOneDocClearance(Tid);
+	@GetMapping("/getOneDocClearance/{id}")
+	public DoctorClearance getOneDocClearance(@PathVariable String id) {
+		String Id = id;
+		return docClearanceRepository.getOneDocClearance(Id);
 	}
 	
 	@PostMapping("/updateDocClearance")

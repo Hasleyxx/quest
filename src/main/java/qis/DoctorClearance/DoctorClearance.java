@@ -15,6 +15,7 @@ public class DoctorClearance {
 	private int docClearanceID;
 	
 	Integer patientID;
+	String dataRef;
 	String pastmedHis;
 	String socialHis;
 	String allergies;
@@ -35,6 +36,12 @@ public class DoctorClearance {
 	}
 	public void setPatientID(Integer patientID) {
 		this.patientID = patientID;
+	}
+	public String getDataRef() {
+		return dataRef;
+	}
+	public void setDataRef(String dataRef) {
+		this.dataRef = dataRef;
 	}
 	public String getPastmedHis() {
 		return pastmedHis;
