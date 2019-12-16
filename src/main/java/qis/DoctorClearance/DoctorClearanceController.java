@@ -55,6 +55,7 @@ public class DoctorClearanceController {
 		int docClearanceID		= Integer.parseInt(body.get("docClearanceID"));
 		int pid					= Integer.parseInt(body.get("patientID"));
 		
+		String dataRef			= body.get("dataRef");
 		String pastmedHis		= body.get("pastmedHis");
 		String socialHis		= body.get("socialHis");
 		String allergies		= body.get("allergies");
@@ -66,7 +67,7 @@ public class DoctorClearanceController {
 		
 		System.out.println(body);
 		try {
-			return docClearanceRepository.updateDocClearance(pastmedHis, socialHis, allergies, prevSurgery, rOs, 
+			return docClearanceRepository.updateDocClearance(dataRef, pastmedHis, socialHis, allergies, prevSurgery, rOs, 
 					workUp, assesmentPlan, dateCreated, docClearanceID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
