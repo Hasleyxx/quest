@@ -18,6 +18,9 @@ public interface DoctorMedcertRepository extends JpaRepository <DoctorMedcert, I
 	@Query(value = " SELECT * FROM doc_medcert WHERE patientID=?1", nativeQuery = true)
 	List<DoctorMedcert> getPidDocMedcert(String tid);
 	
+	@Query(value = " SELECT * FROM doc_medcert WHERE docMedcertID=?1", nativeQuery = true)
+	DoctorMedcert getDocMedcert(String pid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO doc_medcert (patientID, due, diagnosis, remarks, days, dateCreated)"

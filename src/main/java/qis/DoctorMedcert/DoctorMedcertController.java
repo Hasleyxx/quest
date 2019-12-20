@@ -29,6 +29,12 @@ public class DoctorMedcertController {
 		return docMedcertRepository.getPidDocMedcert(Pid);
 	}
 	
+	@GetMapping("/getDocMedcert/{id}")
+	public DoctorMedcert getDocClearance(@PathVariable String id) {
+		String Id = id;
+		return docMedcertRepository.getDocMedcert(id);
+	}
+	
 	
 	@PostMapping("/addDocMedcert")
 	public int addDocMedcert(@RequestBody Map<String, String>body){

@@ -21,6 +21,7 @@ public class DoctorMed {
 	String dosage;
 	String sched;
 	String duration;
+	String notes;
 	String dateCreated;
 	
 	
@@ -77,6 +78,12 @@ public class DoctorMed {
 	}
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	
 	
