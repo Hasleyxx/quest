@@ -31,6 +31,8 @@ public class Transaction {
     private String have_xray;
     private String have_medical;
     private String have_vital;
+    private String released_status;
+    private String released_date;
    
     
     public int getUserId() {
@@ -249,6 +251,22 @@ public class Transaction {
 
 	public void setHave_vital(String have_vital) {
 		this.have_vital = have_vital;
+	}
+
+	public String getReleased_status() {
+		return released_status;
+	}
+
+	public void setReleased_status(String released_status) {
+		this.released_status = released_status;
+	}
+
+	public String getReleased_date() {
+		return released_date;
+	}
+
+	public void setReleased_date(String released_date) {
+		this.released_date = released_date;
 	}
     
 }

@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import qis.DoctorPatient.DoctorPatient;
-
 public interface DoctorRequestRepository extends JpaRepository <DoctorRequest, Integer> {
 	@Query(value = " SELECT * FROM doc_request", nativeQuery = true)
 	List<DoctorRequest> docRequest();

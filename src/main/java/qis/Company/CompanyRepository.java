@@ -27,6 +27,7 @@ public interface CompanyRepository extends JpaRepository <Company, Integer> {
 	@Query(value = " INSERT INTO qpd_company (NameCompany, CompanyAddress)"
 			+ " VALUES (?1, ?2)", nativeQuery = true)
 	int addCompany(String cname, String cadd);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_company SET NameCompany = ?1, CompanyAddress = ?2 "

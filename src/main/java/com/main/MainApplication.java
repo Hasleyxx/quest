@@ -17,19 +17,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray", 
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
 
 @EntityScan({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
 
 @EnableJpaRepositories({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
 @EnableAutoConfiguration
 @EnableWebMvc
 public class MainApplication implements WebMvcConfigurer {
@@ -41,7 +41,7 @@ public class MainApplication implements WebMvcConfigurer {
      public void addCorsMappings(CorsRegistry registry) {
          registry
          .addMapping("/**")
-         .allowedOrigins("http://192.168.100.46:9090", "http://localhost:4200", "http://192.168.100.132:9090", "http://192.168.0.107:9090")
+         .allowedOrigins("http://192.168.100.46:9090", "http://localhost:4200", "http://192.168.100.132:9090", "http://192.168.0.107:9090", "http://192.168.43.10:9090")
          .allowedMethods("GET", "POST", "PUT", "DELETE");
      }
 	

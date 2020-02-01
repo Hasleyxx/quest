@@ -111,4 +111,9 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Modifying
 	@Query(value = " UPDATE qpd_trans SET have_vital=?2 WHERE TransactionID=?1", nativeQuery = true)
 	int updateChecklistVital(int tid, String status);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_trans SET released_status=?2 WHERE TransactionID=?1", nativeQuery = true)
+	int release(int tid, String status);
 }

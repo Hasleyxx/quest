@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import qis.DoctorPatient.DoctorPatient;
-
 @RestController
 public class DoctorRequestController {
 	@Autowired
@@ -40,7 +38,6 @@ public class DoctorRequestController {
 	@PostMapping("/updateDocRequest")
 	public int updateDocRequest(@RequestBody Map<String, String>body){
 		int	drid				= Integer.parseInt(body.get("docRequestID"));
-		int pid					= Integer.parseInt(body.get("patientID"));
 		
 		String category			= body.get("category");
 		String test				= body.get("test");

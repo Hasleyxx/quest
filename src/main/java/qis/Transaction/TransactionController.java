@@ -103,7 +103,6 @@ public class TransactionController {
 	}
 	
 	
-	
 	@GetMapping("/getTransRef")
 	public @ResponseBody List<TransRef> ViewTransRef(){
 		return transrefRepository.viewtransref();
@@ -302,6 +301,20 @@ public class TransactionController {
 	 	}catch (DataIntegrityViolationException e) {
 	 		return 0;
 	 	}
+	 }
+	 
+	 @PostMapping("/release")
+	 public int release(@RequestBody Map<String, String> body) {
+		 int tid = Integer.parseInt(body.get("tid"));
+		 String status = body.get("status");
+		 
+		 System.out.println(body);
+		 
+		 try {
+			 return transactionRepository.release(tid, status);
+		 }catch (DataIntegrityViolationException e) {
+		 		return 0;
+		 	}
 	 }
 	 
 }
