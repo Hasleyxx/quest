@@ -31,6 +31,9 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionDate(String v1, String v2);
 	
+	@Query(value = " SELECT * from qpd_trans where TransactionDate LIKE %?1% and status = 1", nativeQuery = true)
+	List<Transaction> getTransactionToday(String v1);
+	
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and Biller = ?3 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionDateBiller(String v1, String v2, String v3);
 	

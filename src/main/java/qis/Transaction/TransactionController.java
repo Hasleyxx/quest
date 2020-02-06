@@ -55,6 +55,11 @@ public class TransactionController {
 		return transactionRepository.getTransactionDate(v1, v2); 
     }
 	
+	@GetMapping("/getTransactionToday/{v1}")
+	public List<Transaction> TransactionToday(@PathVariable String v1) {
+		return transactionRepository.getTransactionToday(v1); 
+    }
+	
 	@GetMapping("/getTransactionDateBiller/{v1}/{v2}/{v3}")
 	public List<Transaction> TransactionDateBiller(@PathVariable String v1, @PathVariable String v2, @PathVariable String v3) {
 		return transactionRepository.getTransactionDateBiller(v1, v2, v3); 
