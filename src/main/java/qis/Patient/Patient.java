@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="qpd_patient")
 @SecondaryTable(name="qpd_company")

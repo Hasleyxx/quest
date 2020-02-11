@@ -21,12 +21,12 @@ public interface PeRepository extends JpaRepository <PE, Integer>{
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_pe(TransactionID, PatientID, skin, hn, cbl, ch, abdo,"
-			+ " extre, ot, find, Doctor, License, CreationDate, DateUpdate)"
+			+ " extre, ot, find, Doctor, License, ApeID, CreationDate, DateUpdate)"
 			+ " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12 , ?13,"
-			+ " ?14)", nativeQuery = true)
+			+ " ?14, ?15)", nativeQuery = true)
 	int addPe(int trans, int pid, String skin, String hn, String cbl, String ch,
 			String abdo, String extre, String ot, String find, String doctor,
-			int license, String cdate, String udate);
+			int license, String ApeID, String cdate, String udate);
 	
 	@Transactional
 	@Modifying

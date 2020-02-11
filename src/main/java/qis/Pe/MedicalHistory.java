@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity 
 @Table(name="qpd_medhis")
 public class MedicalHistory {
@@ -29,6 +31,8 @@ public class MedicalHistory {
 	private String ct;
 	private String hep;
 	private String std;
+	@Nullable
+	private String ApeID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getMedHisID() {
@@ -150,6 +154,12 @@ public class MedicalHistory {
 	}
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	public String getApeID() {
+		return ApeID;
+	}
+	public void setApeID(String apeID) {
+		ApeID = apeID;
 	}
 	
 }

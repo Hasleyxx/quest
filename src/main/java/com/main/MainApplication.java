@@ -17,19 +17,22 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray", 
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption",
+	"qis.Passwords"})
 
 @EntityScan({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption",
+	"qis.Passwords"})
 
 @EnableJpaRepositories({"com.main","qis.Cashier","qis.Items","qis.Transaction",
 	"qis.Company","qis.Industrial","qis.Microscopy","qis.Chemistry","qis.Serology","qis.Hematology",
 	"qis.Toxicology","qis.Pe","qis.Patient","qis.Classification","qis.Personnel", "qis.Users","qis.Xray",
 	"qis.Accounting","qis.MarkerOption","qis.DoctorClearance","qis.DoctorMed","qis.DoctorMedcert","qis.DoctorPatient",
-	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption"})
+	"qis.DoctorRequest","qis.Email", "qis.DoctorPE", "qis.DoctorItems", "qis.DoctorRequestCategory", "qis.DoctorRequestOption",
+	"qis.Passwords"})
 @EnableAutoConfiguration
 @EnableWebMvc
 public class MainApplication implements WebMvcConfigurer {

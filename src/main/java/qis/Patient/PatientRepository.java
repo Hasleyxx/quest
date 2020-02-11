@@ -37,8 +37,7 @@ public interface PatientRepository extends JpaRepository <Patient , Integer> {
 	@Query(value = " INSERT INTO qpd_patient (PatientRef, PatientType, CompanyName, Position,"
 			+ " FirstName, MiddleName, LastName, Address, Birthdate, Email, Age, Gender, ContactNo,"
 			+ " Notes, SID, CreationDate, DateUpdate)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16,"
-			+ " ?17)", nativeQuery = true)
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17)", nativeQuery = true)
 	int addPatient(String pRef, String pType, String com, String pos, String fn, String mn, String ln, 
 			String add, String bdate, String email, int age, String gen, String no,
 			String notes, String sid, String cdate, String udate);

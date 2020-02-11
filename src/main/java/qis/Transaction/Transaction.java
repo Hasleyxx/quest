@@ -2,6 +2,8 @@ package qis.Transaction;
 
 import javax.persistence.*;
 
+import org.springframework.lang.Nullable;
+
 @Entity 
 @Table(name="qpd_trans")
 public class Transaction {
@@ -33,7 +35,8 @@ public class Transaction {
     private String have_vital;
     private String released_status;
     private String released_date;
-   
+	@Nullable
+	private String ApeID;
     
     public int getUserId() {
 		return userId;
@@ -267,6 +270,14 @@ public class Transaction {
 
 	public void setReleased_date(String released_date) {
 		this.released_date = released_date;
+	}
+
+	public String getApeID() {
+		return ApeID;
+	}
+
+	public void setApeID(String apeID) {
+		ApeID = apeID;
 	}
     
 }

@@ -74,11 +74,12 @@ public class PeController {
 		String find 		= body.get("find");
 		String doctor 		= body.get("doctor");
 		int license 		= Integer.parseInt(body.get("license"));
+		String ApeID		= body.get("ApeID");
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
     	try {
     		return peRepository.addPe(trans, pid, skin, hn, cbl, ch, abdo, extre, ot, find,
-    		doctor, license, cdate, udate);
+    		doctor, license, ApeID, cdate, udate);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -128,11 +129,12 @@ public class PeController {
 		String ct 			= body.get("ct");
 		String hep 			= body.get("hep");
 		String std 			= body.get("std");
+		String ApeID		= body.get("ApeID");
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
 		try {
 			return mhRepository.addMedhis(trans, pid, asth, tb, dia, hb, hp, kp, ab, jbs, pp,
-    		mh, fs, alle, ct, hep, std, cdate, udate);
+    		mh, fs, alle, ct, hep, std, ApeID, cdate, udate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -159,7 +161,6 @@ public class PeController {
 		String udate 			= body.get("dateUpdate");
 		String medHisID			= body.get("medHisID");
 		
-		System.out.println(asth + "--" +medHisID);
 		try {
 			return mhRepository.updateMedhis(asth, tb, dia, hb, hp, kp, ab, jbs, pp, mh,
 				fs, alle, ct, hep, std, cdate, udate, medHisID);
@@ -191,11 +192,12 @@ public class PeController {
 		String ad 			= body.get("ad");
 		String lmp 			= body.get("lmp");
 		String notes 		= body.get("notes");
+		String ApeID		= body.get("ApeID");
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
 		try {
 			return vitalRepository.addVital(trans, pid, hei, wei, bmi, bp, pr, rr, uod, uos,
-					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, cdate, udate);
+					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, ApeID, cdate, udate);
 		}catch(DataIntegrityViolationException e) {
 			return 0;
 		}

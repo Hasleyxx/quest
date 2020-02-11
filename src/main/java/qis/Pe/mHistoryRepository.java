@@ -19,12 +19,12 @@ public interface mHistoryRepository extends JpaRepository<MedicalHistory, Intege
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_medhis(TransactionID, PatientID, asth, tb, dia,"
-				 + " hb, hp, kp, ab, jbs, pp, mh, fs, alle, ct, hep, std, CreationDate, DateUpdate)"
+				 + " hb, hp, kp, ab, jbs, pp, mh, fs, alle, ct, hep, std, ApeID, CreationDate, DateUpdate)"
 				 + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12,"
-				 + " ?13, ?14, ?15, ?16, ?17, ?18, ?19)", nativeQuery = true)
+				 + " ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20)", nativeQuery = true)
 	int addMedhis(int trans, int pid, String asth, String tb, String dia, String hb, String hp,
 			String kp, String ab, String jbs, String pp, String mh, String fs, String alle,
-			String ct, String hep, String std, String cdate, String udate);
+			String ct, String hep, String std, String ApeID, String cdate, String udate);
 	
 	@Transactional
 	@Modifying

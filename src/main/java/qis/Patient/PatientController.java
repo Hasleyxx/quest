@@ -54,6 +54,7 @@ public class PatientController {
 		String sid			 = body.get("sid");
 		String cdate		 = body.get("creationDate");
 		String udate		 = body.get("dateUpdate");
+		
 		try {
 			return patientRepository.addPatient(pRef, pType, com, pos, fn, mn, ln, add, bdate,
 					email, age, gen, no, notes, sid, cdate, udate);

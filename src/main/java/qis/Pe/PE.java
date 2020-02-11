@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="qpd_pe")
 public class PE {
@@ -24,6 +26,8 @@ public class PE {
 	private String find;
 	private String Doctor;
 	private int License;
+	@Nullable
+	private String ApeID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getPExamID() {
@@ -115,6 +119,12 @@ public class PE {
 	}
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	public String getApeID() {
+		return ApeID;
+	}
+	public void setApeID(String apeID) {
+		ApeID = apeID;
 	}
 	
 

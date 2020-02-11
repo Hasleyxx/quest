@@ -19,13 +19,13 @@ public interface VitalRepository extends JpaRepository<Vital, Integer>{
 	@Modifying
 	@Query(value = " INSERT into qpd_vital (TransactionID, PatientID, height,"
 			     + " weight, bmi, bp, pr, rr, uod, uos, cod, cos, cv, hearing, hosp,"
-			     + " opr, pm, smoker, ad, lmp, notes, CreationDate, DateUpdate)"
+			     + " opr, pm, smoker, ad, lmp, notes, ApeID, CreationDate, DateUpdate)"
 			     + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14,"
-			     + " ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23)", nativeQuery = true)
+			     + " ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24)", nativeQuery = true)
 	int addVital(int trans, int pid, String hei, String wei, String bmi, String bp,
 			String pr, String rr, String uod, String uos, String cod, String cos, String cv,
 			String hearing, String hosp, String opr, String pm, String smoker, String ad,
-			String lmp, String notes, String cdate, String udate);
+			String lmp, String notes, String ApeID, String cdate, String udate);
 	
 	@Transactional
 	@Modifying

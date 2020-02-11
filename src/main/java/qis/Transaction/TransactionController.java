@@ -137,9 +137,11 @@ public class TransactionController {
 	 	String ac 			= body.get("ac");
 	 	String notes 		= body.get("notes");
 	 	String cur			= body.get("currency");
+	 	String ApeID			= body.get("ApeID");
+	 	
 	 	try {
 	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
-	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur);
+	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, ApeID);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -313,13 +315,16 @@ public class TransactionController {
 		 int tid = Integer.parseInt(body.get("tid"));
 		 String status = body.get("status");
 		 
-		 System.out.println(body);
-		 
 		 try {
 			 return transactionRepository.release(tid, status);
 		 }catch (DataIntegrityViolationException e) {
 		 		return 0;
 		 	}
 	 }
+	 
+	 @GetMapping("/getApeID/{ApeID}")
+	 public @ResponseBody List<Transaction> getApeID(@PathVariable String ApeID ){
+		return transactionRepository.getApeID(ApeID);
+	} 
 	 
 }

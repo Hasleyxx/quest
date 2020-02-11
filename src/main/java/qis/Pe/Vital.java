@@ -1,10 +1,17 @@
 package qis.Pe;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Locale;
+import java.util.stream.IntStream;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.lang.Nullable;
 
 @Entity
 @Table(name="qpd_vital")
@@ -33,6 +40,8 @@ public class Vital {
 	private String ad;
 	private String lmp;
 	private String Notes;
+	@Nullable
+	private String ApeID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getVitalsID() {
@@ -178,6 +187,168 @@ public class Vital {
 	}
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	public char charAt(int arg0) {
+		return ApeID.charAt(arg0);
+	}
+	public IntStream chars() {
+		return ApeID.chars();
+	}
+	public int codePointAt(int arg0) {
+		return ApeID.codePointAt(arg0);
+	}
+	public int codePointBefore(int arg0) {
+		return ApeID.codePointBefore(arg0);
+	}
+	public int codePointCount(int arg0, int arg1) {
+		return ApeID.codePointCount(arg0, arg1);
+	}
+	public IntStream codePoints() {
+		return ApeID.codePoints();
+	}
+	public int compareTo(String arg0) {
+		return ApeID.compareTo(arg0);
+	}
+	public int compareToIgnoreCase(String arg0) {
+		return ApeID.compareToIgnoreCase(arg0);
+	}
+	public String concat(String arg0) {
+		return ApeID.concat(arg0);
+	}
+	public boolean contains(CharSequence arg0) {
+		return ApeID.contains(arg0);
+	}
+	public boolean contentEquals(StringBuffer arg0) {
+		return ApeID.contentEquals(arg0);
+	}
+	public boolean contentEquals(CharSequence arg0) {
+		return ApeID.contentEquals(arg0);
+	}
+	public boolean endsWith(String arg0) {
+		return ApeID.endsWith(arg0);
+	}
+	public boolean equals(Object arg0) {
+		return ApeID.equals(arg0);
+	}
+	public boolean equalsIgnoreCase(String arg0) {
+		return ApeID.equalsIgnoreCase(arg0);
+	}
+	public byte[] getBytes() {
+		return ApeID.getBytes();
+	}
+	public byte[] getBytes(String arg0) throws UnsupportedEncodingException {
+		return ApeID.getBytes(arg0);
+	}
+	public byte[] getBytes(Charset arg0) {
+		return ApeID.getBytes(arg0);
+	}
+	public void getBytes(int arg0, int arg1, byte[] arg2, int arg3) {
+		ApeID.getBytes(arg0, arg1, arg2, arg3);
+	}
+	public void getChars(int arg0, int arg1, char[] arg2, int arg3) {
+		ApeID.getChars(arg0, arg1, arg2, arg3);
+	}
+	public int hashCode() {
+		return ApeID.hashCode();
+	}
+	public int indexOf(int arg0) {
+		return ApeID.indexOf(arg0);
+	}
+	public int indexOf(String arg0) {
+		return ApeID.indexOf(arg0);
+	}
+	public int indexOf(int arg0, int arg1) {
+		return ApeID.indexOf(arg0, arg1);
+	}
+	public int indexOf(String arg0, int arg1) {
+		return ApeID.indexOf(arg0, arg1);
+	}
+	public String intern() {
+		return ApeID.intern();
+	}
+	public boolean isEmpty() {
+		return ApeID.isEmpty();
+	}
+	public int lastIndexOf(int arg0) {
+		return ApeID.lastIndexOf(arg0);
+	}
+	public int lastIndexOf(String arg0) {
+		return ApeID.lastIndexOf(arg0);
+	}
+	public int lastIndexOf(int arg0, int arg1) {
+		return ApeID.lastIndexOf(arg0, arg1);
+	}
+	public int lastIndexOf(String arg0, int arg1) {
+		return ApeID.lastIndexOf(arg0, arg1);
+	}
+	public int length() {
+		return ApeID.length();
+	}
+	public boolean matches(String arg0) {
+		return ApeID.matches(arg0);
+	}
+	public int offsetByCodePoints(int arg0, int arg1) {
+		return ApeID.offsetByCodePoints(arg0, arg1);
+	}
+	public boolean regionMatches(int arg0, String arg1, int arg2, int arg3) {
+		return ApeID.regionMatches(arg0, arg1, arg2, arg3);
+	}
+	public boolean regionMatches(boolean arg0, int arg1, String arg2, int arg3, int arg4) {
+		return ApeID.regionMatches(arg0, arg1, arg2, arg3, arg4);
+	}
+	public String replace(char arg0, char arg1) {
+		return ApeID.replace(arg0, arg1);
+	}
+	public String replace(CharSequence arg0, CharSequence arg1) {
+		return ApeID.replace(arg0, arg1);
+	}
+	public String replaceAll(String arg0, String arg1) {
+		return ApeID.replaceAll(arg0, arg1);
+	}
+	public String replaceFirst(String arg0, String arg1) {
+		return ApeID.replaceFirst(arg0, arg1);
+	}
+	public String[] split(String arg0) {
+		return ApeID.split(arg0);
+	}
+	public String[] split(String arg0, int arg1) {
+		return ApeID.split(arg0, arg1);
+	}
+	public boolean startsWith(String arg0) {
+		return ApeID.startsWith(arg0);
+	}
+	public boolean startsWith(String arg0, int arg1) {
+		return ApeID.startsWith(arg0, arg1);
+	}
+	public CharSequence subSequence(int arg0, int arg1) {
+		return ApeID.subSequence(arg0, arg1);
+	}
+	public String substring(int arg0) {
+		return ApeID.substring(arg0);
+	}
+	public String substring(int arg0, int arg1) {
+		return ApeID.substring(arg0, arg1);
+	}
+	public char[] toCharArray() {
+		return ApeID.toCharArray();
+	}
+	public String toLowerCase() {
+		return ApeID.toLowerCase();
+	}
+	public String toLowerCase(Locale arg0) {
+		return ApeID.toLowerCase(arg0);
+	}
+	public String toString() {
+		return ApeID.toString();
+	}
+	public String toUpperCase() {
+		return ApeID.toUpperCase();
+	}
+	public String toUpperCase(Locale arg0) {
+		return ApeID.toUpperCase(arg0);
+	}
+	public String trim() {
+		return ApeID.trim();
 	}
 	
 	
