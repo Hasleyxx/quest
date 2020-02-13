@@ -28,6 +28,9 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " SELECT * from qpd_trans where status = 0 " , nativeQuery = true)
 	List<Transaction> status();
 	
+	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and status = 0 " , nativeQuery = true)
+	List<Transaction> statusDate(String v1, String v2);
+	
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionDate(String v1, String v2);
 	
@@ -58,12 +61,12 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Modifying
 	@Query(value = " INSERT INTO qpd_trans (TransactionRef, PatientID, userID, TransactionType,"
 			+ " Biller, TotalPrice, PaidIn, PaidOut, GrandTotal, TransactionDate, status, SalesType,"
-			+ " LOE, AN, AC, Notes, Currency, ApeID)"
+			+ " LOE, AN, AC, Notes, Currency, ApeID, approvalCode)"
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13,"
-			+ " ?14, ?15, ?16, ?17, ?18)", nativeQuery = true)
+			+ " ?14, ?15, ?16, ?17, ?18, ?19)", nativeQuery = true)
 	int addTransaction(String tRef, int pId, int uId, String tType, String bil, String tPrice,
 			double pIn, double pOut, double gTotal, String tDate, int status, String sType,
-			String loe, String an, String ac, String notes, String cur, String ApeID);
+			String loe, String an, String ac, String notes, String cur, String ApeID, String approvalCode);
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_trans SET PatientID = ?1, userID = ?2, TransactionType = ?3,"

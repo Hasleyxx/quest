@@ -45,9 +45,15 @@ public class TransactionController {
 		int pid = Integer.parseInt(id);
 		return transactionRepository.TransRefId(pid);
     }
+	
 	@GetMapping("/getHeldTrans")
 	public @ResponseBody List<Transaction> HeldTrans(){
 		return transactionRepository.status();
+	}
+	
+	@GetMapping("/getHeldTransDate/{v1}/{v2}")
+	public @ResponseBody List<Transaction> HeldTransDate(@PathVariable String v1, @PathVariable String v2){
+		return transactionRepository.statusDate(v1, v2);
 	}
 	
 	@GetMapping("/getTransactionDate/{v1}/{v2}")
@@ -120,28 +126,29 @@ public class TransactionController {
 	
 	 @PostMapping("/addTransaction")
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
-	 	String tRef 		= body.get("transactionRef");
-	 	Integer pId 		= Integer.parseInt(body.get("patientId"));	
-	 	int uId 			= Integer.parseInt(body.get("userId"));
-	 	String tType 		= body.get("transactionType");
-	 	String bil 			= body.get("biller");
-	 	String tPrice 		= body.get("totalPrice");
-	 	double pIn 			= Double.parseDouble(body.get("paidIn"));
-	 	double pOut 		= Double.parseDouble(body.get("paidOut"));
-	 	double gTotal 		= Double.parseDouble(body.get("grandTotal"));
-	 	String tDate 		= body.get("transactionDate");
-	 	int status 			= Integer.parseInt(body.get("status"));
-	 	String sType 		= body.get("salesType");
-	 	String loe 			= body.get("loe");
-	 	String an 			= body.get("an");
-	 	String ac 			= body.get("ac");
-	 	String notes 		= body.get("notes");
-	 	String cur			= body.get("currency");
+	 	String tRef 			= body.get("transactionRef");
+	 	Integer pId 			= Integer.parseInt(body.get("patientId"));	
+	 	int uId 				= Integer.parseInt(body.get("userId"));
+	 	String tType 			= body.get("transactionType");
+	 	String bil 				= body.get("biller");
+	 	String tPrice 			= body.get("totalPrice");
+	 	double pIn 				= Double.parseDouble(body.get("paidIn"));
+	 	double pOut 			= Double.parseDouble(body.get("paidOut"));
+	 	double gTotal 			= Double.parseDouble(body.get("grandTotal"));
+	 	String tDate 			= body.get("transactionDate");
+	 	int status 				= Integer.parseInt(body.get("status"));
+	 	String sType 			= body.get("salesType");
+	 	String loe 				= body.get("loe");
+	 	String an 				= body.get("an");
+	 	String ac 				= body.get("ac");
+	 	String notes 			= body.get("notes");
+	 	String cur				= body.get("currency");
 	 	String ApeID			= body.get("ApeID");
+	 	String approvalCode		= body.get("approvalCode");
 	 	
 	 	try {
 	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
-	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, ApeID);
+	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, ApeID, approvalCode);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

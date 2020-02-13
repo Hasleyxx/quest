@@ -37,6 +37,7 @@ public class Transaction {
     private String released_date;
 	@Nullable
 	private String ApeID;
+	private String approvalCode;
     
     public int getUserId() {
 		return userId;
@@ -278,6 +279,14 @@ public class Transaction {
 
 	public void setApeID(String apeID) {
 		ApeID = apeID;
+	}
+
+	public String getApprovalCode() {
+		return approvalCode;
+	}
+
+	public void setApprovalCode(String approvalCode) {
+		this.approvalCode = approvalCode;
 	}
     
 }
