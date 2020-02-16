@@ -18,6 +18,7 @@ public class Xray {
 	private String Impression;
 	private String Radiologist;
 	private String QA;
+	private String imgXray;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getXrayID() {
@@ -73,6 +74,12 @@ public class Xray {
 	}
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	public String getImgXray() {
+		return imgXray;
+	}
+	public void setImgXray(String imgXray) {
+		this.imgXray = imgXray;
 	}
 	
 

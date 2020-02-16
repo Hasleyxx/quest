@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: Quest
 Implementation-Version: 0.0.2-SNAPSHOT
-Built-By: JavaDev2
+Built-By: MichaelMamaclay
 Implementation-Vendor-Id: com.questinfosystem
 Build-Jdk: 1.8.0_231
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
