@@ -28,6 +28,11 @@ public interface XrayRepository extends JpaRepository<Xray, Integer> {
 	
 	@Transactional
 	@Modifying
+	@Query(value = " UPDATE qpd_xray SET imgXray = ?1 WHERE TransactionID = ?2", nativeQuery = true)
+	int addXrayImage(String fileName, int pid);
+	
+	@Transactional
+	@Modifying
 	@Query(value = " UPDATE qpd_xray Set Comment = ?1, Impression = ?2, Radiologist = ?3,"
 				 + " QA = ?4, CreationDate = ?5, DateUpdate = ?6"
 				 + " where XrayID = ?7", nativeQuery = true)

@@ -67,10 +67,10 @@ public class XrayController {
 		String udate 		= body.get("dateUpdate");
 	
 		try {
-				return xRepository.addXray(trans, pid, com, impre, rad, qa, cdate, udate);
-			}catch (DataIntegrityViolationException e) {
-	   			return 0;
-	   		}
+			return xRepository.addXray(trans, pid, com, impre, rad, qa, cdate, udate);
+		}catch (DataIntegrityViolationException e) {
+   			return 0;
+   		}
 	}
 	
 	@PostMapping("/updateXray")
@@ -120,18 +120,22 @@ public class XrayController {
 		}
 	}
 	
-	@RequestMapping(value="/addXrayScanImage", method=RequestMethod.POST, consumes = "multipart/form-data", produces = "application/json")
+	@RequestMapping(value="/addXrayScanImage", method=RequestMethod.POST, consumes = "multipart/form-data")
 	public int addXrayScan(@RequestParam("image") MultipartFile file, @RequestParam("tid") int tid) {
-		String UPLOADED_FOLDER = "C:\\Batch Logs";
+		String UPLOADED_FOLDER = "C:\\xampp\\htdocs\\qis-java-2020-prod\\src\\assets\\xray\\";
 		String fileName = tid + "_" + file.getOriginalFilename();
+
 		try {
             // Get the file and save it somewhere
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + fileName);
             Files.write(path, bytes);
-            
-            System.out.println("FILE UPLOADED");
-            return 1;
+    	
+    		try {
+    			return xRepository.addXrayImage(fileName, tid);
+    		}catch (DataIntegrityViolationException e) {
+       			return 0;
+       		}
         } catch (IOException e) {
             return 0;
         }
