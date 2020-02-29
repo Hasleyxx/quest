@@ -18,15 +18,15 @@ public interface LabInSerologyRepository extends JpaRepository <LabIndustrialSer
 	@Query(value = "INSERT INTO lab_serology (TransactionID, PatientID, HBsAG,"
 			+ " AntiHav, SeroOt, VDRL, PSAnti, AntiHBS, HBeAG, AntiHBE, AntiHBC, TYDOTIgM,"
 			+ " TYDOTIgG, CEA, AFP, CA125, CA19, CA15, TSH, FT3, FT4, CRPdil, CRPRes, "
-			+ " HIV1, HIV2, PathID, MedID, QualityID, CreationDate, DateUpdate)\n" 
+			+ " HIV1, HIV2, PathID, MedID, QualityID, patientIdRef, CreationDate, DateUpdate)\n" 
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15,"
-			+ " ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30)"
+			+ " ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31)"
 			+ "", nativeQuery = true)
 	int Serologyadd(int transid, int pid, String hbsag, String antihav, String seroot, String vdrl,
 			String psanti, String antihbs, String hbeag, String antihbe, String antihbc,
 			String tydotigm, String tydotigg, String cea, String afp, String ca125, String ca19,
 			String ca15, String tsh, String ft3, String ft4, String crpdil, String crpres,
-			String hiv1, String hiv2, int pathid, int medid, int qualityid, String creationdate,
+			String hiv1, String hiv2, int pathid, int medid, int qualityid, String patientIdRef, String creationdate,
 			String dateupdate);
 
 	@Transactional

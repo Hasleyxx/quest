@@ -62,24 +62,24 @@ public class PeController {
 	
 	@PostMapping("/addPE")
     public int AddPe(@RequestBody Map<String, String>body) {
-		int trans 			= Integer.parseInt(body.get("transactionID"));
-		int pid 			= Integer.parseInt(body.get("patientID"));
-		String skin 		= body.get("skin");
-		String hn 			= body.get("hn");
-		String cbl 			= body.get("cbl");
-		String ch 			= body.get("ch");
-		String abdo 		= body.get("abdo");
-		String extre 		= body.get("extre");
-		String ot 			= body.get("ot");
-		String find 		= body.get("find");
-		String doctor 		= body.get("doctor");
-		int license 		= Integer.parseInt(body.get("license"));
-		String ApeID		= body.get("ApeID");
-		String cdate 		= body.get("creationDate");
-		String udate 		= body.get("dateUpdate");
+		int trans 				= Integer.parseInt(body.get("transactionID"));
+		int pid 				= Integer.parseInt(body.get("patientID"));
+		String skin 			= body.get("skin");
+		String hn 				= body.get("hn");
+		String cbl 				= body.get("cbl");
+		String ch 				= body.get("ch");
+		String abdo 			= body.get("abdo");
+		String extre 			= body.get("extre");
+		String ot 				= body.get("ot");
+		String find 			= body.get("find");
+		String doctor 			= body.get("doctor");
+		int license 			= Integer.parseInt(body.get("license"));
+		String patientIdRef		= body.get("patientIdRef");
+		String cdate 			= body.get("creationDate");
+		String udate 			= body.get("dateUpdate");
     	try {
     		return peRepository.addPe(trans, pid, skin, hn, cbl, ch, abdo, extre, ot, find,
-    		doctor, license, ApeID, cdate, udate);
+    		doctor, license, patientIdRef, cdate, udate);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -112,29 +112,29 @@ public class PeController {
 	
 	@PostMapping("/addMedhis")
     public int AddMedHis(@RequestBody Map<String, String>body) {
-		int trans 			= Integer.parseInt(body.get("transactionID"));
-		int pid 			= Integer.parseInt(body.get("patientID"));
-		String asth 		= body.get("asth");
-		String tb 			= body.get("tb");
-		String dia 			= body.get("dia");
-		String hb 			= body.get("hb");
-		String hp 			= body.get("hp");
-		String kp 			= body.get("kp");
-		String ab 			= body.get("ab");
-		String jbs 			= body.get("jbs");
-		String pp 			= body.get("pp");
-		String mh 			= body.get("mh");
-		String fs 			= body.get("fs");
-		String alle 		= body.get("alle");
-		String ct 			= body.get("ct");
-		String hep 			= body.get("hep");
-		String std 			= body.get("std");
-		String ApeID		= body.get("ApeID");
-		String cdate 		= body.get("creationDate");
-		String udate 		= body.get("dateUpdate");
+		int trans 				= Integer.parseInt(body.get("transactionID"));
+		int pid 				= Integer.parseInt(body.get("patientID"));
+		String asth 			= body.get("asth");
+		String tb 				= body.get("tb");
+		String dia 				= body.get("dia");
+		String hb 				= body.get("hb");
+		String hp 				= body.get("hp");
+		String kp 				= body.get("kp");
+		String ab 				= body.get("ab");
+		String jbs 				= body.get("jbs");
+		String pp 				= body.get("pp");
+		String mh 				= body.get("mh");
+		String fs 				= body.get("fs");
+		String alle 			= body.get("alle");
+		String ct 				= body.get("ct");
+		String hep 				= body.get("hep");
+		String std 				= body.get("std");
+		String patientIdRef		= body.get("patientIdRef");
+		String cdate 			= body.get("creationDate");
+		String udate 			= body.get("dateUpdate");
 		try {
 			return mhRepository.addMedhis(trans, pid, asth, tb, dia, hb, hp, kp, ab, jbs, pp,
-    		mh, fs, alle, ct, hep, std, ApeID, cdate, udate);
+    		mh, fs, alle, ct, hep, std, patientIdRef, cdate, udate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -171,33 +171,33 @@ public class PeController {
 	
 	@PostMapping("/addVital")
 	public int addVital(@RequestBody Map<String, String>body) {
-		int trans 			= Integer.parseInt(body.get("transactionID"));
-		int pid 			= Integer.parseInt(body.get("patientID"));
-		String hei 			= body.get("height");
-		String wei 			= body.get("weight");
-		String bmi 			= body.get("bmi");
-		String bp 			= body.get("bp");
-		String pr 			= body.get("pr");
-		String rr 			= body.get("rr");
-		String uod 			= body.get("uod");
-		String uos 			= body.get("uos");
-		String cod 			= body.get("cod");
-		String cos 			= body.get("cos");
-		String cv 			= body.get("cv");
-		String hearing 		= body.get("hearing");
-		String hosp 		= body.get("hosp");
-		String opr 			= body.get("opr");
-		String pm 			= body.get("pm");
-		String smoker 		= body.get("smoker");
-		String ad 			= body.get("ad");
-		String lmp 			= body.get("lmp");
-		String notes 		= body.get("notes");
-		String ApeID		= body.get("ApeID");
-		String cdate 		= body.get("creationDate");
-		String udate 		= body.get("dateUpdate");
+		int trans 				= Integer.parseInt(body.get("transactionID"));
+		int pid 				= Integer.parseInt(body.get("patientID"));
+		String hei 				= body.get("height");
+		String wei 				= body.get("weight");
+		String bmi 				= body.get("bmi");
+		String bp 				= body.get("bp");
+		String pr 				= body.get("pr");
+		String rr 				= body.get("rr");
+		String uod 				= body.get("uod");
+		String uos 				= body.get("uos");
+		String cod 				= body.get("cod");
+		String cos 				= body.get("cos");
+		String cv 				= body.get("cv");
+		String hearing 			= body.get("hearing");
+		String hosp 			= body.get("hosp");
+		String opr 				= body.get("opr");
+		String pm 				= body.get("pm");
+		String smoker 			= body.get("smoker");
+		String ad 				= body.get("ad");
+		String lmp 				= body.get("lmp");
+		String notes 			= body.get("notes");
+		String patientIdRef		= body.get("patientIdRef");
+		String cdate 			= body.get("creationDate");
+		String udate 			= body.get("dateUpdate");
 		try {
 			return vitalRepository.addVital(trans, pid, hei, wei, bmi, bp, pr, rr, uod, uos,
-					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, ApeID, cdate, udate);
+					cod, cos, cv, hearing, hosp, opr, pm, smoker, ad, lmp, notes, patientIdRef, cdate, udate);
 		}catch(DataIntegrityViolationException e) {
 			return 0;
 		}

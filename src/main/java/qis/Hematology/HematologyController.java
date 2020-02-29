@@ -73,12 +73,13 @@ public class HematologyController {
 	    String rh 				= body.get("rh");
 	    String bleed 			= body.get("bleedingTime");
 	    String ct 				= body.get("clottingTime");
-
+	    String patientIdRef		= body.get("patientIdRef");
+	    
 	    try {
 	    	return LabInHemaRepository.addHemaRepo(trans, pid, wb,hemog, hemo, tocrit, hema, neutro,
 	    		lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent, inr, pr131,
 	    		aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr, esrmethod, pathid,
-	    		medid, qid, cdate, dupdate,bt,rh,bleed,ct);
+	    		medid, qid, patientIdRef, cdate, dupdate,bt,rh,bleed,ct);
 	    }catch (DataIntegrityViolationException e) {
     		return 0;
     	}

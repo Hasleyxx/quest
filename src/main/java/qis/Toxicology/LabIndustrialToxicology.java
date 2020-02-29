@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="lab_chemistry")
 public class LabIndustrialToxicology {
@@ -22,6 +24,8 @@ public class LabIndustrialToxicology {
 	 private int PathID;
 	 private int MedID;
 	 private int QualityID;
+	 @Nullable
+	 private String patientIdRef;
 	 private String CreationDate;
 	 private String DateUpdate;
 	 
@@ -91,6 +95,12 @@ public class LabIndustrialToxicology {
 	}
 	public void setTransactionID(int transactionID) {
 		TransactionID = transactionID;
+	}
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	 
 	 

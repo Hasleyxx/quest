@@ -78,12 +78,13 @@ public class MicroscopyController {
 		String obld 			= body.get("occultBLD");
 		String cdate 			= body.get("creationDate");
 		String dupdate 			= body.get("dateUpdate");
-
-	   try {
+		String patientIdRef		= body.get("patientIdRef");
+		
+		try {
 		   return LabMicroRepository.addmicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
 				le, nit, uro, bld, ket, bil, ptest, a1, a2, af1, af2, afbd, obld, pathid, medid,
-				qid, cdate, dupdate);
+				qid, patientIdRef, cdate, dupdate);
 	   }catch (DataIntegrityViolationException e) {
    			return 0;
    		}

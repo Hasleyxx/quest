@@ -61,12 +61,12 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Modifying
 	@Query(value = " INSERT INTO qpd_trans (TransactionRef, PatientID, userID, TransactionType,"
 			+ " Biller, TotalPrice, PaidIn, PaidOut, GrandTotal, TransactionDate, status, SalesType,"
-			+ " LOE, AN, AC, Notes, Currency, ApeID, approvalCode)"
+			+ " LOE, AN, AC, Notes, Currency, patientIdRef, approvalCode)"
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13,"
 			+ " ?14, ?15, ?16, ?17, ?18, ?19)", nativeQuery = true)
 	int addTransaction(String tRef, int pId, int uId, String tType, String bil, String tPrice,
 			double pIn, double pOut, double gTotal, String tDate, int status, String sType,
-			String loe, String an, String ac, String notes, String cur, String ApeID, String approvalCode);
+			String loe, String an, String ac, String notes, String cur, String patientIdRef, String approvalCode);
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_trans SET PatientID = ?1, userID = ?2, TransactionType = ?3,"
@@ -123,6 +123,6 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " UPDATE qpd_trans SET released_status=?2 WHERE TransactionID=?1", nativeQuery = true)
 	int release(int tid, String status);
 	
-	@Query(value = "SELECT * FROM qpd_trans WHERE ApeID=?1", nativeQuery = true)
-	List<Transaction> getApeID(String getApeID);
+	@Query(value = "SELECT * FROM qpd_trans WHERE patientIdRef=?1", nativeQuery = true)
+	List<Transaction> getPatientIdRef(String patientIdRef);
 }

@@ -30,16 +30,16 @@ public interface LabMicroRepository extends JpaRepository <LabMicroscopy, Intege
 	@Query(value = " INSERT INTO lab_microscopy (TransactionID, PatientID, FecColor, FecCon, FecMicro,"
 			+ " FecOt, UriColor, UriTrans, UriPh, UriSp, UriPro, UriGlu , RBC, WBC, BAC, MThreads,"
 			+ " ECells, Amorph, CoAx, UriOt, LE, NIT, URO, BLD, KET, BIL, PregTest, AFBVA1, AFBVA2,"
-			+ " AFBR1, AFBR2, AFBD, OccultBLD, PathID, MedID, QualityID, CreationDate, DateUpdate)"
+			+ " AFBR1, AFBR2, AFBD, OccultBLD, PathID, MedID, QualityID, patientIdRef, CreationDate, DateUpdate)"
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16,"
 			+ " ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32,"
-			+ " ?33, ?34, ?35, ?36, ?37, ?38 )", nativeQuery = true)
+			+ " ?33, ?34, ?35, ?36, ?37, ?38, ?39 )", nativeQuery = true)
 	int addmicroscopy(int trans, int pid, String fcolor, String fcon, String fmicro, String fot,
 			String ucolor, String utrans, String uph, String usp, String upro, String uglu,
 			String rbc, String wbc, String bac, String mthreads, String ecells, String amorph,
 			String coax, String uot, String le, String nit, String uro, String bld, String ket,
 			String bil, String ptest, String a1, String a2, String af1, String af2, String afbd,
-			String obld, int pathid, int medid, int qid, String cdate, String dupdate);
+			String obld, int pathid, int medid, int qid, String patientIdRef, String cdate, String dupdate);
 	
 	@Query(value = " SELECT * FROM qpd_trans t, qpd_patient p, lab_microscopy m "
 			+ " WHERE t.TransactionID= m.TransactionID and p.PatientID = m.PatientID"

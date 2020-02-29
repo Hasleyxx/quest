@@ -85,6 +85,7 @@ public class ChemistryController {
 			String bun			   = body.get("bun");
 			String buncon		   = body.get("buncon");
 			String chemNotes	   = body.get("chemNotes");
+			String patientIdRef	   = body.get("patientIdRef");
 
 			int pid = 		Integer.parseInt(body.get("patientID")); 
 			int transid =	Integer.parseInt(body.get("transactionID"));
@@ -96,7 +97,7 @@ public class ChemistryController {
 			
 			try {
 					return LabInChemRepository.save(new LabIndustrialChem(pid, transid, chemid,
-					pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
+					pathid, medid, qid, patientIdRef, fbs, fbscon, bua, buacon, crea, creacon, chol,
 					cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
 					cl, alt, ast, hb, alp, psa, rbs, rbscon, ggtp, ldh, calcium, amylase,
 					lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
@@ -164,6 +165,7 @@ public class ChemistryController {
 	 	String bun			   = body.get("bun");
 	 	String buncon		   = body.get("buncon");
 	 	String chemNotes	   = body.get("chemNotes");
+	 	String patientIdRef	   = body.get("patientIdRef");
 
 	 	int pid 			= Integer.parseInt(body.get("patientID")); 
 	 	int transid 		= Integer.parseInt(body.get("transactionID"));
@@ -172,7 +174,7 @@ public class ChemistryController {
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
 	 		try {
 	 			return LabInChemRepository.chemistryadd(pid, transid,
-	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
+	 			pathid, medid, qid, patientIdRef, fbs, fbscon, bua, buacon, crea, creacon, chol,
 	 			cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
 	 			cl, alt, ast, hb, alp, psa, rbs, rbscon, ggtp, ldh, calcium, amylase,
 	 			lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,

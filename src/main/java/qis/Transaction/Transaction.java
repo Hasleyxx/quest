@@ -36,7 +36,7 @@ public class Transaction {
     private String released_status;
     private String released_date;
 	@Nullable
-	private String ApeID;
+	private String patientIdRef;
 	private String approvalCode;
     
     public int getUserId() {
@@ -273,20 +273,20 @@ public class Transaction {
 		this.released_date = released_date;
 	}
 
-	public String getApeID() {
-		return ApeID;
-	}
-
-	public void setApeID(String apeID) {
-		ApeID = apeID;
-	}
-
 	public String getApprovalCode() {
 		return approvalCode;
 	}
 
 	public void setApprovalCode(String approvalCode) {
 		this.approvalCode = approvalCode;
+	}
+
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
     
 }

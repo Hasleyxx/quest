@@ -27,7 +27,7 @@ public class PE {
 	private String Doctor;
 	private int License;
 	@Nullable
-	private String ApeID;
+	private String patientIdRef;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getPExamID() {
@@ -120,11 +120,11 @@ public class PE {
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
-	public String getApeID() {
-		return ApeID;
+	public String getPatientIdRef() {
+		return patientIdRef;
 	}
-	public void setApeID(String apeID) {
-		ApeID = apeID;
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	
 

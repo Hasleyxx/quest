@@ -126,29 +126,29 @@ public class TransactionController {
 	
 	 @PostMapping("/addTransaction")
 	 public int AddTransaction(@RequestBody Map<String, String>body) {
-	 	String tRef 			= body.get("transactionRef");
-	 	Integer pId 			= Integer.parseInt(body.get("patientId"));	
-	 	int uId 				= Integer.parseInt(body.get("userId"));
-	 	String tType 			= body.get("transactionType");
-	 	String bil 				= body.get("biller");
-	 	String tPrice 			= body.get("totalPrice");
-	 	double pIn 				= Double.parseDouble(body.get("paidIn"));
-	 	double pOut 			= Double.parseDouble(body.get("paidOut"));
-	 	double gTotal 			= Double.parseDouble(body.get("grandTotal"));
-	 	String tDate 			= body.get("transactionDate");
-	 	int status 				= Integer.parseInt(body.get("status"));
-	 	String sType 			= body.get("salesType");
-	 	String loe 				= body.get("loe");
-	 	String an 				= body.get("an");
-	 	String ac 				= body.get("ac");
-	 	String notes 			= body.get("notes");
-	 	String cur				= body.get("currency");
-	 	String ApeID			= body.get("ApeID");
-	 	String approvalCode		= body.get("approvalCode");
+	 	String tRef 				= body.get("transactionRef");
+	 	Integer pId 				= Integer.parseInt(body.get("patientId"));	
+	 	int uId 					= Integer.parseInt(body.get("userId"));
+	 	String tType 				= body.get("transactionType");
+	 	String bil 					= body.get("biller");
+	 	String tPrice 				= body.get("totalPrice");
+	 	double pIn 					= Double.parseDouble(body.get("paidIn"));
+	 	double pOut 				= Double.parseDouble(body.get("paidOut"));
+	 	double gTotal 				= Double.parseDouble(body.get("grandTotal"));
+	 	String tDate 				= body.get("transactionDate");
+	 	int status 					= Integer.parseInt(body.get("status"));
+	 	String sType 				= body.get("salesType");
+	 	String loe 					= body.get("loe");
+	 	String an 					= body.get("an");
+	 	String ac 					= body.get("ac");
+	 	String notes 				= body.get("notes");
+	 	String cur					= body.get("currency");
+	 	String patientIdRef			= body.get("patientIdRef");
+	 	String approvalCode			= body.get("approvalCode");
 	 	
 	 	try {
 	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
-	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, ApeID, approvalCode);
+	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, patientIdRef, approvalCode);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -175,12 +175,6 @@ public class TransactionController {
 
 	 	return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
  				pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
-	 	//try {
-	 		//return transactionRepository.updateTransaction(pId, uId, tType, bil, tPrice, pIn,
-	 		//		pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, trans);
-	 //	}catch (DataIntegrityViolationException e){
-	 		//return 0;
-	 	//}
 	 }
 	 
 	 @PostMapping("/updateACANLOE")
@@ -329,9 +323,9 @@ public class TransactionController {
 		 	}
 	 }
 	 
-	 @GetMapping("/getApeID/{ApeID}")
-	 public @ResponseBody List<Transaction> getApeID(@PathVariable String ApeID ){
-		return transactionRepository.getApeID(ApeID);
+	 @GetMapping("/getpatientIdRef/{patientIdRef}")
+	 public @ResponseBody List<Transaction> getApeID(@PathVariable String patientIdRef ){
+		return transactionRepository.getPatientIdRef(patientIdRef);
 	} 
 	 
 }

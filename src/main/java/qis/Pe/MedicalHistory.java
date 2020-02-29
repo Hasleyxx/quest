@@ -32,7 +32,7 @@ public class MedicalHistory {
 	private String hep;
 	private String std;
 	@Nullable
-	private String ApeID;
+	private String patientIdRef;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getMedHisID() {
@@ -155,11 +155,11 @@ public class MedicalHistory {
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
-	public String getApeID() {
-		return ApeID;
+	public String getPatientIdRef() {
+		return patientIdRef;
 	}
-	public void setApeID(String apeID) {
-		ApeID = apeID;
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	
 }

@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="lab_microscopy")
 public class LabMicroscopy {
@@ -48,6 +50,8 @@ public class LabMicroscopy {
 	 private String PathID;
 	 private String MedID;
 	 private String QualityID;
+	 @Nullable
+	 private String patientIdRef;
 	 private String CreationDate;
 	 private String DateUpdate;
 	 
@@ -284,6 +288,12 @@ public class LabMicroscopy {
 	}
 	public void setDateUpdate(String dataUpdate) {
 		DateUpdate = dataUpdate;
+	}
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	 
 }

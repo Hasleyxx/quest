@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="lab_hematology")
 @SecondaryTable(name="qpd_trans")
@@ -52,13 +54,14 @@ public class LabIndustrialHema {
 	 private String PathID;
 	 private String MedID;
 	 private String QualityID;
+	 @Nullable
+	 private String patientIdRef;
 	 private String CreationDate;
 	 private String DateUpdate;
 	 private String bloodType;
 	 private String rh;
 	 private String clottingTime;
 	 private String bleedingTime;
-	 
 	 
 	public int getPatientID() {
 		return PatientID;
@@ -305,6 +308,12 @@ public class LabIndustrialHema {
 	}
 	public void setBloodType(String bloodType) {
 		this.bloodType = bloodType;
+	}
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	 
 }

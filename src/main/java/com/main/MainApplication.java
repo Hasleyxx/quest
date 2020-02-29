@@ -43,7 +43,7 @@ public class MainApplication implements WebMvcConfigurer {
      public void addCorsMappings(CorsRegistry registry) {
          registry
          .addMapping("/**")
-         .allowedOrigins("http://192.168.100.46:9090", "http://localhost:4200", "http://192.168.100.132:9090", "http://192.168.0.107:9090", "http://192.168.43.10:9090")
+         .allowedOrigins("http://192.168.100.46:9090", "http://localhost:4200", "http://192.168.100.132:9090", "http://192.168.0.107:9090", "http://192.168.43.10:9090", "*")
          .allowedMethods("GET", "POST", "PUT", "DELETE");
      }
 	

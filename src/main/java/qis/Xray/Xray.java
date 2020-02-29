@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="qpd_xray")
 public class Xray {
@@ -19,6 +21,8 @@ public class Xray {
 	private String Radiologist;
 	private String QA;
 	private String imgXray;
+	@Nullable
+	private String patientIdRef;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getXrayID() {
@@ -80,6 +84,12 @@ public class Xray {
 	}
 	public void setImgXray(String imgXray) {
 		this.imgXray = imgXray;
+	}
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	
 

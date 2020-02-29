@@ -21,10 +21,10 @@ public interface XrayRepository extends JpaRepository<Xray, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_xray(TransactionID, PatientID, Comment, Impression,"
-			     + " Radiologist, QA, CreationDate, DateUpdate)"
-			     + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8) ", nativeQuery = true)
+			     + " Radiologist, QA, patientIdRef, CreationDate, DateUpdate)"
+			     + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9) ", nativeQuery = true)
 	int addXray(int trans, int pid, String com, String impre, String rad,
-			String qa, String cdate, String udate);
+			String qa, String patientIdRef, String cdate, String udate);
 	
 	@Transactional
 	@Modifying

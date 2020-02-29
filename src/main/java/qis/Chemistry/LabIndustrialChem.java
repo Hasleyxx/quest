@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="lab_chemistry")
 public class LabIndustrialChem {
@@ -74,6 +76,8 @@ public class LabIndustrialChem {
 	 private String BUN;
 	 private String BUNcon;
 	 private String chemNotes;
+	 @Nullable
+	 private String patientIdRef;
 	 
 	public int getPatientID() {
 		return PatientID;
@@ -445,7 +449,7 @@ public class LabIndustrialChem {
 	
 	public LabIndustrialChem() {}
 	public LabIndustrialChem(int patientID, int transactionID, int chemID, int pathID,
-			int medID, int qualityID, String fBS, String fBScon, String bUA, String bUAcon,
+			int medID, int qualityID, String patientIdRef, String fBS, String fBScon, String bUA, String bUAcon,
 			String cREA, String cREAcon, String cHOL, String cHOLcon, String tRIG, String tRIGcon,
 			String hDL, String hDLcon, String lDL, String lDLcon, String cH, String vLDL,
 			String na, String k, String cl, String aLT, String aST, String hB, String aLP,
@@ -462,6 +466,7 @@ public class LabIndustrialChem {
 		PathID = pathID;
 		MedID = medID;
 		QualityID = qualityID;
+		patientIdRef = patientIdRef;
 		FBS = fBS;
 		FBScon = fBScon;
 		BUA = bUA;
@@ -517,6 +522,12 @@ public class LabIndustrialChem {
 		BUN = bUN;
 		BUNcon = bUNcon;
 		this.chemNotes = chemNotes;
+	}
+	public String getPatientIdRef() {
+		return patientIdRef;
+	}
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	
 	

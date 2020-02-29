@@ -36,7 +36,7 @@ public class Vital {
 	private String lmp;
 	private String Notes;
 	@Nullable
-	private String ApeID;
+	private String patientIdRef;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getVitalsID() {
@@ -183,11 +183,11 @@ public class Vital {
 	public void setDateUpdate(String dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
-	public String getApeID() {
-		return ApeID;
+	public String getPatientIdRef() {
+		return patientIdRef;
 	}
-	public void setApeID(String apeID) {
-		ApeID = apeID;
+	public void setPatientIdRef(String patientIdRef) {
+		this.patientIdRef = patientIdRef;
 	}
 	
 	
