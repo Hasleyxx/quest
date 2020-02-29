@@ -151,8 +151,10 @@ public class TransactionController {
 	 	String patientIdRef			= body.get("patientIdRef");
 	 	String approvalCode			= body.get("approvalCode");
 	 	
+	 	
+	 	
 	 	try {
-	 	return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
+	 		return transactionRepository.addTransaction(tRef, pId, uId, tType, bil, tPrice, pIn,
 	 			pOut, gTotal, tDate, status, sType, loe, an, ac, notes, cur, patientIdRef, approvalCode);
 	 	}catch (DataIntegrityViolationException e) {
     		return 0;
