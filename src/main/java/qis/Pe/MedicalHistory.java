@@ -33,6 +33,7 @@ public class MedicalHistory {
 	private String std;
 	@Nullable
 	private String patientIdRef;
+	private int userID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getMedHisID() {
@@ -160,6 +161,12 @@ public class MedicalHistory {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 }

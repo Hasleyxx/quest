@@ -23,6 +23,7 @@ public class Xray {
 	private String imgXray;
 	@Nullable
 	private String patientIdRef;
+	private int userID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getXrayID() {
@@ -90,6 +91,12 @@ public class Xray {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 

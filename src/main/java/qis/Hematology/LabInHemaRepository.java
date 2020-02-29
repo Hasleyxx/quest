@@ -18,7 +18,7 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			+ " APTTime= ?21, APTControl= ?22, PTimeNV = ?23, PTControlNV = ?24, ActPercentNV= ?25,"
 			+ " INRNV = ?26, APTTimeNV = ?27, APTControlNV = ?28, MS = ?29, ESR = ?30, ESRMethod = ?31,"
 			+ " PathID = ?32, MedID= ?33, QualityID = ?34 , CreationDate = ?35, DateUpdate = ?36, "
-			+ " bloodType = ?37, rh = ?38, clottingTime = ?39, bleedingTime = ?40"
+			+ " bloodType = ?37, rh = ?38, clottingTime = ?39, bleedingTime = ?40, userID = ?42"
 			+ " where hemaID = ?41", nativeQuery = true)
 	int updateHemaRepo(int trans, int pid, String wb, String hemog, String hemo, String tocrit,
 			String hema, String neutro, String lympho, String mono, String cbcot, String eos,
@@ -26,7 +26,7 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			String inr, String pr131, String aptt, String aptc, String ptnv, String ptcnv,
 			String apttnv, String apnv, String inrnv, String aptcnv, String ms, String esr,
 			String esrmethod, int pathid, int medid, int qid, String cdate, String dupdate, String bloodType,
-			String rh, String ct, String bleedTime, int hemaID);
+			String rh, String ct, String bleedTime, int hemaID, int userID);
 	
 	@Transactional
 	@Modifying
@@ -34,10 +34,10 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			+ " HemoNR, Hematocrit, HemaNR, Neutrophils, Lymphocytes, Monocytes, CBCOt, EOS, BAS,"
 			+ " CBCRBC, PLT, PTime, PTControl, ActPercent, INR, PR131, APTTime, APTControl, PTimeNV,"
 			+ " PTControlNV, ActPercentNV, INRNV, APTTimeNV, APTControlNV, MS, ESR, ESRMethod, PathID,"
-			+ " MedID, QualityID, patientIdRef, CreationDate, DateUpdate, bloodType, rh, clottingTime, bleedingTime)"
+			+ " MedID, QualityID, patientIdRef, userID, CreationDate, DateUpdate, bloodType, rh, clottingTime, bleedingTime)"
 			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17,"
 			+ " ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27, ?28, ?29, ?30, ?31, ?32,"
-			+ " ?33, ?34, ?35, ?36,?37,?38,?39, ?40, ?41 )", nativeQuery = true)
+			+ " ?33, ?34, ?35, ?36,?37,?38,?39, ?40, ?41, ?42 )", nativeQuery = true)
 	
 	
 	int addHemaRepo(int trans, int pid, String wb, String hemog, String hemo, String tocrit,
@@ -45,7 +45,7 @@ public interface LabInHemaRepository extends JpaRepository <LabIndustrialHema, I
 			String bas,String cbcrbc, String plt, String ptime, String ptcontrol, String apercent,
 			String inr, String pr131, String aptt, String aptc, String ptnv, String ptcnv,
 			String apttnv, String apnv, String inrnv, String aptcnv, String ms, String esr,
-			String esrmethod, int pathid, int medid, int qid, String patientIdRef, String cdate, String dupdate,
+			String esrmethod, int pathid, int medid, int qid, String patientIdRef, int userID, String cdate, String dupdate,
 			String bloodType, String rh, String ct, String bleedTime);
 
 	

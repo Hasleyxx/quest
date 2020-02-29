@@ -71,6 +71,11 @@ public class TransactionController {
 		return transactionRepository.getTransactionDateBiller(v1, v2, v3); 
     }
 	
+	@GetMapping("/getTransactionDateBiller/{v1}/{v2}")
+	public List<Transaction> TransactionDateBillerSort(@PathVariable String v1, @PathVariable String v2) {
+		return transactionRepository.getTransactionDateBillerSort(v1, v2); 
+    }
+	
 	@GetMapping("/getTransactionId/{v1}/{v2}")
 	public List<Transaction> TransactionId(@PathVariable String v1, @PathVariable String v2) {
 		return transactionRepository.getTransactionId(v1, v2);

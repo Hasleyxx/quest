@@ -78,6 +78,7 @@ public class LabIndustrialChem {
 	 private String chemNotes;
 	 @Nullable
 	 private String patientIdRef;
+	 private int userID;
 	 
 	public int getPatientID() {
 		return PatientID;
@@ -528,6 +529,12 @@ public class LabIndustrialChem {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 	

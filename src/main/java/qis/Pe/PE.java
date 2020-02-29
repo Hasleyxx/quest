@@ -28,6 +28,7 @@ public class PE {
 	private int License;
 	@Nullable
 	private String patientIdRef;
+	private int userID;
 	private String CreationDate;
 	private String DateUpdate;
 	public int getPExamID() {
@@ -125,6 +126,12 @@ public class PE {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 

@@ -172,9 +172,11 @@ public class ChemistryController {
 	 	int pathid 			= Integer.parseInt(body.get("pathID"));
 	    int medid 			= Integer.parseInt(body.get("medID"));
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
+	 	int userID			= Integer.parseInt(body.get("userID"));
+	 	
 	 		try {
 	 			return LabInChemRepository.chemistryadd(pid, transid,
-	 			pathid, medid, qid, patientIdRef, fbs, fbscon, bua, buacon, crea, creacon, chol,
+	 			pathid, medid, qid, patientIdRef, userID, fbs, fbscon, bua, buacon, crea, creacon, chol,
 	 			cholcon, trig, trigcon, hdl, hdlcon, ldl, ldlcon, ch, vldl, na, k,
 	 			cl, alt, ast, hb, alp, psa, rbs, rbscon, ggtp, ldh, calcium, amylase,
 	 			lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
@@ -251,6 +253,8 @@ public class ChemistryController {
 	 	int pathid 			= Integer.parseInt(body.get("pathID"));
 	    int medid 			= Integer.parseInt(body.get("medID"));
 	 	int qid				= Integer.parseInt(body.get("qualityID"));
+	 	int userID			= Integer.parseInt(body.get("userID"));
+	 	
 	 		try {
 	 			return LabInChemRepository.chemistryupdate(pid, transid, chemid,
 	 			pathid, medid, qid, fbs, fbscon, bua, buacon, crea, creacon, chol,
@@ -259,7 +263,7 @@ public class ChemistryController {
 	 			lipase, inphos, protein, albumin, glubolin, magnesium, ogtt1, ogtt1con,
 	 			ogtt2, ogtt2con, ogct, ogctcon, cpkmb, cpkmm, stotalcpk, ioncalcium,
 	 			biltotal, bildirect, bilindirect, agratio, creationdate, dateupdate,
-	 			bun, buncon, chemNotes);
+	 			bun, buncon, chemNotes, userID);
 	 			}catch (DataIntegrityViolationException e) {
 	 				return 0;
 	 			}

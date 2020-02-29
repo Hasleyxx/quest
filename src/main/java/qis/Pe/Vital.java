@@ -37,8 +37,10 @@ public class Vital {
 	private String Notes;
 	@Nullable
 	private String patientIdRef;
+	private int userID;
 	private String CreationDate;
 	private String DateUpdate;
+	
 	public int getVitalsID() {
 		return VitalsID;
 	}
@@ -188,6 +190,12 @@ public class Vital {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 	

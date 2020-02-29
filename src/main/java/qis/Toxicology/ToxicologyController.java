@@ -43,10 +43,11 @@ public class ToxicologyController {
     	int pathid     = 	Integer.parseInt(body.get("pathID"));
         int medid      =	Integer.parseInt(body.get("medID"));
     	int qualityid  =	Integer.parseInt(body.get("qualityID"));
+    	int userID	   =	Integer.parseInt(body.get("userID"));
     	
     	try {
     		return LabInToxicologyRepository.toxicologyadd(transid, pid, meth, tetra, drugtest,
-    		   pathid, medid, qualityid, patientIdRef, creationdate, dateupdate);
+    		   pathid, medid, qualityid, patientIdRef, userID, creationdate, dateupdate);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -68,10 +69,11 @@ public class ToxicologyController {
     	int pathid     = 	Integer.parseInt(body.get("pathID"));
         int medid      =	Integer.parseInt(body.get("medID"));
     	int qualityid  =	Integer.parseInt(body.get("qualityID"));
+    	int userID     =	Integer.parseInt(body.get("userID"));
 
     	try {
     		return LabInToxicologyRepository.toxicologyupdate(toxicid, transid, pid, meth,
-    				tetra, drugtest, pathid, medid, qualityid, creationdate, dateupdate);
+    				tetra, drugtest, pathid, medid, qualityid, creationdate, dateupdate, userID);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

@@ -52,6 +52,7 @@ public class LabMicroscopy {
 	 private String QualityID;
 	 @Nullable
 	 private String patientIdRef;
+	 private int userID;
 	 private String CreationDate;
 	 private String DateUpdate;
 	 
@@ -294,6 +295,12 @@ public class LabMicroscopy {
 	}
 	public void setPatientIdRef(String patientIdRef) {
 		this.patientIdRef = patientIdRef;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	 
 }

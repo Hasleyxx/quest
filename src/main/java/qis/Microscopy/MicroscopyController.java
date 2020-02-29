@@ -44,6 +44,7 @@ public class MicroscopyController {
 		int pathid 			= Integer.parseInt(body.get("pathID"));
 		int pid 			= Integer.parseInt(body.get("patientID"));
 		int trans 			= Integer.parseInt(body.get("transactionID"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		
 		String fcolor 			= body.get("fecColor");
 		String fcon 			= body.get("fecCon");
@@ -84,7 +85,7 @@ public class MicroscopyController {
 		   return LabMicroRepository.addmicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
 				le, nit, uro, bld, ket, bil, ptest, a1, a2, af1, af2, afbd, obld, pathid, medid,
-				qid, patientIdRef, cdate, dupdate);
+				qid, patientIdRef, userID, cdate, dupdate);
 	   }catch (DataIntegrityViolationException e) {
    			return 0;
    		}
@@ -99,6 +100,7 @@ public class MicroscopyController {
 		int pathid 			= Integer.parseInt(body.get("pathID"));
 		int pid 			= Integer.parseInt(body.get("patientID"));
 		int trans 			= Integer.parseInt(body.get("transactionID"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		
 		String fcolor 			= body.get("fecColor");
 		String fcon 			= body.get("fecCon");
@@ -134,13 +136,11 @@ public class MicroscopyController {
 		String cdate 			= body.get("creationDate");
 	    String dupdate	 		= body.get("dateUpdate");
 	    
-	    System.out.println("Update: " + uot);
-	    
 	    try {
 	    	return LabMicroRepository.updatemicroscopy(trans, pid, fcolor, fcon, fmicro, fot, ucolor,
 				utrans, uph, usp, upro, uglu, rbc, wbc, bac, mthreads, ecells, amorph, coax, uot,
 				le, nit, uro, bld, ket, bil, ptest, a1, a2, af1, af2, afbd, obld, pathid, medid,
-				qid, cdate, dupdate);
+				qid, cdate, dupdate, userID);
 	    }catch (DataIntegrityViolationException e) {
     		return 0;
     	}

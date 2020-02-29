@@ -58,12 +58,13 @@ public class SerologyController {
 		int pathid     = 	Integer.parseInt(body.get("pathID"));
 	    int medid      =	Integer.parseInt(body.get("medID"));
 		int qualityid  =	Integer.parseInt(body.get("qualityID"));
+		int userID	   =	Integer.parseInt(body.get("userID"));
 		
 		try {
 			return LabInSerologyRepository.Serologyadd(transid, pid, hbsag, antihav, seroot,
 				vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, 
 				cea, afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2,
-				pathid, medid, qualityid, patientIdRef, creationdate, dateupdate);
+				pathid, medid, qualityid, patientIdRef, userID, creationdate, dateupdate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -98,17 +99,19 @@ public class SerologyController {
 		String creationdate    = body.get("creationDate");
 		String dateupdate      = body.get("dateUpdate");
 		
-		int seroid     = 	Integer.parseInt(body.get("seroID")); 
-		int transid    =	Integer.parseInt(body.get("transactionID"));
-		int pid        =	Integer.parseInt(body.get("patientID"));
-		int pathid     = 	Integer.parseInt(body.get("pathID"));
-	    int medid      =	Integer.parseInt(body.get("medID"));
-		int qualityid  =	Integer.parseInt(body.get("qualityID"));
+		int seroid    			= 	Integer.parseInt(body.get("seroID")); 
+		int transid   			=	Integer.parseInt(body.get("transactionID"));
+		int pid       			=	Integer.parseInt(body.get("patientID"));
+		int pathid    			= 	Integer.parseInt(body.get("pathID"));
+	    int medid     			=	Integer.parseInt(body.get("medID"));
+		int qualityid 			=	Integer.parseInt(body.get("qualityID"));
+		int userID				=	Integer.parseInt(body.get("userID"));
+		
 		try {
 			return LabInSerologyRepository.Serologyupdate(transid, pid, hbsag, antihav, seroot,
 					vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, cea, 
 					afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2, pathid,
-					medid, qualityid, creationdate, dateupdate, seroid);
+					medid, qualityid, creationdate, dateupdate, seroid, userID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

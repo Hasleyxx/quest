@@ -37,6 +37,7 @@ public class HematologyController {
 		int pathid 			= Integer.parseInt(body.get("pathID"));
 		int pid 			= Integer.parseInt(body.get("patientID"));
 		int trans 			= Integer.parseInt(body.get("transactionID"));
+		int userID 			= Integer.parseInt(body.get("userID"));
 		
 		String wb 				= body.get("whiteBlood");
 		String hemog 			= body.get("hemoglobin");
@@ -79,7 +80,7 @@ public class HematologyController {
 	    	return LabInHemaRepository.addHemaRepo(trans, pid, wb,hemog, hemo, tocrit, hema, neutro,
 	    		lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent, inr, pr131,
 	    		aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr, esrmethod, pathid,
-	    		medid, qid, patientIdRef, cdate, dupdate,bt,rh,bleed,ct);
+	    		medid, qid, patientIdRef, userID, cdate, dupdate,bt,rh,bleed,ct);
 	    }catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -94,6 +95,7 @@ public class HematologyController {
 		int pid 			= Integer.parseInt(body.get("patientID"));
 		int trans 			= Integer.parseInt(body.get("transactionID"));
 		int hid 			= Integer.parseInt(body.get("hemaID"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		
 		String wb 				= body.get("whiteBlood");
 		String hemog 			= body.get("hemoglobin");
@@ -137,7 +139,7 @@ public class HematologyController {
 	    	return LabInHemaRepository.updateHemaRepo(trans, pid, wb, hemog, hemo, tocrit, hema,
 	    			neutro, lympho, mono, cbcot, eos, bas, cbcrbc, plt, ptime, ptcontrol, apercent,
 	    			inr, pr131, aptt, aptc, ptnv, ptcnv, apttnv, apnv, inrnv, aptcnv, ms, esr,
-	    			esrmethod, pathid, medid, qid, cdate, dupdate,bt,rh,bleed,ct,hid);
+	    			esrmethod, pathid, medid, qid, cdate, dupdate, bt, rh, bleed, ct, hid, userID);
 	    }catch (DataIntegrityViolationException e) {
     		return 0;
     	}

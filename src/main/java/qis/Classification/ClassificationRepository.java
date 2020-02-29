@@ -19,14 +19,14 @@ public interface ClassificationRepository extends JpaRepository<Classification, 
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into qpd_class(TransactionID, PatientID, MedicalClass,"
-				 + " Notes, QC, QCLicense, CreationDate) "
-				 + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7)", nativeQuery = true)
-	int addClass(int trans, int pid, String med, String notes, String qc, int qcl, String cdate);
+				 + " Notes, QC, QCLicense, userID, CreationDate) "
+				 + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)", nativeQuery = true)
+	int addClass(int trans, int pid, String med, String notes, String qc, int qcl, int userID, String cdate);
 
 	
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_class SET MedicalClass = ?1, Notes = ?2, QC = ?3,"
-			+ " QCLicense = ?4, CreationDate = ?5 where classId=?6", nativeQuery = true)
-	int updateClass(String med, String notes, String qc, int qcl, String cdate, int classId);
+			+ " QCLicense = ?4, CreationDate = ?5, userID = ?7 where classId=?6", nativeQuery = true)
+	int updateClass(String med, String notes, String qc, int qcl, String cdate, int classId, int userID);
 }

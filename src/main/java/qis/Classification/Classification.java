@@ -18,7 +18,9 @@ public class Classification {
 	private String Notes;
 	private String QC;
 	private int QCLicense;
+	private int userID;
 	private String CreationDate;
+	
 	public int getClassID() {
 		return ClassID;
 	}
@@ -66,6 +68,12 @@ public class Classification {
 	}
 	public void setCreationDate(String creationDate) {
 		CreationDate = creationDate;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	
 	

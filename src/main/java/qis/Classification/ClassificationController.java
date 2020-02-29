@@ -49,9 +49,11 @@ public class ClassificationController {
 		String notes 		= body.get("notes");
 		String qc 			= body.get("qc");
 		int qcl 			= Integer.parseInt(body.get("qclicense"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		String cdate 		= body.get("creationDate");
+		
 		try {
-		return classRepository.addClass(trans, pid, med, notes, qc, qcl, cdate);
+			return classRepository.addClass(trans, pid, med, notes, qc, qcl, userID, cdate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
@@ -62,11 +64,12 @@ public class ClassificationController {
 		String notes 		= body.get("notes");
 		String qc 			= body.get("qc");
 		int qcl 			= Integer.parseInt(body.get("qclicense"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		String cdate 		= body.get("creationDate");
 		int classId 		= Integer.parseInt(body.get("classId"));
 
 		try {
-			return classRepository.updateClass(med, notes, qc, qcl, cdate, classId);
+			return classRepository.updateClass(med, notes, qc, qcl, cdate, classId, userID);
 		}catch (DataIntegrityViolationException e) {
 			return 0;
 		}

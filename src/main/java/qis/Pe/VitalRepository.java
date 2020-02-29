@@ -19,24 +19,24 @@ public interface VitalRepository extends JpaRepository<Vital, Integer>{
 	@Modifying
 	@Query(value = " INSERT into qpd_vital (TransactionID, PatientID, height,"
 			     + " weight, bmi, bp, pr, rr, uod, uos, cod, cos, cv, hearing, hosp,"
-			     + " opr, pm, smoker, ad, lmp, notes, patientIdRef, CreationDate, DateUpdate)"
+			     + " opr, pm, smoker, ad, lmp, notes, patientIdRef, userID, CreationDate, DateUpdate)"
 			     + " VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14,"
-			     + " ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24)", nativeQuery = true)
+			     + " ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25)", nativeQuery = true)
 	int addVital(int trans, int pid, String hei, String wei, String bmi, String bp,
 			String pr, String rr, String uod, String uos, String cod, String cos, String cv,
 			String hearing, String hosp, String opr, String pm, String smoker, String ad,
-			String lmp, String notes, String patientIdRef, String cdate, String udate);
+			String lmp, String notes, String patientIdRef, int userID, String cdate, String udate);
 	
 	@Transactional
 	@Modifying
 	@Query(value = " UPDATE qpd_vital SET height = ?1, weight = ?2, bmi = ?3, bp = ?4, "
 				 + " pr = ?5, rr = ?6, uod = ?7, uos = ?8, cod = ?9, cos = ?10, cv = ?11,"
 				 + " hearing = ?12, hosp = ?13, opr = ?14, pm = ?15, smoker = ?16, ad = ?17,"
-				 + " lmp = ?18, notes = ?19, CreationDate = ?20, DateUpdate = ?21"
+				 + " lmp = ?18, notes = ?19, CreationDate = ?20, DateUpdate = ?21, userID = ?23"
 				 + " where VitalsID = ?22", nativeQuery = true)
 	int updateVital(String hei, String wei, String bmi, String bp, String pr, String rr,
 			String uod, String uos, String cod, String cos, String cv, String hearing,
 			String hosp, String opr, String pm, String smoker, String ad, String lmp,
-			String notes, String cdate, String udate, String vitalsID);
+			String notes, String cdate, String udate, String vitalsID, int userID);
 
 }

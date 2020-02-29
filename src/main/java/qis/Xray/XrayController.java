@@ -65,9 +65,10 @@ public class XrayController {
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
 		String patientIdRef	= body.get("patientIdRef");
+		int userID			= Integer.parseInt(body.get("userID"));
 		
 		try {
-			return xRepository.addXray(trans, pid, com, impre, rad, qa, patientIdRef, cdate, udate);
+			return xRepository.addXray(trans, pid, com, impre, rad, qa, patientIdRef, userID, cdate, udate);
 		}catch (DataIntegrityViolationException e) {
    			return 0;
    		}
@@ -82,9 +83,10 @@ public class XrayController {
 		String cdate 		= body.get("creationDate");
 		String udate 		= body.get("dateUpdate");
 		int xid		 		= Integer.parseInt(body.get("xrayID"));
+		int userID			= Integer.parseInt(body.get("userID"));
 		
 		try {
-			return xRepository.updateXray(com, impre, rad, qa, cdate, udate, xid);
+			return xRepository.updateXray(com, impre, rad, qa, cdate, udate, xid, userID);
 		}catch(DataIntegrityViolationException e) {
 			return 0;
 		}

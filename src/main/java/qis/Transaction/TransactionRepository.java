@@ -40,6 +40,9 @@ public interface TransactionRepository extends JpaRepository <Transaction, Integ
 	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and Biller = ?3 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionDateBiller(String v1, String v2, String v3);
 	
+	@Query(value = " SELECT * from qpd_trans where TransactionDate BETWEEN ?1 and ?2 and status = 1 order by Biller ASC", nativeQuery = true)
+	List<Transaction> getTransactionDateBillerSort(String v1, String v2);
+	
 	@Query(value = " SELECT * from qpd_trans where TransactionID BETWEEN ?1 and ?2 and status = 1", nativeQuery = true)
 	List<Transaction> getTransactionId(String v1, String v2);
 	
