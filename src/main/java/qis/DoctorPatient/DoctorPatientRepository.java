@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface DoctorPatientRepository extends JpaRepository <DoctorPatient, Integer> {
-	@Query(value = " SELECT * FROM doc_patient", nativeQuery = true)
-	List<DoctorPatient> docPatient();
+	@Query(value = " SELECT * FROM doc_patient WHERE patientID = ?1", nativeQuery = true)
+	List<DoctorPatient> docPatient(int pid);
 	
 	@Transactional
 	@Modifying

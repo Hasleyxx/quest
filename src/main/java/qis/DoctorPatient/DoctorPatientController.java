@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,9 @@ public class DoctorPatientController {
 	@Autowired
 	DoctorPatientRepository docPatientRepository;
 	
-	@GetMapping("/getDocPatient")
-	public List<DoctorPatient> docPatient() {
-		return docPatientRepository.docPatient();
+	@GetMapping("/getDocPatient/{pid}")
+	public List<DoctorPatient> docPatient(@PathVariable int pid) {
+		return docPatientRepository.docPatient(pid);
 	}
 	
 	@PostMapping("/addDocPatient")
@@ -39,7 +40,6 @@ public class DoctorPatientController {
 	@PostMapping("/updateDocPatient")
 	public int updateDocPatient(@RequestBody Map<String, String>body){
 		int	dpid				= Integer.parseInt(body.get("docPatientID"));
-		int pid					= Integer.parseInt(body.get("patientID"));
 		
 		String famHis			= body.get("famHis");
 		String pastmedHis		= body.get("pastmedHis");
