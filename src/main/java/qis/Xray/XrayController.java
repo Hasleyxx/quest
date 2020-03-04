@@ -124,7 +124,7 @@ public class XrayController {
 	
 	@RequestMapping(value="/addXrayScanImage", method=RequestMethod.POST, consumes = "multipart/form-data")
 	public int addXrayScan(@RequestParam("image") MultipartFile file, @RequestParam("tid") int tid) {
-		String UPLOADED_FOLDER = "C:\\xampp\\htdocs\\qis-java-2020-prod\\src\\assets\\xray\\";
+		String UPLOADED_FOLDER = "C:\\xampp\\htdocs\\qis-java-2020\\src\\assets\\xray\\";
 		String fileName = tid + "_" + file.getOriginalFilename();
 
 		try {
