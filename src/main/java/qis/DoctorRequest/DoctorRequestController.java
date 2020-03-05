@@ -27,9 +27,11 @@ public class DoctorRequestController {
 		String category			= body.get("category");
 		String test				= body.get("test");
 		String otherTest		= body.get("otherTest");
+		String requestRef		= body.get("requestRef");
 		String dateCreated		= body.get("dateCreated");
+		
 		try {
-			return docRequestRepository.addDocRequest(pid, category, test, otherTest, dateCreated);
+			return docRequestRepository.addDocRequest(pid, category, test, otherTest, requestRef, dateCreated);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
     	}

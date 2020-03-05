@@ -83,6 +83,19 @@ public class UserController {
     	}
     }
 	
+	@PostMapping("/updateUserPassword")
+	public int updateUserPassword(@RequestBody Map<String, String>body) {
+		int userID				= Integer.parseInt(body.get("userID"));
+		String userPass			= body.get("userPass");
+		String userPassUpdate	= body.get("userPassUpdate");
+		
+		try {
+			return userRepository.updateUserPassword(userID, userPass, userPassUpdate);
+		}catch (DataIntegrityViolationException e) {
+			return 0;
+		}
+	}
+	
 	@PostMapping("/addPrivilege")
 	public int AddPrivilege(@RequestBody Map<String, String>body) {
 		int uid 		= Integer.parseInt(body.get("userID"));

@@ -13,11 +13,11 @@ public class DoctorRequest {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private int docRequestID;
-	
-	Integer patientID;
+	private int patientID;
 	String category;
 	String test;
 	String otherTest;
+	String requestRef;
 	String dateCreated;
 	
 	public int getDocRequestID() {
@@ -26,10 +26,10 @@ public class DoctorRequest {
 	public void setDocRequestID(int docRequestID) {
 		this.docRequestID = docRequestID;
 	}
-	public Integer getPatientID() {
+	public int getPatientID() {
 		return patientID;
 	}
-	public void setPatientID(Integer patientID) {
+	public void setPatientID(int patientID) {
 		this.patientID = patientID;
 	}
 	public String getCategory() {
@@ -56,11 +56,10 @@ public class DoctorRequest {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	
-	
-	
-	
-	
-	
-	
+	public String getRequestRef() {
+		return requestRef;
+	}
+	public void setRequestRef(String requestRef) {
+		this.requestRef = requestRef;
+	}
 }

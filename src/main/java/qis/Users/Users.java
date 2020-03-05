@@ -17,7 +17,8 @@ public class Users {
 	private String userPass;
 	private String userStatus;
 	private String tokenCode;
-	private String _class;	
+	private String _class;
+	private String userPassUpdate;
 
 	public int getUserID() {
 		return userID;
@@ -60,6 +61,12 @@ public class Users {
 	}
 	public void set_class(String _class) {
 		this._class = _class;
+	}
+	public String getUserPassUpdate() {
+		return userPassUpdate;
+	}
+	public void setUserPassUpdate(String userPassUpdate) {
+		this.userPassUpdate = userPassUpdate;
 	}
 	
 

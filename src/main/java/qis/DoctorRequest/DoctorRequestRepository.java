@@ -14,9 +14,9 @@ public interface DoctorRequestRepository extends JpaRepository <DoctorRequest, I
 	
 	@Transactional
 	@Modifying
-	@Query(value = " INSERT INTO doc_request (patientID, category, test, otherTest, dateCreated)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-	int addDocRequest(int pid, String category, String test, String otherTest, String dateCreated);
+	@Query(value = " INSERT INTO doc_request (patientID, category, test, otherTest, requestRef, dateCreated)"
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
+	int addDocRequest(int pid, String category, String test, String otherTest, String requestRef, String dateCreated);
 
 	@Transactional
 	@Modifying
