@@ -26,8 +26,8 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT into tbl_users(userName, userEmail, userPass, userStatus,"
-			     + " tokenCode, _class) VALUES(?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
-	int addUser(String user, String email, String pass, String status, String cd, String cl);
+			     + " tokenCode, _class, userPassUpdate) VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7)", nativeQuery = true)
+	int addUser(String user, String email, String pass, String status, String cd, String cl, String userPassUpdate);
 
 	@Transactional
 	@Modifying

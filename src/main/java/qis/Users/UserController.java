@@ -55,14 +55,16 @@ public class UserController {
 	
 	@PostMapping("/addUser")
     public int AddUser(@RequestBody Map<String, String>body) {
-		String user 		= body.get("userName");
-		String email 		= body.get("userEmail");
-		String pass 		= body.get("userPass");
-		String status 		= body.get("userStatus");
-		String cd 			= body.get("tokenCode");
-		String cl 			= body.get("_class");
+		String user 					= body.get("userName");
+		String email 					= body.get("userEmail");
+		String pass 					= body.get("userPass");
+		String status 					= body.get("userStatus");
+		String cd 						= body.get("tokenCode");
+		String cl 						= body.get("_class");
+		String userPassUpdate 			= body.get("userPassUpdate");
+		
     	try {
-    		return userRepository.addUser(user, email, pass, status, cd, cl);
+    		return userRepository.addUser(user, email, pass, status, cd, cl, userPassUpdate);
     	}catch (DataIntegrityViolationException e) {
     		return 0;
     	}
