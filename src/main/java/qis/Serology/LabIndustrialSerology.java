@@ -37,7 +37,9 @@ public class LabIndustrialSerology {
 	 private String CA15;
 	 private String TSH;
 	 private String FT3;
+	 private String T3;
 	 private String FT4;
+	 private String T4;
 	 private String CRPdil;
 	 private String CRPRes;
 	 private String HIV1;
@@ -249,6 +251,18 @@ public class LabIndustrialSerology {
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+	public String getT4() {
+		return T4;
+	}
+	public void setT4(String t4) {
+		T4 = t4;
+	}
+	public String getT3() {
+		return T3;
+	}
+	public void setT3(String t3) {
+		T3 = t3;
 	}
 	  
 	 

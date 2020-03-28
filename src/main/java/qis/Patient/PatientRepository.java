@@ -36,11 +36,11 @@ public interface PatientRepository extends JpaRepository <Patient , Integer> {
 	@Modifying
 	@Query(value = " INSERT INTO qpd_patient (PatientRef, PatientType, CompanyName, Position,"
 			+ " FirstName, MiddleName, LastName, Address, Birthdate, Email, Age, Gender, ContactNo,"
-			+ " Notes, SID, CreationDate, DateUpdate)"
-			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17)", nativeQuery = true)
+			+ " Notes, SID, CreationDate, DateUpdate, image)"
+			+ " VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18)", nativeQuery = true)
 	int addPatient(String pRef, String pType, String com, String pos, String fn, String mn, String ln, 
 			String add, String bdate, String email, int age, String gen, String no,
-			String notes, String sid, String cdate, String udate);
+			String notes, String sid, String cdate, String udate, String fileName);
 	
 	@Transactional
 	@Modifying
@@ -48,8 +48,13 @@ public interface PatientRepository extends JpaRepository <Patient , Integer> {
 			+ " FirstName = ?4, MiddleName = ?5, LastName = ?6, Address = ?7,"
 			+ " Birthdate = ?8, Email = ?9, Age = ?10, Gender = ?11, ContactNo = ?12,"
 			+ " Notes = ?13, SID = ?14, CreationDate = ?15, DateUpdate = ?16"
-			+ " WHERE PatientID = ?17", nativeQuery = true)
+			+ " image = ?18 WHERE PatientID = ?17", nativeQuery = true)
 	int updatePatient(String pType, String com, String pos, String fn, String mn,
 			String ln, String add, String bdate, String email, int age, String gen, String no,
-			String notes, String sid, String cdate, String udate, int pid);
+			String notes, String sid, String cdate, String udate, int pid, String fileName);
+	
+	@Transactional
+	@Modifying
+	@Query(value = " UPDATE qpd_patient SET image = ?2 WHERE PatientID = ?1", nativeQuery = true)
+	int updatePatientImage(int patientID, String fileName);
 }

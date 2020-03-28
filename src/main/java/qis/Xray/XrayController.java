@@ -123,10 +123,12 @@ public class XrayController {
 	}
 	
 	@RequestMapping(value="/addXrayScanImage", method=RequestMethod.POST, consumes = "multipart/form-data")
-	public int addXrayScan(@RequestParam("image") MultipartFile file, @RequestParam("tid") int tid) {
-		String UPLOADED_FOLDER = "C:\\xampp\\htdocs\\qis-java-2020\\src\\assets\\xray\\";
-		String fileName = tid + "_" + file.getOriginalFilename();
-
+	public int addXrayScan(@RequestParam("image") MultipartFile file, @RequestParam("tid") String tid) {
+		int Tid = Integer.parseInt(tid);
+		System.out.println(Tid);
+		String UPLOADED_FOLDER = "C:\\xampp\\htdocs\\qis-java-2020-prod\\src\\assets\\xray\\";
+		String fileName = Tid + "_" + file.getOriginalFilename();
+		
 		try {
             // Get the file and save it somewhere
             byte[] bytes = file.getBytes();
@@ -134,7 +136,7 @@ public class XrayController {
             Files.write(path, bytes);
     	
     		try {
-    			return xRepository.addXrayImage(fileName, tid);
+    			return xRepository.addXrayImage(fileName, Tid);
     		}catch (DataIntegrityViolationException e) {
        			return 0;
        		}

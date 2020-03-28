@@ -44,7 +44,9 @@ public class SerologyController {
 		String ca15            = body.get("ca15");
 		String tsh             = body.get("tsh");
 		String ft3        	   = body.get("ft3");
+		String t3        	   = body.get("t3");
 		String ft4             = body.get("ft4");
+		String t4             = body.get("t4");
 		String crpdil          = body.get("crpdil");
 		String crpres          = body.get("crpres");
 		String hiv1            = body.get("hiv1");
@@ -63,7 +65,7 @@ public class SerologyController {
 		try {
 			return LabInSerologyRepository.Serologyadd(transid, pid, hbsag, antihav, seroot,
 				vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, 
-				cea, afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2,
+				cea, afp, ca125, ca19, ca15, tsh, ft3, t3, ft4, t4, crpdil, crpres, hiv1, hiv2,
 				pathid, medid, qualityid, patientIdRef, userID, creationdate, dateupdate);
 		}catch (DataIntegrityViolationException e) {
     		return 0;
@@ -91,7 +93,9 @@ public class SerologyController {
 		String ca15            = body.get("ca15");
 		String tsh             = body.get("tsh");
 		String ft3        	   = body.get("ft3");
+		String t3        	   = body.get("t3");
 		String ft4             = body.get("ft4");
+		String t4              = body.get("t4");
 		String crpdil          = body.get("crpdil");
 		String crpres          = body.get("crpres");
 		String hiv1            = body.get("hiv1");
@@ -110,7 +114,7 @@ public class SerologyController {
 		try {
 			return LabInSerologyRepository.Serologyupdate(transid, pid, hbsag, antihav, seroot,
 					vdrl, psanti , antihbs , hbeag, antihbe , antihbc, tydotigm, tydotigg, cea, 
-					afp, ca125, ca19, ca15, tsh, ft3, ft4, crpdil, crpres, hiv1, hiv2, pathid,
+					afp, ca125, ca19, ca15, tsh, ft3, t3, ft4, t4, crpdil, crpres, hiv1, hiv2, pathid,
 					medid, qualityid, creationdate, dateupdate, seroid, userID);
 		}catch (DataIntegrityViolationException e) {
     		return 0;

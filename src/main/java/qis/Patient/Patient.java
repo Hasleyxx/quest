@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name="qpd_patient")
 @SecondaryTable(name="qpd_company")
@@ -35,7 +37,8 @@ public class Patient{
 	 	private String CreationDate;
 	 	private String DateUpdate;
 	 	private int CompanyID;
-	 	
+	 	@Nullable
+	 	private String image;
 	 
 		public int getPatientID() {
 			return PatientID;
@@ -157,6 +160,12 @@ public class Patient{
 		}
 		public void setCompanyID(int companyID) {
 			CompanyID = companyID;
+		}
+		public String getImage() {
+			return image;
+		}
+		public void setImage(String image) {
+			this.image = image;
 		}
 		 	
 
