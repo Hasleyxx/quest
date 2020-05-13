@@ -123,7 +123,7 @@ public class PatientController {
 			String extension = "jpg";
 			fileName = pType + "_" + fullName + "_" + pType + "." + extension;
 			byte[] data = DatatypeConverter.parseBase64Binary(image);
-			String path = "C:\\xampp\\htdocs\\qis_java_dev\\src\\assets\\patients\\" + fileName;
+			String path = "C:\\xampp\\htdocs\\qis-java-2020-prod\\src\\assets\\patients\\" + fileName;
 			
 			File file = new File(path);
 			try (OutputStream outputstream = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -154,7 +154,7 @@ public class PatientController {
 		String extension = "jpg";
 		fileName = imageName + "." + extension;
 		byte[] data = DatatypeConverter.parseBase64Binary(image);
-		String path = "C:\\xampp\\htdocs\\qis_java_dev\\src\\assets\\patients\\" + fileName;
+		String path = "C:\\xampp\\htdocs\\qis-java-2020-prod\\src\\assets\\patients\\" + fileName;
 		
 		File file = new File(path);
 		try (OutputStream outputstream = new BufferedOutputStream(new FileOutputStream(file))) {

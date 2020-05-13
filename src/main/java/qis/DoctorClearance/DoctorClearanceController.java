@@ -36,6 +36,7 @@ public class DoctorClearanceController {
 		String workUp			= body.get("workUp");
 		String assesmentPlan	= body.get("assesmentPlan");
 		String dateCreated		= body.get("dateCreated");
+		
 		try {
 			return docClearanceRepository.addDocClearance(pid, dataRef, pastmedHis, socialHis, allergies, prevSurgery, rOs,
 					workUp, assesmentPlan, dateCreated);
@@ -50,10 +51,14 @@ public class DoctorClearanceController {
 		return docClearanceRepository.getOneDocClearance(Id);
 	}
 	
+	@GetMapping("/getOneDocClearanceRef/{ref}")
+	public DoctorClearance getOneDocClearanceRef(@PathVariable String ref) {
+		return docClearanceRepository.getOneDocClearanceRef(ref);
+	}
+	
 	@PostMapping("/updateDocClearance")
 	public int updateDocClearance(@RequestBody Map<String, String>body){
 		int docClearanceID		= Integer.parseInt(body.get("docClearanceID"));
-		int pid					= Integer.parseInt(body.get("patientID"));
 		
 		String dataRef			= body.get("dataRef");
 		String pastmedHis		= body.get("pastmedHis");
@@ -65,7 +70,6 @@ public class DoctorClearanceController {
 		String assesmentPlan	= body.get("assesmentPlan");
 		String dateCreated		= body.get("dateCreated");
 		
-		System.out.println(body);
 		try {
 			return docClearanceRepository.updateDocClearance(dataRef, pastmedHis, socialHis, allergies, prevSurgery, rOs, 
 					workUp, assesmentPlan, dateCreated, docClearanceID);

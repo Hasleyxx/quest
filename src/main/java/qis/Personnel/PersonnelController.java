@@ -40,7 +40,7 @@ public class PersonnelController {
 		String no 			= body.get("licenseNO");
 		String po 			= body.get("position");
 		String ext 			= body.get("positionEXT");
-		String dep 			= body.get("Department");
+		String dep 			= body.get("department");
 		try {
 			return LabPerRepository.addPersonnel(fn, mn, ln, no, po, ext, dep);
 		}catch (DataIntegrityViolationException e) {

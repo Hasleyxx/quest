@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,16 @@ public class DoctorRequestController {
 	@GetMapping("/getDocRequest")
 	public List<DoctorRequest> docPatient() {
 		return docRequestRepository.docRequest();
+	}
+	
+	@GetMapping("/getDocRequestId/{pid}")
+	public List<DoctorRequest> getDocRequestId(@PathVariable int pid) {
+		return docRequestRepository.getDocRequestId(pid);
+	}
+	
+	@GetMapping("/getDocRequestRef/{ref}")
+	public List<DoctorRequest> getDocRequestId(@PathVariable String ref) {
+		return docRequestRepository.getDocRequestRef(ref);
 	}
 	
 	@PostMapping("/addDocRequest")

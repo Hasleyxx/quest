@@ -17,6 +17,9 @@ public interface DoctorClearanceRepository extends JpaRepository <DoctorClearanc
 	@Query(value = " SELECT * FROM doc_clearance WHERE docClearanceID=?1", nativeQuery = true)
 	DoctorClearance getOneDocClearance(String id);
 	
+	@Query(value = " SELECT * FROM doc_clearance WHERE dataRef=?1", nativeQuery = true)
+	DoctorClearance getOneDocClearanceRef(String ref);
+	
 	@Query(value = " SELECT * FROM doc_clearance WHERE patientID=?1", nativeQuery = true)
 	List<DoctorClearance> getPidDocClearance(String tid);
 	

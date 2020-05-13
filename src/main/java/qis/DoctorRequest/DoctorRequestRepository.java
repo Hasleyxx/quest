@@ -12,6 +12,12 @@ public interface DoctorRequestRepository extends JpaRepository <DoctorRequest, I
 	@Query(value = " SELECT * FROM doc_request", nativeQuery = true)
 	List<DoctorRequest> docRequest();
 	
+	@Query(value = " SELECT * FROM doc_request WHERE patientID = ?1 GROUP BY requestRef", nativeQuery = true)
+	List<DoctorRequest> getDocRequestId(int pid);
+	
+	@Query(value = " SELECT * FROM doc_request WHERE requestRef = ?1 ORDER BY category ASC", nativeQuery = true)
+	List<DoctorRequest> getDocRequestRef(String pid);
+	
 	@Transactional
 	@Modifying
 	@Query(value = " INSERT INTO doc_request (patientID, category, test, otherTest, requestRef, dateCreated)"
