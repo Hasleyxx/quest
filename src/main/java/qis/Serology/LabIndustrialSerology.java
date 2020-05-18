@@ -44,6 +44,8 @@ public class LabIndustrialSerology {
 	 private String CRPRes;
 	 private String HIV1;
 	 private String HIV2;
+	 private String sarsg;
+	 private String sarsm;
 	 
 	 private int PathID;
 	 private int MedID;
@@ -209,6 +211,18 @@ public class LabIndustrialSerology {
 	}
 	public void setHIV2(String hIV2) {
 		HIV2 = hIV2;
+	}
+	public String sarsg() {
+		return sarsg;
+	}
+	public void sarsg(String sarsg) {
+		HIV1 = sarsg;
+	}
+	public String sarsm() {
+		return sarsm;
+	}
+	public void sarsm(String sarsm) {
+		HIV2 = sarsm;
 	}
 	public int getPathID() {
 		return PathID;
